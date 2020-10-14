@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+    <!-- Your custom styles (optional) -->
+
+    <style>
+        /* Only for snippet */
+        .double-nav .breadcrumb-dn {
+            color: #fff;
+        }
+
+        .button-collapse i {
+            color: #fff
+        }
+    </style>
+    <script src="../../static/js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+</head>
+
+
+<body class="fixed-sn black-skin">
+
+<!--Main Navigation-->
+<header>
+
+    <th:block th:include="/admin/_menu"></th:block>
+
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<!-- Main layout  -->
+<main class="p-0">
+    <div class="container-fluid mb-5">
+
+        <!-- Section: Basic examples -->
+        <section>
+
+            <!-- Gird column -->
+            <div class="col-md-12">
+
+                <h3 class="my-4 dark-grey-text font-weight-bold">Danh sách người dùng</h3>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="tblUser" class="table table-striped" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Username
+                                    </th>
+                                    <th>Password
+                                    </th>
+                                    <th>Name
+                                    </th>
+                                    <th>Email
+                                    </th>
+                                    <th>Phone
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>***********</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654321</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>***********</td>
+                                    <td>Edinburdfwegh</td>
+                                    <td>nothingwg@gmial.com</td>
+                                    <td>09876ưgweg54321</td>
+                                </tr><tr>
+                                    <td>Tigerewfwe Nixon</td>
+                                    <td>***********</td>
+                                    <td>Ediddđnburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654wwww321</td>
+                                </tr><tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>****ê*******</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>09876ê543ê21</td>
+                                </tr><tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>***********</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654e321</td>
+                                </tr><tr>
+                                    <td>ưaaaaaaaa</td>
+                                    <td>***e********</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654321</td>
+                                </tr><tr>
+                                    <td>wsa Nixon</td>
+                                    <td>***********</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654321</td>
+                                </tr><tr>
+                                    <td>e Nixossn</td>
+                                    <td>***********</td>
+                                    <td>Edinburgh</td>
+                                    <td>nothing@gmial.com</td>
+                                    <td>0987654321</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Username
+                                    </th>
+                                    <th>Password
+                                    </th>
+                                    <th>Name
+                                    </th>
+                                    <th>Email
+                                    </th>
+                                    <th>Phone
+                                    </th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- Gird column -->
+
+
+
+        </section>
+        <!-- Section: Basic examples -->
+
+    </div>
+
+
+</main>
+<!-- Main layout -->
+<!--Main Layout-->
+
+</body>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/addons/datatables.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/addons/datatables-select.min.js}"></script>
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function(){
+        // SideNav Initialization
+        $(".button-collapse").sideNav();
+        new WOW().init();
+        $('#tblUser').DataTable({
+            "pagingType": "full_numbers"
+        });
+
+
+
+
+    });
+
+</script>
+
+</html>
