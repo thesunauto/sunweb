@@ -1,0 +1,200 @@
+<header xmlns:th="http://www.thymeleaf.org">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar stylish-color">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img th:src="@{/img/logo251x92.png}" style="height: 40px;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <div th:if="${index}!=null" class="view jarallax" data-jarallax='{"speed": 0.2}'
+         th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;'">
+        <div class="mask rgba-black-light">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-3 wow fadeInDown"
+                                data-wow-delay="0.3s"><strong>Công ty TNHH tự động hóa Mặt Trời</strong></h1>
+                            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <div class="wow fadeInDown"><img th:src="@{/img/logo251x92.png}" class="img-fluid mx-auto" alt=""></div>
+                            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <h5 class="text-uppercase mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Lắp
+                                đặt - bảo trì hệ thống M&E</strong></h5>
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-toggle="modal"
+                               data-target="#fluidModalChungToi">CHÚNG TÔI</a>
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-toggle="modal"
+                               data-target="#fluidModalHoatDong">HOẠT ĐỘNG</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Subscription From -->
+    <div class="modal fade left" id="fluidModalChungToi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-full-height modal-left" role="document">
+            <!-- Content -->
+            <div class="modal-content rgba-black-strong">
+
+                <!-- Header -->
+                <div class="modal-header unique-color-dark white-text font-weight-bold">
+                    <h4 class=""><i class="fas fa-user-tie"></i> Về chúng tôi</h4>
+                    <button type="button" class="close waves-effect white-text" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body mb-0">
+                    <div class="navbar navbar-light grey lighten-4  m-1">
+
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand" href="#">Thông tin chung</a>
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#chungToi1"
+                                aria-controls="chungToi1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                        <!-- Collapsible content -->
+                        <div class="collapse navbar-collapse" id="chungToi1">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 3</a>
+                                </li>
+                            </ul>
+                            <!-- Links -->
+
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </div>
+                    <div class="navbar navbar-light grey lighten-4  m-1">
+
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand"  th:href="@{/singlePost}">Thông tin chỉ chứa 1 bài viết</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+    <!-- Modal: Subscription From -->
+    <div class="modal fade right" id="fluidModalHoatDong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-full-height modal-right" role="document">
+            <!-- Content -->
+            <div class="modal-content rgba-black-strong">
+
+                <!-- Header -->
+                <div class="modal-header unique-color-dark white-text font-weight-bold">
+                    <h4 class=""><i class="fas fa-cogs"></i> Về hoạt động</h4>
+                    <button type="button" class="close waves-effect white-text" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body mb-0">
+                    <div class="navbar navbar-light grey lighten-4 m-1">
+
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand" href="#">Dự án</a>
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#hoatDong1"
+                                aria-controls="hoatDong1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                        <!-- Collapsible content -->
+                        <div class="collapse navbar-collapse" id="hoatDong1">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Dự án đã hoàn thành</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Dự án đang thực hiện</a>
+                                </li>
+                            </ul>
+                            <!-- Links -->
+
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </div>
+                    <div class="navbar navbar-light grey lighten-4 m-1">
+
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand" href="#">Giải pháp</a>
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#hoatDong2"
+                                aria-controls="hoatDong2" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                        <!-- Collapsible content -->
+                        <div class="collapse navbar-collapse" id="hoatDong2">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link"  th:href="@{/listPost}">Giải pháp 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Giải pháp 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/listPost}">Giải pháp 3</a>
+                                </li>
+                            </ul>
+                            <!-- Links -->
+
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+    <!-- Full Height Modal Right Success Demo -->
+</header>
+

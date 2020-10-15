@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Sun M&E</title>
+    <link rel="icon" th:href="@{/img/logo100x100.png}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -112,62 +113,9 @@
 <body class="post-page">
 
 <!-- Main Navigation -->
-<header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img th:src="@{/img/logo251x92.png}" style="height: 40px;" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Trang chủ<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Chúng tôi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Hoạt động</a>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Intro Section -->
-    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
-         th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;'">
-        <div class="mask rgba-black-light">
-            <div class="container h-100 d-flex justify-content-center align-items-center">
-                <div class="row pt-5 mt-3">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-3 wow fadeInDown"
-                                data-wow-delay="0.3s"><strong>Công ty TNHH tự động hóa Mặt Trời</strong></h1>
-                            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
-                            <h5 class="text-uppercase mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Lắp
-                                đặt - bảo trì hệ thống M&E</strong></h5>
-                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s">CHÚNG TÔI</a>
-                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s">HOẠT ĐỘNG</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</header>
+<th:block th:include="/client/_menu"></th:block>
 <!-- Main Navigation -->
+<!-- Full Height Modal Right Success Demo -->
 
 <!-- Main layout -->
 <main>
@@ -175,10 +123,10 @@
     <div class="container-fluid">
 
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
-            <h2 class="text-center my-2 h1">Lĩnh vực hoạt dộng</h2>
+            <h2 class="text-center my-4 h1">Lĩnh vực hoạt động</h2>
             <div class="row">
-                <div class="col-12 col-md-4 col-lg-4 mx-auto">
-                    <figure class="photo red d-flex justify-content-center">
+                <div class="col-sm">
+                    <figure class="photo red">
                         <img th:src="@{/img/img440x320-1.png}" alt="sample33"/>
                         <figcaption>
                             <h2>Cơ <span> Điện</span></h2>
@@ -186,8 +134,8 @@
                         <a href="#"></a>
                     </figure>
                 </div>
-                <div class="col-12 col-md-4 col-lg-4 mx-auto">
-                    <figure class="photo blue d-flex justify-content-center"><img th:src="@{/img/img440x320-2.png}"
+                <div class="col-sm">
+                    <figure class="photo blue"><img th:src="@{/img/img440x320-2.png}"
                                                     alt="sample34"/>
                         <figcaption>
                             <h2>Hạ <span> Tầng</span></h2>
@@ -195,8 +143,8 @@
                         <a href="#"></a>
                     </figure>
                 </div>
-                <div class="col-12 col-md-4 col-lg-4 mx-auto">
-                    <figure class="photo d-flex justify-content-center"><img th:src="@{/img/img440x320-3.png}"
+                <div class="col-sm">
+                    <figure class="photo"><img th:src="@{/img/img440x320-3.png}"
                                                alt="sample35"/>
                         <figcaption>
                             <h2>Sản <span> Xuất</span></h2>
@@ -207,13 +155,13 @@
             </div>
 
 
-
         </section>
+        <hr class="mb-5">
         <!-- Section: Blog v.2 -->
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
 
             <!-- Section heading -->
-            <h2 class="text-center my-5 h1">Tin mới</h2>
+            <h2 class="text-center my-4 h1">Tin mới</h2>
             <!-- Section description -->
             <p class="text-center mb-5 w-responsive mx-auto">Những bài viết mới nhất của công ty. thông tin đến bạn
                 những cập nhật mới nhất của công ty về công nghệ tính năng,...</p>
@@ -239,7 +187,8 @@
                     </a>
                     <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
                     <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                        (trích)
                         (trích) (trích) (trích) (trích) (trích)</p>
                     <a class="btn btn-primary">Read more</a>
                 </div>
@@ -263,7 +212,8 @@
                     </a>
                     <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
                     <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                        (trích)
                         (trích) (trích) (trích) (trích) (trích)</p>
                     <a class="btn btn-primary">Read more</a>
                 </div>
@@ -288,7 +238,8 @@
                     </a>
                     <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
                     <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                        (trích)
                         (trích) (trích) (trích) (trích) (trích)</p>
                     <a class="btn btn-primary">Read more</a>
                 </div>
@@ -302,8 +253,260 @@
         <!-- Section: Blog v.2 -->
         <hr class="mb-5">
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center my-4 h1">Nổi bật</h2>
+            <ul class="nav nav-tabs nav-justified md-tabs stylish-color-dark" id="myTabJust" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab-just" data-toggle="tab" href="#home-just" role="tab"
+                       aria-controls="home-just"
+                       aria-selected="true">Dự án</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab-just" data-toggle="tab" href="#profile-just" role="tab"
+                       aria-controls="profile-just"
+                       aria-selected="false">Giải pháp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab-just" data-toggle="tab" href="#contact-just" role="tab"
+                       aria-controls="contact-just"
+                       aria-selected="false">Tuyển dụng</a>
+                </li>
+            </ul>
+            <div class="tab-content card pt-5" id="myTabContentJust">
+                <div class="tab-pane fade show active" id="home-just" role="tabpanel"
+                     aria-labelledby="home-tab-just">
+                    <div class="row">
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile-just" role="tabpanel" aria-labelledby="profile-tab-just">
+                    <div class="row">
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact-just" role="tabpanel" aria-labelledby="contact-tab-just">
+                    <div class="row">
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+
+                                <!-- Card content -->
+                                <div class="card-body">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
+                                    <!-- Text -->
+                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
+                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
+                                                                                     aria-hidden="true"></i>Xem thêm
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="mb-5">
+        <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
             <!-- Section heading -->
-            <h2 class="text-center my-2 h1">Đối tác</h2>
+            <h2 class="text-center my-4 h1">Đối tác</h2>
             <!-- Section description -->
             <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2 product-carousel"
                  data-ride="carousel">
@@ -412,7 +615,8 @@
                         <div class="col-6 col-md-3 col-lg-2 mx-auto">
                             <div class="card mb-2">
                                 <div class="view overlay">
-                                    <img class="card-img-top" th:src="@{/img/logo-panasonic.png}" alt="Card image cap"
+                                    <img class="card-img-top" th:src="@{/img/logo-panasonic.png}"
+                                         alt="Card image cap"
                                          style="height: 67px;">
                                     <a href="#!">
                                         <div class="mask rgba-white-slight"></div>
@@ -435,101 +639,7 @@
 <!-- Main layout -->
 
 <!-- Footer -->
-<footer class="page-footer pt-4 mt-0 text-center text-md-left">
-    <div class="container">
-        <div class="row mt-3">
-
-            <!-- First column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 offset-xl-1 col-12 mb-4">
-                <h6 class="text-uppercase font-weight-bold mb-4">Company name</h6>
-                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet,
-                    consectetur
-                    adipisicing elit.</p>
-            </div>
-            <!-- /.First column -->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!-- Second column -->
-            <div class="col-md-2 offset-xl-1 col-12 mb-4">
-                <h6 class="text-uppercase font-weight-bold mb-4">Products</h6>
-                <p><a href="#!">MDBootstrap</a></p>
-                <p><a href="#!">MDWordPress</a></p>
-                <p><a href="#!">BrandFlow</a></p>
-                <p><a href="#!">Bootstrap Angular</a></p>
-            </div>
-            <!-- /.Second column -->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!-- Third column -->
-            <div class="col-md-3 col-lg-2 col-12 mb-4">
-                <h6 class="text-uppercase font-weight-bold mb-4">Useful links</h6>
-                <p><a href="#!">Your Account</a></p>
-                <p><a href="#!">Become an Affiliate</a></p>
-                <p><a href="#!">Shipping Rates</a></p>
-                <p><a href="#!">Help</a></p>
-            </div>
-            <!-- /.Third column -->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!-- Fourth column -->
-            <div class="col-md-4 col-lg-3 col-12">
-                <h6 class="text-uppercase font-weight-bold mb-4">Contact</h6>
-                <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-            </div>
-            <!-- /.Fourth column -->
-
-        </div>
-
-        <!-- /.Footer Links -->
-
-        <hr>
-
-        <!-- Footer Links -->
-        <div class="row mt-3 d-flex align-items-center">
-
-            <!-- Grid column -->
-            <div class="col-md-6 col-12">
-
-                <!-- Copyright -->
-                <p class="text-left grey-text">© 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/"><strong>
-                    MDBootstrap.com</strong></a></p>
-                <!-- Copyright -->
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-6 col-12">
-                <!-- Social buttons -->
-                <div class="social-section">
-                    <ul class="list-unstyled list-inline d-flex justify-content-end">
-                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
-                                class="fab fa-facebook-f">
-                        </i></a></li>
-                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
-                                class="fab fa-twitter">
-                        </i></a></li>
-                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
-                                class="fab fa-google-plus-g">
-                        </i></a></li>
-                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
-                                class="fab fa-linkedin-in">
-                        </i></a></li>
-                    </ul>
-                </div>
-                <!-- /.Social buttons -->
-            </div>
-            <!-- Grid column -->
-
-        </div>
-    </div>
-</footer>
+<th:block th:include="/client/_footer"></th:block>
 
 <!-- Footer Links -->
 

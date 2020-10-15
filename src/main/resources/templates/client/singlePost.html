@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sun M&E</title>
+    <link rel="icon" th:href="@{/img/logo100x100.png}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+    <!-- Custom styles -->
+    <link rel="stylesheet" th:href="@{/css/custom/hover-tab-view.css}">
+    <style>
+
+
+        .font-up-bold .breadcrumb-item + .breadcrumb-item::before {
+            content: none;
+        }
+
+        .font-up-bold .breadcrumb-item a h5::after {
+            content: "/";
+            margin-left: 1rem;
+            color: #868e96;
+        }
+
+    </style>
+</head>
+
+<body class="post-page">
+
+<!-- Main Navigation -->
+<th:block th:include="/client/_menu"></th:block>
+<!-- Main Navigation -->
+<!-- Main layout -->
+<main class="pt-5">
+
+    <div class="container">
+
+        <section class="my-5 text-center text-lg-left wow fadeIn" data-wow-delay="0.2s">
+            <div class="font-up-bold text-uppercase">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="" href="#">
+                            <h5 class="mr-3 mb-0"><strong>Trang chủ</strong></h5>
+                        </a></li>
+                        <li class="breadcrumb-item"><a class="" href="#">
+                            <h5 class="mr-3 mb-0"><strong>Loại bài viết</strong></h5>
+                        </a></li>
+                        <li class="breadcrumb-item active">
+                            <h5 class="mr-3 mb-0"><strong>Tên bài viết</strong></h5>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+        </section>
+        <!-- Section: Blog v.4 -->
+        <section class="mt-5 pb-3 wow fadeIn">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+
+                    <!-- Featured image -->
+                    <div class="card card-cascade wider reverse">
+                        <div class="view view-cascade overlay">
+                            <img th:src="@{/img/img781x521-1.png}" alt="Wide sample post image" style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">
+                            <a>
+                                <div class=""></div>
+                            </a>
+                        </div>
+
+                        <!-- Post data -->
+                        <div class="card-body card-body-cascade text-center">
+                            <h2><a><strong>Tiêu đề bài viết</strong></a></h2>
+                            <p>Viết bởi <a>Tên người viết</a>, dd/MM/yyyy</p>
+                        </div>
+                        <!-- Post data -->
+                    </div>
+
+                    <!-- Excerpt -->
+                    <div class="excerpt mt-5 wow fadeIn" data-wow-delay="0.3s">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum
+                            deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
+                            non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum
+                            et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        </p>
+
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
+                            quod
+                            maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                            Temporibus
+                            autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et
+                            voluptates
+                            repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
+                            delectus,
+                            ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus.</p>
+
+                        <blockquote class="blockquote mt-4 mb-4">
+                            <p class="mb-0"><em>Temporibus autem quibusdam et aut officiis debitis aut rerum
+                                necessitatibus saepe
+                                eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum
+                                rerum hic
+                                tenetur a sapiente delectus.</em></p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
+                                Title</cite></footer>
+                        </blockquote>
+
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium,
+                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                            aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.
+                        </p>
+
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+
+
+                        <div class="mt-4 d-flex justify-content-end">
+                            <span class="badge pink">Travel</span>
+                            <span class="badge badge-primary mx-1">Adventure</span>
+                            <span class="badge grey mr-1">Photography</span>
+                            <span class="badge badge-info">Education</span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </section>
+        <!-- Section: Blog v.4 -->
+
+        <hr class="mb-5 mt-4">
+
+        <!-- Section: Blog v.2 -->
+        <section class="mb-5 wow fadeIn" data-wow-delay="0.3s">
+
+            <!-- Section heading -->
+            <h3 class="text-center my-5 text-center h3">Bài viết liên quan</h3>
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                    <!-- Card Light -->
+                    <div class="card">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <img th:src="@{/img/img781x521-1.png}"
+                                 class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!-- /.Card image -->
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Social shares button -->
+                            <a class="activator mr-3"><i class="fas fa-share-alt"></i></a>
+                            <!-- Title -->
+                            <h4 class="card-title">Tiêu đề bài viết</h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text">Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.</p>
+                            <a class="link-text">
+                                <h5>Xem thêm <i class="fas fa-chevron-right"></i></h5>
+                            </a>
+                        </div>
+                        <!-- /.Card content -->
+                    </div>
+                    <!-- /.Card Light -->
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                    <!-- Card Light -->
+                    <div class="card">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <img th:src="@{/img/img781x521-1.png}"
+                                 class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!-- /.Card image -->
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Social shares button -->
+                            <a class="activator mr-3"><i class="fas fa-share-alt"></i></a>
+                            <!-- Title -->
+                            <h4 class="card-title">Tiêu đề bài viết</h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text">Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.</p>
+                            <a class="link-text">
+                                <h5>Xem thêm <i class="fas fa-chevron-right"></i></h5>
+                            </a>
+                        </div>
+                        <!-- /.Card content -->
+                    </div>
+                    <!-- /.Card Light -->
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                    <!-- Card Light -->
+                    <div class="card">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <img th:src="@{/img/img781x521-1.png}"
+                                 class="card-img-top"
+                                 alt="">
+                            <a>
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!-- /.Card image -->
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Social shares button -->
+                            <a class="activator mr-3"><i class="fas fa-share-alt"></i></a>
+                            <!-- Title -->
+                            <h4 class="card-title">Tiêu đề bài viết</h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text">Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.Trích đoạn bài viết.</p>
+                            <a class="link-text">
+                                <h5>Xem thêm <i class="fas fa-chevron-right"></i></h5>
+                            </a>
+                        </div>
+                        <!-- /.Card content -->
+                    </div>
+                    <!-- /.Card Light -->
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </section>
+        <!-- Section: Blog v.2 -->
+
+    </div>
+
+</main>
+<!-- Main layout -->
+
+<!-- Footer -->
+<th:block th:include="/client/_footer"></th:block>
+<!-- Footer Links -->
+
+
+<!-- Footer -->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+
+<!-- Custom scripts -->
+<script>
+
+    new WOW().init();
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 3; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sun M&E</title>
+    <link rel="icon" th:href="@{/img/logo100x100.png}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+    <!-- Custom styles -->
+    <link rel="stylesheet" th:href="@{/css/custom/hover-tab-view.css}">
+    <style>
+
+
+        .font-up-bold .breadcrumb-item + .breadcrumb-item::before {
+            content: none; }
+        .font-up-bold .breadcrumb-item a h5::after {
+            content: "/";
+            margin-left: 1rem;
+            color: #868e96; }
+
+    </style>
+</head>
+
+<body class="post-page">
+
+<!-- Main Navigation -->
+<th:block th:include="/client/_menu"></th:block>
+<!-- Main Navigation -->
+<!-- Main layout -->
+<main class="pt-5">
+
+    <div class="container">
+        <section class="my-5 text-center text-lg-left wow fadeIn" data-wow-delay="0.2s">
+            <div class="font-up-bold text-uppercase">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="" href="#">
+                            <h5 class="mr-3 mb-0"><strong>Trang chủ</strong></h5>
+                        </a></li>
+                        <li class="breadcrumb-item active">
+                            <h5 class="mr-3 mb-0"><strong>Tên loại bài viết 1</strong></h5>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+        </section>
+
+        <section class="my-5 text-center text-lg-left wow fadeIn" data-wow-delay="0.3s">
+            <h2 class="text-center my-4 h1">Tên loại bài viết 1</h2>
+
+            <!-- Section description -->
+            <p class="text-center mb-5 w-responsive mx-auto">Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.</p>
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-4 mb-4">
+                    <!-- Featured image -->
+                    <div class="view overlay z-depth-1">
+                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
+                             alt="">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7 mb-4">
+                    <!-- Excerpt -->
+                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
+                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
+                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
+                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="mb-5">
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-4 mb-4">
+                    <!-- Featured image -->
+                    <div class="view overlay z-depth-1">
+                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
+                             alt="">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7 mb-4">
+                    <!-- Excerpt -->
+                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
+                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
+                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
+                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="mb-5">
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-4 mb-4">
+                    <!-- Featured image -->
+                    <div class="view overlay z-depth-1">
+                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
+                             alt="">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7 mb-4">
+                    <!-- Excerpt -->
+                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
+                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
+                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
+                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="mb-5">
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-4 mb-4">
+                    <!-- Featured image -->
+                    <div class="view overlay z-depth-1">
+                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
+                             alt="">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7 mb-4">
+                    <!-- Excerpt -->
+                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
+                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
+                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
+                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="mb-5">
+
+            <!-- Pagination dark -->
+            <nav class="wow fadeIn mb-4 mt-4" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
+                <ul class="pagination pg-dark flex-center">
+                    <!-- Arrow left -->
+                    <li class="page-item">
+                        <a class="page-link waves-effect waves-effect" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <!-- Numbers -->
+                    <li class="page-item active"><a class="page-link waves-effect waves-effect">1</a></li>
+                    <li class="page-item"><a class="page-link waves-effect waves-effect">2</a></li>
+                    <li class="page-item"><a class="page-link waves-effect waves-effect">3</a></li>
+                    <li class="page-item"><a class="page-link waves-effect waves-effect">4</a></li>
+                    <li class="page-item"><a class="page-link waves-effect waves-effect">5</a></li>
+
+                    <!-- Arrow right -->
+                    <li class="page-item">
+                        <a class="page-link waves-effect waves-effect" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /Pagination dark -->
+        </section>
+
+    </div>
+
+</main>
+<!-- Main layout -->
+
+<!-- Footer -->
+<th:block th:include="/client/_footer"></th:block>
+<!-- Footer Links -->
+
+
+<!-- Footer -->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+
+<!-- Custom scripts -->
+<script>
+
+    new WOW().init();
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 3; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+</script>
+</body>
+
+</html>
