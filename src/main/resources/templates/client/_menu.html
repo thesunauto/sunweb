@@ -15,10 +15,11 @@
                         <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng tôi</a>
+                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng
+                            tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>
                     </li>
                 </ul>
                 <form class="form-inline">
@@ -41,7 +42,8 @@
                             <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-3 wow fadeInDown"
                                 data-wow-delay="0.3s"><strong>Công ty TNHH tự động hóa Mặt Trời</strong></h1>
                             <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
-                            <div class="wow fadeInDown"><img th:src="@{/img/logo251x92.png}" class="img-fluid mx-auto" alt=""></div>
+                            <div class="wow fadeInDown"><img th:src="@{/img/logo251x92.png}" class="img-fluid mx-auto"
+                                                             alt=""></div>
                             <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
                             <h5 class="text-uppercase mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Lắp
                                 đặt - bảo trì hệ thống M&E</strong></h5>
@@ -71,43 +73,50 @@
                 </div>
                 <!-- Body -->
                 <div class="modal-body mb-0">
-                    <div class="navbar navbar-light grey lighten-4  m-1">
+                    <div class="navbar navbar-light grey lighten-4  m-1"
+                         th:each='ct : ${@categoryService.findByIdparent("chungtoi")}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand" href="#">Thông tin chung</a>
+                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+
 
                         <!-- Collapse button -->
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#chungToi1"
-                                aria-controls="chungToi1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                data-target="#chungToi1"
+                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"
+                        th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
                         <i class="far fa-caret-square-down"></i></span></button>
 
                         <!-- Collapsible content -->
-                        <div class="collapse navbar-collapse" id="chungToi1">
+                        <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
 
                             <!-- Links -->
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 2</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Thông tin 3</a>
+                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
+                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                            data-target="#chungToi1"
+                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="dark-blue-text" th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct1.getId()}">
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
+                                                <a class="navbar-brand" href="#" th:text="*{ct2.getTitle()}"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                             <!-- Links -->
 
                         </div>
                         <!-- Collapsible content -->
-
-                    </div>
-                    <div class="navbar navbar-light grey lighten-4  m-1">
-
-                        <!-- Navbar brand -->
-                        <a class="navbar-brand"  th:href="@{/singlePost}">Thông tin chỉ chứa 1 bài viết</a>
-
-
 
                     </div>
                 </div>
@@ -131,57 +140,44 @@
                 </div>
                 <!-- Body -->
                 <div class="modal-body mb-0">
-                    <div class="navbar navbar-light grey lighten-4 m-1">
+                    <div class="navbar navbar-light grey lighten-4  m-1"
+                         th:each='ct : ${@categoryService.findByIdparent("hoatdong")}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand" href="#">Dự án</a>
+                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+
 
                         <!-- Collapse button -->
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#hoatDong1"
-                                aria-controls="hoatDong1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                data-target="#chungToi1"
+                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"
+                                                                                           th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
                         <i class="far fa-caret-square-down"></i></span></button>
 
                         <!-- Collapsible content -->
-                        <div class="collapse navbar-collapse" id="hoatDong1">
+                        <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
 
                             <!-- Links -->
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Dự án đã hoàn thành</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Dự án đang thực hiện</a>
-                                </li>
-                            </ul>
-                            <!-- Links -->
-
-                        </div>
-                        <!-- Collapsible content -->
-
-                    </div>
-                    <div class="navbar navbar-light grey lighten-4 m-1">
-
-                        <!-- Navbar brand -->
-                        <a class="navbar-brand" href="#">Giải pháp</a>
-
-                        <!-- Collapse button -->
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#hoatDong2"
-                                aria-controls="hoatDong2" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
-                        <i class="far fa-caret-square-down"></i></span></button>
-
-                        <!-- Collapsible content -->
-                        <div class="collapse navbar-collapse" id="hoatDong2">
-
-                            <!-- Links -->
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link"  th:href="@{/listPost}">Giải pháp 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Giải pháp 2</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" th:href="@{/listPost}">Giải pháp 3</a>
+                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
+                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                            data-target="#chungToi1"
+                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="dark-blue-text" th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct1.getId()}">
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
+                                                <a class="navbar-brand" href="#" th:text="*{ct2.getTitle()}"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                             <!-- Links -->

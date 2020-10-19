@@ -15,4 +15,8 @@ public class PostService {
     public List<Post> findAll(Integer limit){
         return Optional.ofNullable(limit).map(value->postRepository.findAll(PageRequest.of(0,limit)).getContent()).orElseGet(()->postRepository.findAll());
     }
+
+    public Post findById(Integer id){
+        return Optional.ofNullable(id).map(value -> postRepository.findById(id).get()).orElseGet(()->postRepository.findById(1).get());
+    }
 }

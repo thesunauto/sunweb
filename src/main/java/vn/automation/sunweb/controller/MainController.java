@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.service.CategoryService;
+import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -17,12 +19,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class MainController {
     @Autowired private UserService userService;
     @Autowired private CategoryService categoryService;
+    @Autowired private PostService postService;
     @Autowired private CategoryRepository categoryRepository;
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("index", "hello");
-        List<Category> li1 = new CopyOnWriteArrayList<>();
-
+    public String index() {
         return "client/index";
     }
 
@@ -32,13 +32,17 @@ public class MainController {
     }
 
     @GetMapping("/singlePost")
-    public String singlePost() {
+    public String singlePost(Model model,@RequestParam(value = "id",required = true) Integer id) {
+        model.addAttribute("post",postService.findById(id));
         return "client/singlePost";
     }
 
-    @GetMapping("/listUser")
+    @GetMapping("/test")
     public String listUser(Model model, @RequestParam(value = "limit",required = false) Integer limit) {
-        model.addAttribute("listUser",userService.findAll(limit));
-        return "listUser";
+        model.addAttribute("listUser",categoryService.findByIdparent(null));
+        categoryService.findByIdparent(null).forEach(value->{
+            model.addAttribute(value.getId(),categoryRepository.findByIdparent(value.getId()));
+        });
+        return "test";
     }
 }
