@@ -50,6 +50,16 @@ public class FileController {
                 .body(resource);
     }
 
+    @GetMapping("/get/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+
+        Resource resource = storageService.loadAsResource(filename);
+
+
+        return ResponseEntity.ok().body(resource);
+    }
+
     @PostMapping("/upload-file")
     @ResponseBody
     public FileResponse uploadFile(@RequestParam("file") MultipartFile file) {

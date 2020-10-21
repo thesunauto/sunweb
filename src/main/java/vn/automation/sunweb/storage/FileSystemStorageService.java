@@ -39,6 +39,11 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
+    public String create(String filename) throws  IOException {
+            return Files.createFile(this.rootLocation.resolve(filename)).toString();
+    }
+
+    @Override
     public String store(MultipartFile file) {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
