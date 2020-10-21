@@ -6,25 +6,38 @@
       <artifact name="sunweb:war exploded" />
     </artifacts-to-build>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="16.10">
+    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/commons/FileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/FileNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/FileSystemStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/StorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/StorageProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/SunwebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/SunwebApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/listUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sunweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sunweb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +82,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/vn/automation/sunweb" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/vn/automation/sunweb" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -87,7 +100,12 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Spring-Boot\sunweb\src\main\resources\templates\client" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vn.automation.sunweb.commons" />
+      <recent name="vn.automation.sunweb.controller" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\java\vn\automation\sunweb" />
       <recent name="D:\Document\sunweb\src\main\resources\templates\client" />
       <recent name="D:\Document\sunweb\src\main\resources\static\img" />
     </key>
@@ -148,7 +166,9 @@
       <workItem from="1602897527793" duration="5271000" />
       <workItem from="1602906086727" duration="4129000" />
       <workItem from="1603081207692" duration="14424000" />
-      <workItem from="1603097798011" duration="2261000" />
+      <workItem from="1603097798011" duration="2373000" />
+      <workItem from="1603248261595" duration="1727000" />
+      <workItem from="1603253689374" duration="1198000" />
     </task>
     <task id="LOCAL-00001" summary="14.10">
       <created>1602670896085</created>
@@ -185,17 +205,36 @@
       <option name="project" value="LOCAL" />
       <updated>1602843640850</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="19.10">
+      <created>1603100136425</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603100136426</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="14.10" />
     <MESSAGE value="15.10" />
     <MESSAGE value="16.10" />
-    <option name="LAST_COMMIT_MESSAGE" value="16.10" />
+    <MESSAGE value="19.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="19.10" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1602907228727">
@@ -220,54 +259,56 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1602841679858" />
-    <state x="254" y="0" key="CommitChangelistDialog2" timestamp="1602843636350">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="357" y="0" key="CommitChangelistDialog2" timestamp="1603100135458">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="254" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602843636350" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1602907177542">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="357" y="0" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1603100135458" />
+    <state x="651" y="169" key="FileChooserDialogImpl" timestamp="1603254021894">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
-    <state width="1875" height="372" key="GridCell.Tab.0.bottom" timestamp="1603096819953">
+    <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603254021894" />
+    <state width="1875" height="262" key="GridCell.Tab.0.bottom" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="372" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.0.center" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.0.center" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="372" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.0.left" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.0.left" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="372" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.0.right" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.0.right" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="372" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.1.bottom" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.1.bottom" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="372" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.1.center" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.1.center" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="372" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.1.left" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.1.left" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="372" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
-    <state width="1875" height="372" key="GridCell.Tab.1.right" timestamp="1603096819953">
+    <state width="1875" height="262" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
+    <state width="1875" height="262" key="GridCell.Tab.1.right" timestamp="1603254347338">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="372" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603096819953" />
+    <state width="1875" height="262" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603254347338" />
     <state width="276" height="758" key="HiddenNamespacesPopup" timestamp="1603094671202">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -301,10 +342,11 @@
     </state>
     <state x="165" y="0" width="996" height="710" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602834912412" />
     <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603095042201" />
-    <state x="275" y="113" key="Vcs.Push.Dialog.v2" timestamp="1602843651085">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1603100157173">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603100157173" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
