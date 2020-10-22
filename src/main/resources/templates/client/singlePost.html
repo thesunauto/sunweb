@@ -14,7 +14,7 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
     <!-- Custom styles -->
-    <link rel="stylesheet" th:href="@{/css/custom/hover-tab-view.css}">
+
     <style>
 
 
@@ -31,7 +31,7 @@
     </style>
 </head>
 
-<body class="post-page">
+<body class="single-page">
 
 <!-- Main Navigation -->
 <th:block th:include="/client/_menu"></th:block>
@@ -79,17 +79,14 @@
 
                         <!-- Post data -->
                         <div class="card-body card-body-cascade text-center">
-                            <h2><a><strong>Tiêu đề bài viết</strong></a></h2>
-                            <p>Viết bởi <a>Tên người viết</a>, dd/MM/yyyy</p>
+                            <h2><a><strong th:text="${post.getTitle()}">Tiêu đề bài viết</strong></a></h2>
+                            <p>Viết bởi <a th:text="${usercreated.getName()}">Tên người viết</a><span th:text="${', '+post.getDatecreated().getDayOfMonth()+'/'+post.getDatecreated().getMonthValue()+'/'+post.getDatecreated().getYear()}">, dd/MM/yyyy</span></p>
                         </div>
                         <!-- Post data -->
                     </div>
 
                     <!-- Excerpt -->
-                    <div class="excerpt mt-5 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" th:src="@{/get/6.html}" allowfullscreen></iframe>
-                        </div>
+                    <div class="excerpt mt-5 wow fadeIn" data-wow-delay="0.3s" th:utext="${context}">
 
                     </div>
 

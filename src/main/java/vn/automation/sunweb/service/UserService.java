@@ -17,7 +17,9 @@ public List<User> findAll(Integer limit){
     return Optional.ofNullable(limit).map(value -> userRepository.findAll(PageRequest.of(0,value)).getContent()).orElseGet(()->userRepository.findAll());
 }
 
-
+public User findById(String id){
+    return userRepository.getOne(id);
+}
 
 }
 

@@ -25,21 +25,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="uploadFile">
-      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/config/PostConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/validator/PostValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/michael-lg-1.jpg" afterDir="false" />
+    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="upload bai viet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/FileSystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/FileSystemStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/storage/StorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/SunwebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/SunwebApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +164,8 @@
       <workItem from="1603081207692" duration="14424000" />
       <workItem from="1603097798011" duration="2373000" />
       <workItem from="1603248261595" duration="1727000" />
-      <workItem from="1603253689374" duration="16333000" />
+      <workItem from="1603253689374" duration="17039000" />
+      <workItem from="1603329321150" duration="6094000" />
     </task>
     <task id="LOCAL-00001" summary="14.10">
       <created>1602670896085</created>
@@ -223,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603254957027</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="upload bai viet">
+      <created>1603275380434</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603275380434</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +239,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="14.10" />
@@ -246,7 +247,8 @@
     <MESSAGE value="16.10" />
     <MESSAGE value="19.10" />
     <MESSAGE value="uploadFile" />
-    <option name="LAST_COMMIT_MESSAGE" value="uploadFile" />
+    <MESSAGE value="upload bai viet" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload bai viet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1602907228727">
@@ -293,46 +295,46 @@
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
     <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603254021894" />
-    <state width="1875" height="209" key="GridCell.Tab.0.bottom" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.0.bottom" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="209" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.0.center" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.0.center" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="209" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.0.left" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.0.left" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="209" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.0.right" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.0.right" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="209" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.1.bottom" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.1.bottom" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="209" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.1.center" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.1.center" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="209" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.1.left" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.1.left" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="209" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
-    <state width="1875" height="209" key="GridCell.Tab.1.right" timestamp="1603274916092">
+    <state width="1875" height="143" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
+    <state width="1875" height="143" key="GridCell.Tab.1.right" timestamp="1603333988741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="209" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603274916092" />
+    <state width="1875" height="143" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603333988741" />
     <state width="276" height="758" key="HiddenNamespacesPopup" timestamp="1603094671202">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -366,11 +368,11 @@
     </state>
     <state x="165" y="0" width="996" height="710" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602834912412" />
     <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603095042201" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1603254967719">
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1603275392405">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603254967719" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603275392405" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -391,5 +393,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603091089334" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603334194776">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603334194776" />
   </component>
 </project>
