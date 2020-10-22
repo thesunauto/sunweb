@@ -43,24 +43,58 @@
         <section class="mb-5">
             <div class="card card-cascade narrower p-2">
                 <section>
-                    <div class="card card-cascade narrower z-depth-0">
+                    <div class="card-body">
                         <div class="view view-cascade gradient-card-header gradient narrower py-2 mx-4 my-4 d-flex justify-content-center align-items-center">
-                            <a href="" class="h3 font-weight-bold white-text" th:text="${message}">Bài viết mới</a>
+                            <a href="" class="h3 font-weight-bold white-text">Bài viết mới</a>
                         </div>
                         <div class="px-5">
                             <form method="post" th:action="@{/admin/}" th:object="${post}">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="md-form">
+                                            <i class="fab fa-diaspora prefix"></i>
+                                            <label for="title">Title:</label>
+                                            <input type="text" id="title" autocomplete="off" class="form-control"
+                                                   th:field="*{title}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="mdb-select md-form">
+                                            <option th:each="c : ${@categoryService.findByIdparent(null)}" th:value="${c.getId()}" th:text="${c.getTitle()}">Option 1</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="mdb-select md-form">
+                                        </select>
+                                    </div>
+                                    <!-- Grid column -->
+                                    <div class="col-md-3">
+                                        <!-- Name -->
+                                        <select class="mdb-select md-form">
+                                            <optgroup label="team 1">
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                            </optgroup>
+                                            <optgroup label="team 2">
+                                                <option value="3">Option 3</option>
+                                                <option value="4">Option 4</option>
+                                            </optgroup>
+                                        </select>
 
-                                <div class="form-group">
-                                    <label for="title">Title:</label>
-                                    <input type="text" id="title" placeholder="Title" autocomplete="off" class="form-control"
-                                           th:field="*{title}"/>
+                                    </div>
+                                    <!-- Grid column -->
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="content">Content:</label>
-                                    <textarea type="text" rows="4" id="content" placeholder="Content" class="form-control"
-                                              th:field="*{context}" autocomplete="off"></textarea>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form">
+                                            <textarea type="text" rows="4" id="content"
+                                                      class="form-control"
+                                                      th:field="*{context}" autocomplete="off"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
+
 
                                 <button class="btn btn-primary mb-2" type="submit">Submit form</button>
                             </form>
@@ -92,10 +126,14 @@
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
+        $('#content').summernote({
+            height: 500
+        });
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+        });
     })
-    $('#content').summernote({
-        height: 500
-    });
+
 </script>
 
 </html>

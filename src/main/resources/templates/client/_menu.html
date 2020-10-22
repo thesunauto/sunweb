@@ -32,7 +32,7 @@
     </nav>
 
     <!-- Intro Section -->
-    <div th:if="${index}!=null" class="view jarallax" data-jarallax='{"speed": 0.2}'
+    <div th:if="${#httpServletRequest.requestURI=='/'}" class="view jarallax" data-jarallax='{"speed": 0.2}'
          th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;'">
         <div class="mask rgba-black-light">
             <div class="container h-100 d-flex justify-content-center align-items-center">
