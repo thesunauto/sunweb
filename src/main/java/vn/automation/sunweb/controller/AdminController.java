@@ -4,11 +4,10 @@ package vn.automation.sunweb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
+import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.storage.StorageService;
 
@@ -16,8 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,12 +28,25 @@ public class AdminController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private CategoryService categoryService;
     @GetMapping()
     public String index(Model model){
         Post post = new Post();
-        model.addAttribute("pageN",0);
+        model.addAttribute("category","chungtoi");
         model.addAttribute("post",post);
         return "admin/index";
+    }
+
+    @PostMapping("/getCategory")
+    public @ResponseBody
+    Map<String,String> getCategory(@RequestParam("id") String id){
+        Map<String ,String > categoryValues = new HashMap<>();
+        List<Category> categories = categoryService.findByIdparent(id);
+        for(Category category:categories){
+            categoryValues.put(category.getId(),category.getTitle());
+        }
+        return categoryValues;
     }
 
     @PostMapping()
