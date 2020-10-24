@@ -75,6 +75,11 @@ public class AdminController {
         return "admin/index";
     }
 
+    @GetMapping("/selectCategory")
+    public String selectCategory(Model model,@RequestParam(value = "id",required = true) String id){
+        return "admin/index";
+    }
+
     @GetMapping("/manageUser")
     public String user(Model model){model.addAttribute("pageN",1);
         return "admin/userManage";

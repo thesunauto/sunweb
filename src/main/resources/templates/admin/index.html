@@ -14,6 +14,7 @@
     <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
     <!-- Your custom styles (optional) -->
     <link th:rel="stylesheet" th:href="@{/summernote/summernote-bs4.css}"/>
+    <link rel="stylesheet" th:href="@{/css/modules/animations-extended.min.css}">
     <style>
         /* Only for snippet */
         .double-nav .breadcrumb-dn {
@@ -59,27 +60,32 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <select class="mdb-select md-form">
-                                            <option th:each="c : ${@categoryService.findByIdparent(null)}" th:value="${c.getId()}" th:text="${c.getTitle()}">Option 1</option>
-                                        </select>
+                                        <div class="md-form">
+                                            <label class="px-2" for="category">Danh mục &ensp;<i
+                                                    class="fas fa-caret-down"></i></label>
+                                            <input class="form-control rounded" type="button" name="" id="category"
+                                                   data-toggle="modal" data-target="#modalLRFormDemo">
+                                        </div>
+
                                     </div>
                                     <div class="col-md-3">
-                                        <select class="mdb-select md-form">
-                                        </select>
+                                        <div class="md-form">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                                                <label class="form-check-label" for="materialUnchecked">Public</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- Grid column -->
                                     <div class="col-md-3">
                                         <!-- Name -->
-                                        <select class="mdb-select md-form">
-                                            <optgroup label="team 1">
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                            </optgroup>
-                                            <optgroup label="team 2">
-                                                <option value="3">Option 3</option>
-                                                <option value="4">Option 4</option>
-                                            </optgroup>
-                                        </select>
+                                        <div class="md-form">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="materialUnchecked2">
+                                                <label class="form-check-label" for="materialUnchecked2">Home
+                                                    Page</label>
+                                            </div>
+                                        </div>
 
                                     </div>
                                     <!-- Grid column -->
@@ -103,6 +109,171 @@
                 </section>
             </div>
         </section>
+        <!-- Modal: Login / Register Form Demo -->
+        <div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <!-- Content -->
+                <div class="modal-content">
+
+                    <!-- Modal cascading tabs -->
+                    <div class="modal-c-tabs">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav md-tabs tabs-2 light-blue darken-3" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#panel17" role="tab"><i
+                                        class="fas fa-cogs mr-1"></i>
+                                    Hoạt động</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#panel18" role="tab"><i
+                                        class="fas fa-user-friends mr-1"></i>
+                                    Chúng tôi</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!-- Panel 17 -->
+                            <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
+
+                                <!-- Body -->
+                                <div class="modal-body mb-1">
+                                    <div class="navbar navbar-light grey lighten-4  m-1"
+                                         th:each='ct : ${@categoryService.findByIdparent("hoatdong")}'>
+
+                                        <!-- Navbar brand -->
+                                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+
+
+                                        <!-- Collapse button -->
+                                        <button class="navbar-toggler toggler-example" type="button"
+                                                data-toggle="collapse"
+                                                data-target="#chungToi1"
+                                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                                class="dark-blue-text"
+                                                th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
+                                                <i class="far fa-caret-square-down"></i></span>
+                                        </button>
+
+                                        <!-- Collapsible content -->
+                                        <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
+
+                                            <!-- Links -->
+                                            <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
+                                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                                    <button class="navbar-toggler toggler-example" type="button"
+                                                            data-toggle="collapse"
+                                                            data-target="#chungToi1"
+                                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                                            class="dark-blue-text"
+                                                            th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                                    </button>
+                                                    <div class="collapse navbar-collapse"
+                                                         th:id="menuChungtoi+*{ct1.getId()}">
+                                                        <ul class="navbar-nav mr-auto">
+                                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
+                                                                <a class="navbar-brand" th:href="@{/admin/selectCategory(id=${ct2.getId()})}"
+                                                                   th:text="*{ct2.getTitle()}"></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <!-- Links -->
+
+                                        </div>
+                                        <!-- Collapsible content -->
+
+                                    </div>
+                                </div>
+                                <!-- Footer -->
+
+
+                            </div>
+                            <!-- Panel 7 -->
+
+                            <!-- Panel 18 -->
+                            <div class="tab-pane fade" id="panel18" role="tabpanel">
+
+                                <!-- Body -->
+                                <div class="modal-body">
+
+                                    <div class="navbar navbar-light grey lighten-4  m-1"
+                                         th:each='ct : ${@categoryService.findByIdparent("chungtoi")}'>
+
+                                        <!-- Navbar brand -->
+                                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+
+
+                                        <!-- Collapse button -->
+                                        <button class="navbar-toggler toggler-example" type="button"
+                                                data-toggle="collapse"
+                                                data-target="#chungToi1"
+                                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                                class="dark-blue-text"
+                                                th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                                        <!-- Collapsible content -->
+                                        <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
+
+                                            <!-- Links -->
+                                            <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
+                                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                                    <button class="navbar-toggler toggler-example" type="button"
+                                                            data-toggle="collapse"
+                                                            data-target="#chungToi1"
+                                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                                            class="dark-blue-text"
+                                                            th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                                    </button>
+                                                    <div class="collapse navbar-collapse"
+                                                         th:id="menuChungtoi+*{ct1.getId()}">
+                                                        <ul class="navbar-nav mr-auto">
+                                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
+                                                                <a class="navbar-brand" href="#"
+                                                                   th:text="*{ct2.getTitle()}"></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <!-- Links -->
+
+                                        </div>
+                                        <!-- Collapsible content -->
+
+                                    </div>
+
+
+                                </div>
+                                <!-- Footer -->
+
+                            </div>
+                            <!-- Panel 8 -->
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Content -->
+            </div>
+        </div>
+        <!-- Modal: Login / Register Form Demo -->
+
     </div>
 
 </main>
