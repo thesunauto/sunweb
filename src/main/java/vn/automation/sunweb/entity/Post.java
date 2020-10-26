@@ -37,13 +37,13 @@ public class Post implements Serializable {
     private String image;
 
     @Column(name = "isdeleted", nullable = false)
-    private Integer isdeleted;
+    private Boolean isdeleted;
 
     @Column(name = "ispulic", nullable = false)
-    private Integer ispulic;
+    private Boolean ispulic;
 
     @Column(name = "isshowindex", nullable = false)
-    private Integer isshowindex;
+    private Boolean isshowindex;
 
     @Column(name = "metatitle")
     private String metatitle;

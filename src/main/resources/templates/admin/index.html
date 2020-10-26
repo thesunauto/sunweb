@@ -46,32 +46,31 @@
                 <section>
                     <div class="card-body">
                         <div class="view view-cascade gradient-card-header gradient narrower py-2 mx-4 my-4 d-flex justify-content-center align-items-center">
-                            <a href="" class="h3 font-weight-bold white-text">Bài viết mới</a>
+                            <a href="" id="navTitle" class="h3 font-weight-bold white-text">Bài viết mới</a>
                         </div>
                         <div class="px-5">
                             <form method="post" th:action="@{/admin/}" th:object="${post}">
+                                <input type="hidden" th:field="*{datecreated}" th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="md-form">
                                             <i class="fab fa-diaspora prefix"></i>
                                             <label for="title">Title:</label>
-                                            <input type="text" id="title" autocomplete="off" class="form-control"
-                                                   th:field="*{title}"/>
+                                            <input type="text" id="title" autocomplete="off" class="form-control" th:field="*{title}"/>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="md-form">
-                                            <label class="px-2" for="category">Danh mục &ensp;<i
-                                                    class="fas fa-caret-down"></i></label>
-                                            <input class="form-control rounded" type="button" name="" id="category"
-                                                   data-toggle="modal" data-target="#modalLRFormDemo">
+                                            <label class="px-2" for="category" id="categoryLa">Danh mục &ensp;<i class="fas fa-caret-down"></i></label>
+                                            <input th:field="*{idcategory}" class="form-control rounded" type="text" name="" id="category"
+                                                   data-toggle="modal" data-target="#modalLRFormDemo" readonly>
                                         </div>
 
                                     </div>
                                     <div class="col-md-3">
                                         <div class="md-form">
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                                                <input th:checked="*{ispulic}" type="checkbox" class="form-check-input" id="materialUnchecked">
                                                 <label class="form-check-label" for="materialUnchecked">Public</label>
                                             </div>
                                         </div>
@@ -81,7 +80,7 @@
                                         <!-- Name -->
                                         <div class="md-form">
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="materialUnchecked2">
+                                                <input th:checked="*{isshowindex}" type="checkbox" class="form-check-input" id="materialUnchecked2">
                                                 <label class="form-check-label" for="materialUnchecked2">Home
                                                     Page</label>
                                             </div>
@@ -144,7 +143,8 @@
                                          th:each='ct : ${@categoryService.findByIdparent("hoatdong")}'>
 
                                         <!-- Navbar brand -->
-                                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+
 
 
                                         <!-- Collapse button -->
@@ -165,7 +165,8 @@
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                     th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
-                                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                                    <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+
                                                     <button class="navbar-toggler toggler-example" type="button"
                                                             data-toggle="collapse"
                                                             data-target="#chungToi1"
@@ -180,8 +181,8 @@
                                                         <ul class="navbar-nav mr-auto">
                                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                                 th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
-                                                                <a class="navbar-brand" th:href="@{/admin/selectCategory(id=${ct2.getId()})}"
-                                                                   th:text="*{ct2.getTitle()}"></a>
+                                                                <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct2.getTitle()}"  th:value="*{ct2.getId()}"></option>
+
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -210,7 +211,7 @@
                                          th:each='ct : ${@categoryService.findByIdparent("chungtoi")}'>
 
                                         <!-- Navbar brand -->
-                                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
 
 
                                         <!-- Collapse button -->
@@ -230,7 +231,7 @@
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                     th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
-                                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
+                                                    <option style="cursor: pointer;"  class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
                                                     <button class="navbar-toggler toggler-example" type="button"
                                                             data-toggle="collapse"
                                                             data-target="#chungToi1"
@@ -245,8 +246,8 @@
                                                         <ul class="navbar-nav mr-auto">
                                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                                 th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
-                                                                <a class="navbar-brand" href="#"
-                                                                   th:text="*{ct2.getTitle()}"></a>
+                                                                <option style="cursor: pointer;"  class="navbar-brand black-text"  th:value="*{ct2.getId()}"
+                                                                   th:text="*{ct2.getTitle()}"></option>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -303,6 +304,11 @@
         $(document).ready(function () {
             $('.mdb-select').materialSelect();
         });
+
+        $(".navbar-brand").click(function () {
+            $('#category').val($(this).val());
+            $('#modalLRFormDemo').modal('hide');
+        })
     })
 
 </script>

@@ -30,62 +30,66 @@ public class AdminController {
     private PostService postService;
     @Autowired
     private CategoryService categoryService;
+
     @GetMapping()
-    public String index(Model model){
+    public String index(Model model) {
         Post post = new Post();
-        model.addAttribute("category","chungtoi");
-        model.addAttribute("post",post);
+        model.addAttribute("post", post);
         return "admin/index";
     }
 
-    @PostMapping("/getCategory")
-    public @ResponseBody
-    Map<String,String> getCategory(@RequestParam("id") String id){
-        Map<String ,String > categoryValues = new HashMap<>();
-        List<Category> categories = categoryService.findByIdparent(id);
-        for(Category category:categories){
-            categoryValues.put(category.getId(),category.getTitle());
-        }
-        return categoryValues;
-    }
-
     @PostMapping()
-    public String addPost(Model model, @ModelAttribute Post post){
+    public String addPost(Model model, @ModelAttribute(value = "post") Post post) {
+        System.out.println(post);
         post.setDatecreated(LocalDateTime.now());
         post.setDatepuliced(LocalDateTime.now());
         post.setDateupdated(LocalDateTime.now());
-        post.setIdcategory("tech");
-        post.setIsdeleted(0);
-        post.setIspulic(1);
-        post.setIsshowindex(0);
+        post.setIsdeleted(false);
+        post.setIspulic(true);
         post.setUsercreated("admin");
         String ct = post.getContext();
         post.setContext("error");
-        model.addAttribute("message", Optional.ofNullable(postService.addPost(post)).map(t->"thành công").orElse("thất bại"));
+
+        model.addAttribute("message", Optional.ofNullable(postService.addPost(post)).map(t -> "thành công").orElse("thất bại"));
         try {
-            String filename = storageService.create(post.getId()+".html");
+            String filename = storageService.create(post.getId() + ".html");
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
             bw.write(ct);
             bw.close();
             postService.saveFileContextPost(post.getId());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return "admin/index";
     }
 
+    @PostMapping("/getCategory")
+    public @ResponseBody
+    Map<String, String> getCategory(@RequestParam("id") String id) {
+        Map<String, String> categoryValues = new HashMap<>();
+        List<Category> categories = categoryService.findByIdparent(id);
+        for (Category category : categories) {
+            categoryValues.put(category.getId(), category.getTitle());
+        }
+        return categoryValues;
+    }
+
+
     @GetMapping("/selectCategory")
-    public String selectCategory(Model model,@RequestParam(value = "id",required = true) String id){
+    public String selectCategory(Model model, @RequestParam(value = "id", required = true) String id) {
         return "admin/index";
     }
 
     @GetMapping("/manageUser")
-    public String user(Model model){model.addAttribute("pageN",1);
+    public String user(Model model) {
+        model.addAttribute("pageN", 1);
         return "admin/userManage";
     }
+
     @GetMapping("/manageTopic")
-    public String topic(Model model){model.addAttribute("pageN",2);
+    public String topic(Model model) {
+        model.addAttribute("pageN", 2);
         return "admin/topicManage";
     }
 

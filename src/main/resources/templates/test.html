@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>List User</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
+    <script>
+        $(document).ready(function () {
+            jQuery("#btn").change(function(){
+                $.ajax({
+                    url: 'http://localhost:8080/api/ca/'+$("#btn").val(),
+                    type: 'GET',
+                    dataType:"JSON",
+                    success: function (data) {
+                        var str = ""
+                        for (var i = 0 ; i< data.length; i++){
+                            str += "<option>"+data[i].title+"</option>"
+                        }
+                        $("#se2").html(str);
+
+                    },
+                    error: function (e) {
+                        console.log(e.message);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
-<img th:src='@{/download/michael-lg-1.jpg}' alt="">
+<select name="" id="btn">
+    <option th:each="se : ${@categoryRepository.findByIdparent(null)}" th:value="${se.getId()}"
+            th:text="${se.getTitle()}"></option>
+</select>
 
+<h1 id="reCa">Nothing</h1>
 
-
+<select name="" id="se2">
+    <option></option>
+</select>
 <!-- Custom scripts -->
 <script>
 
-    new WOW().init();
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
 
-        for (var i = 0; i < 3; i++) {
-            next = next.next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-        }
-    });
 </script>
 </body>
 

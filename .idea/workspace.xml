@@ -25,11 +25,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="upload bai viet">
+    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="select category in admin page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/SelectRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/entity/Post.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +171,9 @@
       <workItem from="1603253689374" duration="17039000" />
       <workItem from="1603329321150" duration="6094000" />
       <workItem from="1603444839222" duration="1584000" />
-      <workItem from="1603502214598" duration="9365000" />
+      <workItem from="1603502214598" duration="9618000" />
+      <workItem from="1603674302930" duration="24000" />
+      <workItem from="1603676551425" duration="16761000" />
     </task>
     <task id="LOCAL-00001" summary="14.10">
       <created>1602670896085</created>
@@ -230,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603417897948</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="select category in admin page">
+      <created>1603515289889</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603515289889</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +275,8 @@
     <MESSAGE value="19.10" />
     <MESSAGE value="uploadFile" />
     <MESSAGE value="upload bai viet" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload bai viet" />
+    <MESSAGE value="select category in admin page" />
+    <option name="LAST_COMMIT_MESSAGE" value="select category in admin page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1602907228727">
@@ -302,51 +318,51 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="636" y="295" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1920.1080@0.0.1920.1080" timestamp="1603268437666" />
-    <state x="651" y="169" key="FileChooserDialogImpl" timestamp="1603418545088">
+    <state x="651" y="169" key="FileChooserDialogImpl" timestamp="1603677565106">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
-    <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603418545088" />
-    <state width="1875" height="221" key="GridCell.Tab.0.bottom" timestamp="1603515054809">
+    <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603677565106" />
+    <state width="1875" height="424" key="GridCell.Tab.0.bottom" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.0.center" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.0.center" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="221" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.0.left" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.0.left" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="221" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.0.right" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.0.right" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="221" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.1.bottom" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.1.bottom" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="221" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.1.center" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.1.center" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="221" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.1.left" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.1.left" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="221" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
-    <state width="1875" height="221" key="GridCell.Tab.1.right" timestamp="1603515054809">
+    <state width="1875" height="424" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
+    <state width="1875" height="424" key="GridCell.Tab.1.right" timestamp="1603698963429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="221" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603515054809" />
+    <state width="1875" height="424" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603698963429" />
     <state width="276" height="758" key="HiddenNamespacesPopup" timestamp="1603094671202">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -383,16 +399,16 @@
     </state>
     <state x="507" y="3" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1602843109843" />
     <state x="713" y="4" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603095983432" />
-    <state x="232" y="0" width="996" height="710" key="SettingsEditor" timestamp="1603095042201">
+    <state x="232" y="0" width="996" height="710" key="SettingsEditor" timestamp="1603683210149">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="165" y="0" width="996" height="710" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602834912412" />
-    <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603095042201" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1603417910699">
+    <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603683210149" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1603515338407">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603417910699" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603515338407" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
