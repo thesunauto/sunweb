@@ -16,5 +16,4 @@ public class SelectRestController {
     @Autowired
     private CategoryService categoryService;
 
-
 }
