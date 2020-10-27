@@ -1,6 +1,6 @@
 package vn.automation.sunweb.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "post")
 public class Post implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +30,11 @@ public class Post implements Serializable {
     @Column(name = "dateupdated")
     private LocalDateTime dateupdated;
 
-    @Column(name = "idcategory", nullable = false)
-    private String idcategory;
+    @ManyToOne
+    @JoinColumn(name = "idcategory")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Category category;
 
     @Column(name = "image")
     private String image;
@@ -51,7 +54,10 @@ public class Post implements Serializable {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "usercreated", nullable = false)
-    private String usercreated;
+    @ManyToOne
+    @JoinColumn(name = "usercreated")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private User usercreated;
 
 }

@@ -5,10 +5,13 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.repository.CategoryRepository;
+import vn.automation.sunweb.repository.PostRepository;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
@@ -30,10 +33,11 @@ public class MainController {
     public MainController(StorageService storageService) {
         this.storageService = storageService;
     }
-    @Autowired private CategoryService categoryService;
+
     @Autowired private PostService postService;
-    @Autowired private CategoryRepository categoryRepository;
-    @Autowired private UserService userService;
+   @Autowired private PostRepository postRepository;
+
+
     @GetMapping("/")
     public String index() {
         return "client/index";
@@ -51,9 +55,7 @@ public class MainController {
             Path html = storageService.load(post.getContext());
             BufferedReader bufferedReader = new BufferedReader(new FileReader(html.toFile()));
             String context = bufferedReader.lines().collect(Collectors.joining());
-            model.addAttribute("post",postService.findById(id));
-            model.addAttribute("context",context);
-            model.addAttribute("usercreated",userService.findById(post.getUsercreated()));
+            model.addAttribute("context",context);model.addAttribute("post",post);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -61,11 +63,13 @@ public class MainController {
     }
 
     @GetMapping("/test")
-    public String listUser(Model model, @RequestParam(value = "limit",required = false) Integer limit) {
-        model.addAttribute("listUser",categoryService.findByIdparent(null));
-        categoryService.findByIdparent(null).forEach(value->{
-            model.addAttribute(value.getId(),categoryRepository.findByIdparent(value.getId()));
-        });
+    public String listUser(Model model) {
+        model.addAttribute("post",new Post());
+        return "test";
+    }
+    @PostMapping("/test")
+    public String listUser(Model model, @ModelAttribute(value = "post") Post post) {
+        postRepository.save(post);
         return "test";
     }
 }

@@ -16,8 +16,8 @@ public class CategoryService {
     public List<Category> findAll(Integer limit){
         return Optional.ofNullable(limit).map(value -> categoryRepository.findAll(PageRequest.of(0,limit)).getContent()).orElseGet(()->categoryRepository.findAll());
     }
-    public List<Category> findByIdparent(String idparent){
-        return Optional.ofNullable(idparent).map(value->categoryRepository.findByIdparent(value)).orElseGet(()->categoryRepository.findByIdparent(null));
+    public List<Category> findByIdparent(Category category){
+        return Optional.ofNullable(category).map(value->categoryRepository.findByCategory(value)).orElseGet(()->categoryRepository.findByCategory(null));
 
     }
 }

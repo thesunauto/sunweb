@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 @Data
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(name = "username", nullable = false)
     private String username;

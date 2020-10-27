@@ -16,8 +16,5 @@ public class SelectRestController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/ca/{id}")
-    public List<Category> getCategoryList(@PathVariable(value = "id") String id){
-        return categoryService.findByIdparent(id);
-    }
+
 }

@@ -67,59 +67,22 @@
                                     </th>
                                     <th>Phone
                                     </th>
+                                    <th>DateCreated</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>***********</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654321</td>
+
+                                <tr th:each="user : ${@userService.select()}">
+                                    <td th:text="*{user.getUsername()}">Username</td>
+                                    <td th:text="*{user.getPassword()}">password</td>
+                                    <td th:text="*{user.getName()}">Name</td>
+                                    <td th:text="*{user.getEmail()}">Email</td>
+                                    <td th:text="*{user.getPhone()}">Phone</td>
+                                    <td th:text="*{user.getDatecreated().getDayOfMonth()+'/'+user.getDatecreated().getMonthValue()+'/'+user.getDatecreated().getYear()}">dd/MM/yyyy</td>
+                                <td><a class="btn btn-action" href=""></a></td>
                                 </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>***********</td>
-                                    <td>Edinburdfwegh</td>
-                                    <td>nothingwg@gmial.com</td>
-                                    <td>09876ưgweg54321</td>
-                                </tr><tr>
-                                    <td>Tigerewfwe Nixon</td>
-                                    <td>***********</td>
-                                    <td>Ediddđnburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654wwww321</td>
-                                </tr><tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>****ê*******</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>09876ê543ê21</td>
-                                </tr><tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>***********</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654e321</td>
-                                </tr><tr>
-                                    <td>ưaaaaaaaa</td>
-                                    <td>***e********</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654321</td>
-                                </tr><tr>
-                                    <td>wsa Nixon</td>
-                                    <td>***********</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654321</td>
-                                </tr><tr>
-                                    <td>e Nixossn</td>
-                                    <td>***********</td>
-                                    <td>Edinburgh</td>
-                                    <td>nothing@gmial.com</td>
-                                    <td>0987654321</td>
-                                </tr>
+
                                 </tbody>
                                 <tfoot>
                                 <tr>
@@ -133,6 +96,8 @@
                                     </th>
                                     <th>Phone
                                     </th>
+                                    <th>DateCreated</th>
+                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -143,7 +108,6 @@
 
             </div>
             <!-- Gird column -->
-
 
 
         </section>
@@ -171,15 +135,13 @@
 <script type="text/javascript" th:src="@{/js/addons/datatables-select.min.js}"></script>
 <!-- Custom scripts -->
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
         $('#tblUser').DataTable({
             "pagingType": "full_numbers"
         });
-
-
 
 
     });

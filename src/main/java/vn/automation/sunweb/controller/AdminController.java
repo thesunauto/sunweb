@@ -7,8 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
+import vn.automation.sunweb.entity.User;
+import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
+import vn.automation.sunweb.service.UserService;
 import vn.automation.sunweb.storage.StorageService;
 
 import javax.servlet.http.HttpSession;
@@ -29,24 +32,24 @@ public class AdminController {
     @Autowired
     private PostService postService;
     @Autowired
-    private CategoryService categoryService;
-
+    private CategoryRepository categoryRepository;
+@Autowired
+private UserService userService;
     @GetMapping()
     public String index(Model model) {
-        Post post = new Post();
-        model.addAttribute("post", post);
+        model.addAttribute("postOB", new Post());
         return "admin/index";
     }
 
+
     @PostMapping()
-    public String addPost(Model model, @ModelAttribute(value = "post") Post post) {
-        System.out.println(post);
+    public String addPost(Model model, @ModelAttribute(value = "postOB") Post post,@RequestParam(value = "category") String categoryId) {
         post.setDatecreated(LocalDateTime.now());
         post.setDatepuliced(LocalDateTime.now());
         post.setDateupdated(LocalDateTime.now());
         post.setIsdeleted(false);
-        post.setIspulic(true);
-        post.setUsercreated("admin");
+        post.setCategory(categoryRepository.getOne(categoryId));
+        post.setUsercreated(userService.findById("admin"));
         String ct = post.getContext();
         post.setContext("error");
 
@@ -58,9 +61,11 @@ public class AdminController {
             bw.close();
             postService.saveFileContextPost(post.getId());
         } catch (Exception e) {
+            model.addAttribute("message","toastr.danger('Thêm bài viết thất bại', '', {positionClass: 'md-toast-top-right'});$('#toast-container').attr('class','md-toast-top-right');");
             e.printStackTrace();
         }
-
+        model.addAttribute("message","toastr.success('Thêm bài viết thành công', '', {positionClass: 'md-toast-top-right'});$('#toast-container').attr('class','md-toast-top-right');");
+        model.addAttribute("postOB",new Post());
         return "admin/index";
     }
 
@@ -68,7 +73,7 @@ public class AdminController {
     public @ResponseBody
     Map<String, String> getCategory(@RequestParam("id") String id) {
         Map<String, String> categoryValues = new HashMap<>();
-        List<Category> categories = categoryService.findByIdparent(id);
+        List<Category> categories = categoryRepository.findByCategory(categoryRepository.findById(id).get());
         for (Category category : categories) {
             categoryValues.put(category.getId(), category.getTitle());
         }
