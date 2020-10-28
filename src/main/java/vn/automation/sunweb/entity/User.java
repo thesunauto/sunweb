@@ -1,17 +1,17 @@
 package vn.automation.sunweb.entity;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
 
     @Id
@@ -36,4 +36,16 @@ public class User implements Serializable {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "role", nullable = false)
+    private String role;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<Post> posts;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<Category> categories;
 }

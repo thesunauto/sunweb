@@ -74,18 +74,20 @@
                 <!-- Body -->
                 <div class="modal-body mb-0">
                     <div class="navbar navbar-light grey lighten-4  m-1"
-                         th:each='ct : ${@categoryService.findByIdparent("chungtoi")}'>
+                         th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("chungtoi").get())}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
 
 
                         <!-- Collapse button -->
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                        <button class="navbar-toggler toggler-example" type="button"
+                                data-toggle="collapse"
                                 data-target="#chungToi1"
                                 th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
-                                aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"
-                        th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
+                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="dark-blue-text"
+                                th:if="!${ct.categories.isEmpty()}">
                         <i class="far fa-caret-square-down"></i></span></button>
 
                         <!-- Collapsible content -->
@@ -94,20 +96,24 @@
                             <!-- Links -->
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
-                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
-                                    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                    th:each='ct1 : ${ct.categories}'>
+                                    <option style="cursor: pointer;"  class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+                                    <button class="navbar-toggler toggler-example" type="button"
+                                            data-toggle="collapse"
                                             data-target="#chungToi1"
                                             th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
                                             aria-expanded="false" aria-label="Toggle navigation"><span
-                                            class="dark-blue-text" th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            class="dark-blue-text"
+                                            th:if="!${ct1.categories.isEmpty()}">
                                             <i class="far fa-caret-square-down"></i></span>
                                     </button>
-                                    <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct1.getId()}">
+                                    <div class="collapse navbar-collapse"
+                                         th:id="menuChungtoi+*{ct1.getId()}">
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
-                                                <a class="navbar-brand" href="#" th:text="*{ct2.getTitle()}"></a>
+                                                th:each='ct2 : ${ct1.categories}'>
+                                                <option style="cursor: pointer;"  class="navbar-brand black-text"  th:value="*{ct2.getId()}"
+                                                        th:text="*{ct2.getTitle()}"></option>
                                             </li>
                                         </ul>
                                     </div>
@@ -141,19 +147,23 @@
                 <!-- Body -->
                 <div class="modal-body mb-0">
                     <div class="navbar navbar-light grey lighten-4  m-1"
-                         th:each='ct : ${@categoryService.findByIdparent("hoatdong")}'>
+                         th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("hoatdong").get())}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand" href="#" th:text="*{ct.getTitle()}"></a>
+                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+
 
 
                         <!-- Collapse button -->
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                        <button class="navbar-toggler toggler-example" type="button"
+                                data-toggle="collapse"
                                 data-target="#chungToi1"
                                 th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
-                                aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"
-                                                                                           th:if="!${@categoryRepository.findByIdparent(ct.getId()).isEmpty()}">
-                        <i class="far fa-caret-square-down"></i></span></button>
+                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="dark-blue-text"
+                                th:if="!${ct.categories.isEmpty()}">
+                                                <i class="far fa-caret-square-down"></i></span>
+                        </button>
 
                         <!-- Collapsible content -->
                         <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
@@ -161,20 +171,25 @@
                             <!-- Links -->
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                    th:each='ct1 : ${@categoryService.findByIdparent(ct.getId())}'>
-                                    <a class="navbar-brand" href="#" th:text="*{ct1.getTitle()}"></a>
-                                    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                                    th:each='ct1 : ${ct.categories}'>
+                                    <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+
+                                    <button class="navbar-toggler toggler-example" type="button"
+                                            data-toggle="collapse"
                                             data-target="#chungToi1"
                                             th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
                                             aria-expanded="false" aria-label="Toggle navigation"><span
-                                            class="dark-blue-text" th:if="!${@categoryRepository.findByIdparent(ct1.getId()).isEmpty()}">
+                                            class="dark-blue-text"
+                                            th:if="!${ct1.categories.isEmpty()}">
                                             <i class="far fa-caret-square-down"></i></span>
                                     </button>
-                                    <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct1.getId()}">
+                                    <div class="collapse navbar-collapse"
+                                         th:id="menuChungtoi+*{ct1.getId()}">
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                th:each='ct2 : ${@categoryService.findByIdparent(ct1.getId())}'>
-                                                <a class="navbar-brand" href="#" th:text="*{ct2.getTitle()}"></a>
+                                                th:each='ct2 : ${ct1.categories}'>
+                                                <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct2.getTitle()}"  th:value="*{ct2.getId()}"></option>
+
                                             </li>
                                         </ul>
                                     </div>

@@ -11,19 +11,23 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-@Autowired private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-public List<User> findAll(Integer limit){
-    return Optional.ofNullable(limit).map(value -> userRepository.findAll(PageRequest.of(0,value)).getContent()).orElseGet(()->userRepository.findAll());
-}
+    public List<User> findAll(Integer limit) {
+        return Optional.ofNullable(limit).map(value -> userRepository.findAll(PageRequest.of(0, value)).getContent()).orElseGet(() -> userRepository.findAll());
+    }
 
-public List<User> select(){
-    return userRepository.findAllByIsdelete(0);
-}
+    public List<User> select() {
+        return userRepository.findAll();
+    }
 
-public User findById(String id){
-    return userRepository.getOne(id);
-}
+    public User findById(String id) {
+        return userRepository.getOne(id);
+    }
 
+    public boolean save(User user) {
+        return Optional.ofNullable(userRepository.save(user)).map(t->true).orElse(false);
+    }
 }
 

@@ -9,6 +9,7 @@ import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.entity.User;
 import vn.automation.sunweb.repository.CategoryRepository;
+import vn.automation.sunweb.repository.UserRepository;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
@@ -31,6 +32,7 @@ public class AdminController {
 
     @Autowired
     private PostService postService;
+    @Autowired private UserRepository userRepository;
     @Autowired
     private CategoryRepository categoryRepository;
 @Autowired
@@ -49,7 +51,7 @@ private UserService userService;
         post.setDateupdated(LocalDateTime.now());
         post.setIsdeleted(false);
         post.setCategory(categoryRepository.getOne(categoryId));
-        post.setUsercreated(userService.findById("admin"));
+        post.setUser(userRepository.getOne("admin"));
         String ct = post.getContext();
         post.setContext("error");
 

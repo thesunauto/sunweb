@@ -58,6 +58,6 @@ public class Post implements Serializable {
     @JoinColumn(name = "usercreated")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private User usercreated;
+    private User user;
 
 }

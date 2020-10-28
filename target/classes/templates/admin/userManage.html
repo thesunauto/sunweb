@@ -42,21 +42,21 @@
 <!-- Main layout  -->
 <main class="p-0">
     <div class="container-fluid mb-5">
-<setion>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
+        <setion>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
 
-                <div class="col-sm">
-                   <H3 class="my-auto float-left">Danh sách người dùng</H3>
-                </div>
-                <div class="col-sm">
-                    <button class="btn btn-success float-right">Thêm người dùng</button>
+                        <div class="col-sm">
+                            <H3 class="my-auto float-left">List account</H3>
+                        </div>
+                        <div class="col-sm">
+                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd">New user</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</setion>
+        </setion>
         <section>
 
             <div class="card">
@@ -75,6 +75,8 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Date created</th>
+                            <th>Role</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -92,7 +94,69 @@
             </div>
 
         </section>
+        <section>
+            <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog cascading-modal" role="document">
+                    <!-- Content -->
+                    <div class="modal-content">
 
+                        <!-- Header -->
+                        <div class="modal-header light-blue darken-3 white-text">
+                            <h4 class=""><i class="fas fa-pencil-alt"></i> Account</h4>
+                            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Body -->
+                        <form id="formMaster">
+                            <div class="modal-body mb-0">
+                                <div class="md-form form-sm">
+                                    <i class="fas fa-user prefix"></i>
+                                    <input name="username" type="text" id="form19" class="form-control form-control-sm">
+                                    <label for="form19">Username</label>
+                                </div>
+                                <div class="md-form form-sm">
+                                    <i class="fas fa-key prefix"></i>
+                                    <input name="password" type="password" id="form129" class="form-control form-control-sm">
+                                    <label for="form19">Password</label>
+                                </div>
+                                <div class="md-form form-sm">
+                                    <i class="fas fa-user prefix"></i>
+                                    <input  name="name" type="text" id="form19q" class="form-control form-control-sm">
+                                    <label for="form19">Name</label>
+                                </div>
+                                <div class="md-form form-sm">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input  name="email" type="text" id="form230" class="form-control form-control-sm">
+                                    <label for="form230">Email</label>
+                                </div>
+                                <div class="md-form form-sm">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input  name="phone" type="text" id="form210" class="form-control form-control-sm">
+                                    <label for="form210">Phone</label>
+                                </div>
+                                <div class="md-form form-sm">
+                                    <select name="role" class="mdb-select">
+                                        <option value="" disabled selected>Choose role option</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="user">Client</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="text-center mt-1-half">
+                                    <button type="button" id="btnsub" class="btn btn-info mb-2">Create <i class="fas fa-paper-plane ml-1"></i></button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- Content -->
+                </div>
+            </div>
+        </section>
     </div>
 
 
@@ -116,33 +180,58 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function () {
-        $('body').ready(loadUser);
+        $('body').ready(loadUser());
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
         $('#tblUser').DataTable({
             "pagingType": "full_numbers"
         });
-
+        $('.mdb-select').materialSelect();
+        $('#btnsub').click(function () {
+            var formData = $("#formMaster").serializeObject();
+            console.log(formData)
+        });
 
     });
+
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
     function loadUser() {
         $.ajax({
             url: 'http://localhost:8080/api/getlistuser',
             type: 'POST',
             dataType: 'JSON',
             success: function (data) {
-                var tem='';
-                for(var i =0;i<data.length;i++){
+                var tem = '';
+                for (var i = 0; i < data.length; i++) {
+                    var cl = data[i].stt==0?'Live':'Lock';
                     tem += '<tr>\n' +
-                        '<td>'+i+'</td>\n' +
-                        '<td>'+data[i].username+'</td>\n' +
-                        '<td>'+data[i].password+'</td>\n' +
-                        '<td>'+data[i].name+'</td>\n' +
-                        '<td>'+data[i].email+'</td>\n' +
-                        '<td>'+data[i].phone+'</td>\n' +
-                        '<td>'+data[i].datecreated+'</td>\n' +
-                        '<td><a class="btn btn-action" href=""></a></td>\n' +
+                        '<td>' + i + '</td>\n' +
+                        '<td>' + data[i].username + '</td>\n' +
+                        '<td>' + data[i].password + '</td>\n' +
+                        '<td>' + data[i].name + '</td>\n' +
+                        '<td>' + data[i].email + '</td>\n' +
+                        '<td>' + data[i].phone + '</td>\n' +
+                        '<td>' + data[i].datecreated + '</td>\n' +
+                        '<td>' + data[i].role + '</td>\n' +
+                        '<td>' + cl + '</td>\n' +
+                        '<td><a class="btn btn-amber btn-sm" href="">Edit</a></td>\n' +
                         '</tr>';
                 }
                 $('#dataUser').html(tem);

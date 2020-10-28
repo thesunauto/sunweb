@@ -43,14 +43,14 @@ public class Category implements Serializable {
     @JoinColumn(name = "usercreated")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private User usercreated;
+    private User user;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<Category> categories;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<Post> posts;
