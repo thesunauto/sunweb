@@ -28,7 +28,16 @@
     <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="tien hanh manage user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sunweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sunweb.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/entity/Post.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +212,8 @@
       <workItem from="1603761891305" duration="27902000" />
       <workItem from="1603855337340" duration="67000" />
       <workItem from="1603864003229" duration="14206000" />
+      <workItem from="1603888896100" duration="3379000" />
+      <workItem from="1603899040243" duration="2031000" />
     </task>
     <task id="LOCAL-00001" summary="14.10">
       <created>1602670896085</created>
@@ -400,45 +411,45 @@
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
     <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603763852384" />
-    <state width="1875" height="301" key="GridCell.Tab.0.bottom" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.0.bottom" timestamp="1603895547934">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
+    <state width="1321" height="306" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1603895547934" />
     <state width="1875" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
-    <state width="1875" height="301" key="GridCell.Tab.0.center" timestamp="1603879665744">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.0.center" timestamp="1603895547934">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
+    <state width="1321" height="306" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1603895547934" />
     <state width="1875" height="301" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665744" />
-    <state width="1875" height="301" key="GridCell.Tab.0.left" timestamp="1603879665744">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.0.left" timestamp="1603895547934">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
+    <state width="1321" height="306" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1603895547934" />
     <state width="1875" height="301" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665744" />
-    <state width="1875" height="301" key="GridCell.Tab.0.right" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.0.right" timestamp="1603895547934">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
+    <state width="1321" height="306" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1603895547934" />
     <state width="1875" height="301" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
-    <state width="1875" height="301" key="GridCell.Tab.1.bottom" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.1.bottom" timestamp="1603895547935">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
+    <state width="1321" height="306" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1603895547935" />
     <state width="1875" height="301" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
-    <state width="1875" height="301" key="GridCell.Tab.1.center" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.1.center" timestamp="1603895547935">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
+    <state width="1321" height="306" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1603895547935" />
     <state width="1875" height="301" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
-    <state width="1875" height="301" key="GridCell.Tab.1.left" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.1.left" timestamp="1603895547934">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
+    <state width="1321" height="306" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1603895547934" />
     <state width="1875" height="301" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
-    <state width="1875" height="301" key="GridCell.Tab.1.right" timestamp="1603879665745">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1321" height="306" key="GridCell.Tab.1.right" timestamp="1603895547935">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
+    <state width="1321" height="306" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1603895547935" />
     <state width="1875" height="301" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603879665745" />
     <state width="276" height="758" key="HiddenNamespacesPopup" timestamp="1603094671202">
       <screen x="0" y="0" width="1920" height="1080" />

@@ -61,34 +61,36 @@
 
             <div class="card">
                 <div class="card-body">
+                    <div class="table-responsive">
+                        <!-- Table -->
+                        <table class="table">
 
-                    <!-- Table -->
-                    <table class="table">
+                            <!-- Table head -->
+                            <thead class="mdb-color darken-3">
+                            <tr class="text-white">
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date created</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <!-- Table head -->
 
-                        <!-- Table head -->
-                        <thead class="mdb-color darken-3">
-                        <tr class="text-white">
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Date created</th>
-                            <th>Role</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <!-- Table head -->
+                            <!-- Table body -->
+                            <tbody id="dataUser">
 
-                        <!-- Table body -->
-                        <tbody id="dataUser">
+                            </tbody>
+                            <!-- Table body -->
+                        </table>
+                        <!-- Table -->
+                    </div>
 
-                        </tbody>
-                        <!-- Table body -->
-                    </table>
-                    <!-- Table -->
 
                 </div>
             </div>
@@ -190,72 +192,71 @@
         $('.mdb-select').materialSelect();
         $('#btnsub').click(function () {
             var formData = $("#formMaster").serializeObject();
-            console.log(formData)
             $.ajax({
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 dataType: 'json',
                 success: function(data){
-                    loadUser();
-                    app.log("device control succeeded");
+
                 },
-                error: function(){
-                    app.log("Device control failed");
+                error: function(e){
+                    console.log(e)
                 },
                 processData: false,
                 type: 'POST',
                 url: 'http://localhost:8080/api/save'
             });
+            setInterval(loadUser,1000,2);
         });
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
 
+        function loadUser() {
+            $.ajax({
+                url: 'http://localhost:8080/api/getlistuser',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    var tem = '';
+                    for (var i = 0; i < data.length; i++) {
+                        var cl = data[i].stt==0?'Live':'Lock';
+                        tem += '<tr>\n' +
+                            '<td>' + i + '</td>\n' +
+                            '<td>' + data[i].username + '</td>\n' +
+                            '<td>' + data[i].password + '</td>\n' +
+                            '<td>' + data[i].name + '</td>\n' +
+                            '<td>' + data[i].email + '</td>\n' +
+                            '<td>' + data[i].phone + '</td>\n' +
+                            '<td>' + data[i].datecreated + '</td>\n' +
+                            '<td>' + data[i].role + '</td>\n' +
+                            '<td>' + cl + '</td>\n' +
+                            '<td><a class="btn btn-amber btn-sm" href="">Edit</a></td>\n' +
+                            '</tr>';
+                    }
+                    $('#dataUser').html(tem);
+                },
+                error: function (e) {
+                    console.log(e.message());
+                }
+            });
+        }
     });
 
-    $.fn.serializeObject = function()
-    {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name] !== undefined) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
 
-    function loadUser() {
-        $.ajax({
-            url: 'http://localhost:8080/api/getlistuser',
-            type: 'POST',
-            dataType: 'JSON',
-            success: function (data) {
-                var tem = '';
-                for (var i = 0; i < data.length; i++) {
-                    var cl = data[i].stt==0?'Live':'Lock';
-                    tem += '<tr>\n' +
-                        '<td>' + i + '</td>\n' +
-                        '<td>' + data[i].username + '</td>\n' +
-                        '<td>' + data[i].password + '</td>\n' +
-                        '<td>' + data[i].name + '</td>\n' +
-                        '<td>' + data[i].email + '</td>\n' +
-                        '<td>' + data[i].phone + '</td>\n' +
-                        '<td>' + data[i].datecreated + '</td>\n' +
-                        '<td>' + data[i].role + '</td>\n' +
-                        '<td>' + cl + '</td>\n' +
-                        '<td><a class="btn btn-amber btn-sm" href="">Edit</a></td>\n' +
-                        '</tr>';
-                }
-                $('#dataUser').html(tem);
-            },
-            error: function (e) {
-                console.log(e.message());
-            }
-        });
-    }
 </script>
 
 </html>
