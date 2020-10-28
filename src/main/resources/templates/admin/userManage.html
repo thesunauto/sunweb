@@ -191,6 +191,21 @@
         $('#btnsub').click(function () {
             var formData = $("#formMaster").serializeObject();
             console.log(formData)
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function(data){
+                    loadUser();
+                    app.log("device control succeeded");
+                },
+                error: function(){
+                    app.log("Device control failed");
+                },
+                processData: false,
+                type: 'POST',
+                url: 'http://localhost:8080/api/save'
+            });
         });
 
     });
