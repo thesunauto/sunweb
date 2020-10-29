@@ -50,7 +50,9 @@
                             <H3 class="my-auto float-left">List account</H3>
                         </div>
                         <div class="col-sm">
-                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd" onclick="$('#formMaster')[0].reset()">New
+                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd"
+                                    id="addUser">
+                                New
                                 user
                             </button>
                         </div>
@@ -114,31 +116,37 @@
                         </div>
                         <!-- Body -->
                         <form id="formMaster">
+                            <input type="hidden" name="datecreated" id="datecreatedUser">
                             <div class="modal-body mb-0">
                                 <div class="md-form form-sm">
                                     <i class="fas fa-user prefix"></i>
-                                    <input placeholder="Enter username" name="username" type="text" id="usernameUser" class="form-control form-control-sm">
+                                    <input placeholder="Enter username" name="username" type="text" id="usernameUser"
+                                           class="form-control form-control-sm">
                                     <label for="usernameUser">Username</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-key prefix"></i>
-                                    <input placeholder="Enter password" name="password" type="password" id="passwordUser"
+                                    <input placeholder="Enter password" name="password" type="password"
+                                           id="passwordUser"
                                            class="form-control form-control-sm">
                                     <label for="passwordUser">Password</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-user prefix"></i>
-                                    <input placeholder="Enter name" name="name" type="text" id="nameUser" class="form-control form-control-sm">
+                                    <input placeholder="Enter name" name="name" type="text" id="nameUser"
+                                           class="form-control form-control-sm">
                                     <label for="nameUser">Name</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input placeholder="Enter email" name="email" type="text" id="emailUser" class="form-control form-control-sm">
+                                    <input placeholder="Enter email" name="email" type="text" id="emailUser"
+                                           class="form-control form-control-sm">
                                     <label for="emailUser">Email</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input placeholder="Enter phone" name="phone" type="text" id="phoneUser" class="form-control form-control-sm">
+                                    <input placeholder="Enter phone" name="phone" type="text" id="phoneUser"
+                                           class="form-control form-control-sm">
                                     <label for="phoneUser">Phone</label>
                                 </div>
                                 <div class="md-form form-sm">
@@ -159,7 +167,7 @@
                                 </div>
 
                                 <div class="text-center mt-1-half">
-                                    <button type="button" id="btnsub" class="btn btn-info mb-2">Create <i
+                                    <button type="button" id="btnsub" class="btn btn-info mb-2">Confirm <i
                                             class="fas fa-paper-plane ml-1"></i></button>
                                 </div>
 
@@ -194,34 +202,54 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function () {
-        var listUser={};
-
+        var listUser = {};
+        var message = '';
+        $('body').ready(loadUser());
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
         $('.mdb-select').materialSelect();
+        $('#addUser').click(function () {
+            $('#formMaster')[0].reset();
+            $('#usernameUser').prop('readonly', false);
+            $('#datecreatedUser').val(new Date().getHours() + ':' + new Date().getMinutes() + ' ' + new Date().getDate() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getFullYear());
+            message = 'User added ';
+        });
         $('#btnsub').click(function () {
             var formData = $("#formMaster").serializeObject();
-            $.ajax({
-                contentType: 'application/json',
-                data: JSON.stringify(formData),
-                dataType: 'json',
-                success: function (data) {
-                    toastr.success('Thêm bài viết thành công', '', {positionClass: 'md-toast-top-right'});
-                    $('#toast-container').attr('class', 'md-toast-top-right');
-                    $("#modalAdd").modal('hide');
-                },
-                error: function (e) {
-                    toastr.danger('Thêm bài viết thất bại', '', {positionClass: 'md-toast-top-right'});
-                    $('#toast-container').attr('class', 'md-toast-top-right');
-                },
-                processData: false,
-                type: 'POST',
-                url: 'http://localhost:8080/api/save'
-            });
+            var usernameip = $("#usernameUser").val();
+            if (checkUser(usernameip)) {
+                $.ajax({
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    dataType: 'json',
+                    success: function (data) {
+                        toastr.success(message + 'successfully', '', {positionClass: 'md-toast-top-right'});
+                        $('#toast-container').attr('class', 'md-toast-top-right');
+                        $("#modalAdd").modal('hide');
+                    },
+                    error: function (e) {
+                        toastr.error(message + 'unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                        $('#toast-container').attr('class', 'md-toast-top-right');
+                    },
+                    processData: false,
+                    type: 'POST',
+                    url: 'http://localhost:8080/api/saveuser'
+                });
+            } else {
+                toastr.warning('username is exists', '', {positionClass: 'md-toast-top-right'});
+            }
 
 
         });
+        function checkUser(a){
+            if(message == 'User added '){
+                for (var i = 0; i < listUser.length; i++) {
+                    if(listUser[i].username == a){return false}
+                }
+            }
+            return true;
+        };
         $.fn.serializeObject = function () {
             var o = {};
             var a = this.serializeArray();
@@ -237,10 +265,12 @@
             });
             return o;
         };
-        $(document).on("click","option.fillUser",function () {
+        $(document).on("click", "option.fillUser", function () {
             var ob = $(this).val();
-            for(var i =0;i<listUser.length;i++){
-                if(listUser[i].username==ob){
+            for (var i = 0; i < listUser.length; i++) {
+                if (listUser[i].username == ob) {
+                    message = 'User repaired ';
+                    $('#usernameUser').prop('readonly', true);
                     $('#usernameUser').val(listUser[i].username);
                     $('#passwordUser').val(listUser[i].password);
                     $('#nameUser').val(listUser[i].name);
@@ -248,6 +278,7 @@
                     $('#phoneUser').val(listUser[i].phone);
                     $('#statusUser').val(listUser[i].stt).change();
                     $('#roleUser').val(listUser[i].role).change();
+                    $('#datecreatedUser').val(listUser[i].datecreated);
                     break;
                 }
             }
@@ -259,7 +290,7 @@
                 type: 'POST',
                 dataType: 'JSON',
                 success: function (data) {
-                    listUser=data;
+                    listUser = data;
                     var tem = '';
                     for (var i = 0; i < data.length; i++) {
                         var cl = listUser[i].stt == 0 ? 'Live' : 'Lock';
@@ -273,7 +304,7 @@
                             '<td>' + listUser[i].datecreated + '</td>\n' +
                             '<td>' + listUser[i].role + '</td>\n' +
                             '<td>' + cl + '</td>\n' +
-                            '<td><option value="'+listUser[i].username+'"  data-toggle="modal" data-target="#modalAdd" type="button" class="btn btn-amber btn-sm fillUser">Edit</option></td>\n' +
+                            '<td><option value="' + listUser[i].username + '"  data-toggle="modal" data-target="#modalAdd" type="button" class="btn btn-amber btn-sm fillUser">Edit</option></td>\n' +
                             '</tr>';
                     }
                     $('#dataUser').html(tem);
@@ -284,7 +315,7 @@
                 }
             });
         };
-        setInterval(loadUser,1000);
+        setInterval(loadUser, 1024);
     });
 
 

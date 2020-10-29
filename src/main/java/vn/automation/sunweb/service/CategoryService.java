@@ -18,6 +18,9 @@ public class CategoryService {
     }
     public List<Category> findByIdparent(Category category){
         return Optional.ofNullable(category).map(value->categoryRepository.findByCategory(value)).orElseGet(()->categoryRepository.findByCategory(null));
+    }
 
+    public Category getOne(String id){
+        return Optional.ofNullable(id).map(value->categoryRepository.getOne(value)).orElse(null);
     }
 }
