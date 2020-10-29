@@ -25,7 +25,7 @@ public class AdminRestController {
     public List<UserResponse> getListUser() {
         List<UserResponse> li = new ArrayList<>();
         userService.select().forEach(value -> {
-            li.add(new UserResponse(value.getUsername(), value.getPassword(), value.getName(), value.getDatecreated().getDayOfMonth() + "/" + value.getDatecreated().getMonthValue() + "/" + value.getDatecreated().getYear(), value.getPhone(), value.getEmail(), value.getRole(), value.getIsdelete()));
+            li.add(new UserResponse(value.getUsername(), value.getPassword(), value.getName(), value.getDatecreated().getDayOfMonth() + "/" + value.getDatecreated().getMonthValue() + "/" + value.getDatecreated().getYear(), value.getPhone(), value.getEmail(), value.getRole(),value.getIsdelete().intValue()));
         });
         return li;
     }
@@ -40,7 +40,7 @@ public class AdminRestController {
         user.setPhone(userResponse.getPhone());
         user.setRole(userResponse.getRole());
         user.setDatecreated(LocalDateTime.now());
-        user.setIsdelete(0);
+        user.setIsdelete(userResponse.getStt());
         userService.save(user);
         return ResponseEntity.ok().body(user);
     }

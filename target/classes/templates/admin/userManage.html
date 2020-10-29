@@ -142,16 +142,16 @@
                                     <label for="phoneUser">Phone</label>
                                 </div>
                                 <div class="md-form form-sm">
-                                    <label for="userRole">Role</label>
-                                    <select name="role" class="mdb-select" id="userRole">
+                                    <label for="roleUser">Role</label>
+                                    <select name="role" class="mdb-select" id="roleUser">
                                         <option value="" disabled selected>Choose role option</option>
                                         <option value="admin">Admin</option>
                                         <option value="user">Client</option>
                                     </select>
                                 </div>
                                 <div class="md-form form-sm">
-                                    <label for="isdelete">Status</label>
-                                    <select name="isdelete" class="mdb-select" id="isdelete">
+                                    <label for="statusUser">Status</label>
+                                    <select name="stt" class="mdb-select" id="statusUser">
                                         <option value="" disabled selected>Choose status option</option>
                                         <option value="0">Enable</option>
                                         <option value="1">Disable</option>
@@ -195,7 +195,7 @@
 <script>
     $(document).ready(function () {
         var listUser={};
-        $('body').ready(loadUser());
+
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
@@ -219,7 +219,7 @@
                 type: 'POST',
                 url: 'http://localhost:8080/api/save'
             });
-            setInterval(loadUser, 1000, 2);
+
 
         });
         $.fn.serializeObject = function () {
@@ -246,6 +246,8 @@
                     $('#nameUser').val(listUser[i].name);
                     $('#emailUser').val(listUser[i].email);
                     $('#phoneUser').val(listUser[i].phone);
+                    $('#statusUser').val(listUser[i].stt).change();
+                    $('#roleUser').val(listUser[i].role).change();
                     break;
                 }
             }
@@ -278,10 +280,11 @@
 
                 },
                 error: function (e) {
-                    console.log(e.message());
+
                 }
             });
         };
+        setInterval(loadUser,1000);
     });
 
 
