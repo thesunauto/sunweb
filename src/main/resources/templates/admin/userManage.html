@@ -24,7 +24,6 @@
             color: #fff
         }
     </style>
-    <script src="../../static/js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
 
@@ -51,7 +50,9 @@
                             <H3 class="my-auto float-left">List account</H3>
                         </div>
                         <div class="col-sm">
-                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd">New user</button>
+                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd" onclick="$('#formMaster')[0].reset()">New
+                                user
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -106,7 +107,8 @@
                         <!-- Header -->
                         <div class="modal-header light-blue darken-3 white-text">
                             <h4 class=""><i class="fas fa-pencil-alt"></i> Account</h4>
-                            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                                    aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -115,40 +117,50 @@
                             <div class="modal-body mb-0">
                                 <div class="md-form form-sm">
                                     <i class="fas fa-user prefix"></i>
-                                    <input name="username" type="text" id="form19" class="form-control form-control-sm">
-                                    <label for="form19">Username</label>
+                                    <input placeholder="Enter username" name="username" type="text" id="usernameUser" class="form-control form-control-sm">
+                                    <label for="usernameUser">Username</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-key prefix"></i>
-                                    <input name="password" type="password" id="form129" class="form-control form-control-sm">
-                                    <label for="form19">Password</label>
+                                    <input placeholder="Enter password" name="password" type="password" id="passwordUser"
+                                           class="form-control form-control-sm">
+                                    <label for="passwordUser">Password</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-user prefix"></i>
-                                    <input  name="name" type="text" id="form19q" class="form-control form-control-sm">
-                                    <label for="form19">Name</label>
+                                    <input placeholder="Enter name" name="name" type="text" id="nameUser" class="form-control form-control-sm">
+                                    <label for="nameUser">Name</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input  name="email" type="text" id="form230" class="form-control form-control-sm">
-                                    <label for="form230">Email</label>
+                                    <input placeholder="Enter email" name="email" type="text" id="emailUser" class="form-control form-control-sm">
+                                    <label for="emailUser">Email</label>
                                 </div>
                                 <div class="md-form form-sm">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input  name="phone" type="text" id="form210" class="form-control form-control-sm">
-                                    <label for="form210">Phone</label>
+                                    <input placeholder="Enter phone" name="phone" type="text" id="phoneUser" class="form-control form-control-sm">
+                                    <label for="phoneUser">Phone</label>
                                 </div>
                                 <div class="md-form form-sm">
-                                    <select name="role" class="mdb-select">
+                                    <label for="userRole">Role</label>
+                                    <select name="role" class="mdb-select" id="userRole">
                                         <option value="" disabled selected>Choose role option</option>
                                         <option value="admin">Admin</option>
                                         <option value="user">Client</option>
                                     </select>
                                 </div>
-
+                                <div class="md-form form-sm">
+                                    <label for="isdelete">Status</label>
+                                    <select name="isdelete" class="mdb-select" id="isdelete">
+                                        <option value="" disabled selected>Choose status option</option>
+                                        <option value="0">Enable</option>
+                                        <option value="1">Disable</option>
+                                    </select>
+                                </div>
 
                                 <div class="text-center mt-1-half">
-                                    <button type="button" id="btnsub" class="btn btn-info mb-2">Create <i class="fas fa-paper-plane ml-1"></i></button>
+                                    <button type="button" id="btnsub" class="btn btn-info mb-2">Create <i
+                                            class="fas fa-paper-plane ml-1"></i></button>
                                 </div>
 
                             </div>
@@ -182,13 +194,11 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function () {
+        var listUser={};
         $('body').ready(loadUser());
         // SideNav Initialization
         $(".button-collapse").sideNav();
         new WOW().init();
-        $('#tblUser').DataTable({
-            "pagingType": "full_numbers"
-        });
         $('.mdb-select').materialSelect();
         $('#btnsub').click(function () {
             var formData = $("#formMaster").serializeObject();
@@ -196,23 +206,26 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 dataType: 'json',
-                success: function(data){
-
+                success: function (data) {
+                    toastr.success('Thêm bài viết thành công', '', {positionClass: 'md-toast-top-right'});
+                    $('#toast-container').attr('class', 'md-toast-top-right');
+                    $("#modalAdd").modal('hide');
                 },
-                error: function(e){
-                    console.log(e)
+                error: function (e) {
+                    toastr.danger('Thêm bài viết thất bại', '', {positionClass: 'md-toast-top-right'});
+                    $('#toast-container').attr('class', 'md-toast-top-right');
                 },
                 processData: false,
                 type: 'POST',
                 url: 'http://localhost:8080/api/save'
             });
-            setInterval(loadUser,1000,2);
+            setInterval(loadUser, 1000, 2);
+
         });
-        $.fn.serializeObject = function()
-        {
+        $.fn.serializeObject = function () {
             var o = {};
             var a = this.serializeArray();
-            $.each(a, function() {
+            $.each(a, function () {
                 if (o[this.name] !== undefined) {
                     if (!o[this.name].push) {
                         o[this.name] = [o[this.name]];
@@ -224,6 +237,19 @@
             });
             return o;
         };
+        $(document).on("click","option.fillUser",function () {
+            var ob = $(this).val();
+            for(var i =0;i<listUser.length;i++){
+                if(listUser[i].username==ob){
+                    $('#usernameUser').val(listUser[i].username);
+                    $('#passwordUser').val(listUser[i].password);
+                    $('#nameUser').val(listUser[i].name);
+                    $('#emailUser').val(listUser[i].email);
+                    $('#phoneUser').val(listUser[i].phone);
+                    break;
+                }
+            }
+        });
 
         function loadUser() {
             $.ajax({
@@ -231,29 +257,31 @@
                 type: 'POST',
                 dataType: 'JSON',
                 success: function (data) {
+                    listUser=data;
                     var tem = '';
                     for (var i = 0; i < data.length; i++) {
-                        var cl = data[i].stt==0?'Live':'Lock';
+                        var cl = listUser[i].stt == 0 ? 'Live' : 'Lock';
                         tem += '<tr>\n' +
                             '<td>' + i + '</td>\n' +
-                            '<td>' + data[i].username + '</td>\n' +
-                            '<td>' + data[i].password + '</td>\n' +
-                            '<td>' + data[i].name + '</td>\n' +
-                            '<td>' + data[i].email + '</td>\n' +
-                            '<td>' + data[i].phone + '</td>\n' +
-                            '<td>' + data[i].datecreated + '</td>\n' +
-                            '<td>' + data[i].role + '</td>\n' +
+                            '<td class="usernameUser">' + listUser[i].username + '</td>\n' +
+                            '<td>' + listUser[i].password + '</td>\n' +
+                            '<td>' + listUser[i].name + '</td>\n' +
+                            '<td>' + listUser[i].email + '</td>\n' +
+                            '<td>' + listUser[i].phone + '</td>\n' +
+                            '<td>' + listUser[i].datecreated + '</td>\n' +
+                            '<td>' + listUser[i].role + '</td>\n' +
                             '<td>' + cl + '</td>\n' +
-                            '<td><a class="btn btn-amber btn-sm" href="">Edit</a></td>\n' +
+                            '<td><option value="'+listUser[i].username+'"  data-toggle="modal" data-target="#modalAdd" type="button" class="btn btn-amber btn-sm fillUser">Edit</option></td>\n' +
                             '</tr>';
                     }
                     $('#dataUser').html(tem);
+
                 },
                 error: function (e) {
                     console.log(e.message());
                 }
             });
-        }
+        };
     });
 
 
