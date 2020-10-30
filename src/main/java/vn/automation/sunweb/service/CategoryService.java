@@ -7,6 +7,7 @@ import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.User;
 import vn.automation.sunweb.repository.CategoryRepository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -19,7 +20,9 @@ public class CategoryService {
     public List<Category> findByIdparent(Category category){
         return Optional.ofNullable(category).map(value->categoryRepository.findByCategory(value)).orElseGet(()->categoryRepository.findByCategory(null));
     }
-
+    public Collection<Category> findByIdparent(String category){
+        return Optional.ofNullable(category).map(value->categoryRepository.getOne(value).getCategories()).orElseGet(()->categoryRepository.findByCategory(null));
+    }
     public Category getOne(String id){
         return Optional.ofNullable(id).map(value->categoryRepository.getOne(value)).orElse(null);
     }

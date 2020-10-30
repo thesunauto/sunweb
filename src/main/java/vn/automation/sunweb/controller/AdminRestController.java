@@ -57,7 +57,27 @@ public class AdminRestController {
 
     @PostMapping("/getlistCategory/{id}")
     public ResponseEntity getListCategory(@PathVariable(value = "id") String id) {
-      return null;
+        List<CategoryResponse> responseList = new ArrayList<>();
+        categoryService.findByIdparent(id).forEach(value -> {
+            CategoryResponse response = new CategoryResponse();
+            response.setId(value.getId());
+            response.setTitle(value.getTitle());
+            response.setMetatitle(value.getMetatitle());
+            response.setDetail(value.getDetail());
+            if(value.getCategory().getCategory()!=null){
+                response.setHasParent(true);
+
+                    response.setIdParent(value.getCategory().getCategory().getId());
+
+
+                response.setParentTitle(value.getCategory().getTitle());
+            }else {response.setIdParent(null);
+                response.setHasParent(false);
+            }
+            response.setHasChild(!value.getCategories().isEmpty());
+            responseList.add(response);
+        });
+        return ResponseEntity.ok().body(responseList);
     }
 
 //    CategoryAPI
