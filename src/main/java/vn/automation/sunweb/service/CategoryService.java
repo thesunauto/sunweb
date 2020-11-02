@@ -24,6 +24,9 @@ public class CategoryService {
         return Optional.ofNullable(category).map(value->categoryRepository.getOne(value).getCategories()).orElseGet(()->categoryRepository.findByCategory(null));
     }
     public Category getOne(String id){
-        return Optional.ofNullable(id).map(value->categoryRepository.getOne(value)).orElse(null);
+        return categoryRepository.findById(id).orElse(new Category());
     }
+
+
+
 }

@@ -17,5 +17,5 @@ public class CategoryResponse {
     private String parentTitle;
     private String idParent;
     private Boolean hasParent;
-    private Boolean hasChild;
+    private Boolean isMax;
 }

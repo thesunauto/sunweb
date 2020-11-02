@@ -48,13 +48,6 @@
                         <div class="col-sm">
                             <H3 class="my-auto float-left">List topic</H3>
                         </div>
-                        <div class="col-sm">
-                            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd"
-                                    id="addUser">
-                                New
-                                topic
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -67,7 +60,19 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="card-title h3">Chúng tôi</div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card-title h3" id="ChungToiTitle">Chúng tôi</div>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-success float-right" data-toggle="modal"
+                                    data-target="#modalAdd"
+                                    id="addUser">
+                                New
+                                topic
+                            </button>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <!-- Table -->
                         <table class="table">
@@ -119,7 +124,19 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="card-title h3">Hoạt dộng</div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card-title h3">Hoạt động</div>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-success float-right" data-toggle="modal"
+                                    data-target="#modalAdd"
+                                    id="addUser2">
+                                New
+                                topic
+                            </button>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <!-- Table -->
                         <table class="table">
@@ -192,35 +209,42 @@
             "pagingType": "full_numbers"
         });
         $('body').ready(fillCategoryChungToi(), fillCategoryHoatDong());
+        var oldIDChungToi = '';
+        var newIDChungToi = '';
         $(document).on('click', 'option.enterChungToi', function () {
-            console.log("run - enterChungToi");
+
             var id = $(this).val();
+            oldIDChungToi = newIDChungToi;
+            newIDChungToi = id;
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/' + id,
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function(){
+                beforeSend: function () {
                     $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
                 },
                 success: function (value) {
                     listCategoryChungToi = value;
-
                 },
                 complete: function () {
                     fillToTableChungToi();
                 }
             });
         });
+        var oldIDHoatDong = '';
+        var newIDHoatDong  = '';
         $(document).on('click', 'option.enterHoatDong', function () {
             console.log("run - enterHoatDong");
             var id = $(this).val();
+            oldIDHoatDong = newIDHoatDong;
+            newIDHoatDong = id;
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/' + id,
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function(){
+                beforeSend: function () {
                     $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
                 },
                 success: function (value) {
@@ -234,16 +258,15 @@
 
         });
 
-        var listCategoryChungToi = {};
-        var listCategoryHoatDong = {};
-
+        var listCategoryChungToi = [];
+        var listCategoryHoatDong = [];
         function fillCategoryChungToi() {
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/chungtoi',
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function(){
+                beforeSend: function () {
                     $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
                 },
                 success: function (data) {
@@ -261,7 +284,7 @@
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function(){
+                beforeSend: function () {
                     $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
                 },
                 success: function (data) {
@@ -284,51 +307,69 @@
                     '<td class="p-4">' + listCategoryHoatDong[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
-                    '<td>'+addOptionBack(listCategoryHoatDong[i].hasParent,listCategoryHoatDong[i].idParent,'HoatDong')+'<option class="btn btn-default btn-sm">Edit</option>'+addOptionNext(listCategoryHoatDong[i].hasChild,listCategoryHoatDong[i].id,'HoatDong')+'</td>' +
+                    '<td>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
                     '</tr>'
             }
-
+            htmlContent += '<tr>' +
+                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                '<td class="p-4">id</td>' +
+                '<td class="p-4">title</td>' +
+                '<td class="p-4">metatitle</td>' +
+                '<td class="p-4">detail</td>' +
+                '<td class="p-4">parentTitle</td>' +
+                '<td>'+((listCategoryHoatDong.length==0)?addOptionBack(true,oldIDHoatDong,'HoatDong'):'')+'</td>' +
+                '</tr>';
             $('#dataCategory2').html(htmlContent);
+
         };
 
         function fillToTableChungToi() {
             var htmlContent = '';
+
             for (var i = 0; i < listCategoryChungToi.length; i++) {
                 htmlContent +=
-                    '<tr class="wow fadeIn"  data-wow-delay="0.6s">' +
+                    '<tr>' +
                     '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
                     '<td class="p-4">' + listCategoryChungToi[i].id + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].title + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
-                    '<td>'+addOptionBack(listCategoryChungToi[i].hasParent,listCategoryChungToi[i].idParent,'ChungToi')+'<option class="btn btn-default btn-sm">Edit</option>'+addOptionNext(listCategoryChungToi[i].hasChild,listCategoryChungToi[i].id,'ChungToi')+'</td>' +
-                    '</tr>'
+                    '<td>' + addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') + '</td>' +
+                    '</tr>';
             }
-
+            htmlContent += '<tr>' +
+                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                '<td class="p-4">id</td>' +
+                '<td class="p-4">title</td>' +
+                '<td class="p-4">metatitle</td>' +
+                '<td class="p-4">detail</td>' +
+                '<td class="p-4">parentTitle</td>' +
+                '<td>'+((listCategoryChungToi.length==0)?addOptionBack(true,oldIDChungToi,'ChungToi'):'')+'</td>' +
+                '</tr>';
             $('#dataCategory').html(htmlContent);
         };
 
-        function addOptionNext(haschild,value,enter) {
-            if(haschild){
-                return '<option value="' + value + '" class="btn btn-default btn-sm enter'+enter+'"> >> </option>';
-            }else {
+        function addOptionNext(isMax, value, enter) {
+            if (!isMax) {
+                return '<option value="' + value + '" class="btn-next btn btn-default btn-sm enter' + enter + '"> >> </option>';
+            } else {
                 return '';
             }
         };
 
-        function addOptionBack(hasparent,value,enter) {
-            if(hasparent){
-                return '<option value="' + value + '" class="btn btn-default btn-sm enter'+enter+'"> << </option>';
-            }else {
+        function addOptionBack(hasparent, value, enter) {
+            if (hasparent) {
+                return '<option value="' + value + '" class="btn-back btn btn-default btn-sm enter' + enter + '"> << </option>';
+            } else {
                 return '';
             }
         };
 
 
-        $('#loading-image').bind('ajaxStart', function(){
+        $('#loading-image').bind('ajaxStart', function () {
             $(this).hide();
-        }).bind('ajaxStop', function(){
+        }).bind('ajaxStop', function () {
             $(this).show();
         });
     });

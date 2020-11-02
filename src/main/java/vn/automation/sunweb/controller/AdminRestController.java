@@ -74,7 +74,15 @@ public class AdminRestController {
             }else {response.setIdParent(null);
                 response.setHasParent(false);
             }
-            response.setHasChild(!value.getCategories().isEmpty());
+
+            response.setIsMax(false);
+
+            try{
+                response.setIsMax(categoryService.getOne(value.getId()).getCategory().getCategory().getCategory().getCategory()==null);
+            }catch (Exception e){
+            }
+
+
             responseList.add(response);
         });
         return ResponseEntity.ok().body(responseList);
