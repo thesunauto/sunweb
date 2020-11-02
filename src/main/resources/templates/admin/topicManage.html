@@ -198,6 +198,9 @@
             var id = $(this).val();
             oldIDChungToi = newIDChungToi;
             newIDChungToi = id;
+            fillByParentChungToi(id);
+        });
+        function fillByParentChungToi(id) {
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/' + id,
                 type: 'POST',
@@ -213,7 +216,10 @@
                     fillToTableChungToi();
                 }
             });
-        });
+        }
+
+
+
         var oldIDHoatDong = 'hoatdong';
         var newIDHoatDong = 'hoatdong';
         $(document).on('click', 'option.enterHoatDong', function () {
@@ -221,25 +227,26 @@
             var id = $(this).val();
             oldIDHoatDong = newIDHoatDong;
             newIDHoatDong = id;
-            $.ajax({
-                url: 'http://localhost:8080/api/getlistCategory/' + id,
-                type: 'POST',
-                dataType: 'JSON',
-                processData: false,
-                beforeSend: function () {
-                    $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-                },
-                success: function (value) {
-                    listCategoryHoatDong = value;
-
-                },
-                complete: function () {
-                    fillToTableHoatDong();
-                }
-            });
-
+            fillByParentHoatDong(id);
         });
+        function fillByParentHoatDong(id) {
+    $.ajax({
+        url: 'http://localhost:8080/api/getlistCategory/' + id,
+        type: 'POST',
+        dataType: 'JSON',
+        processData: false,
+        beforeSend: function () {
+            $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+        },
+        success: function (value) {
+            listCategoryHoatDong = value;
 
+        },
+        complete: function () {
+            fillToTableHoatDong();
+        }
+    });
+}
         var listCategoryChungToi = [];
         var listCategoryHoatDong = [];
 
@@ -373,7 +380,7 @@
                 dataType: 'json',
                 success: function () {
                     toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
-                    fillCategoryChungToi();
+                    fillByParentChungToi(newIDChungToi)
                 },
                 error: function () {
                     toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
@@ -392,7 +399,7 @@
                 dataType: 'json',
                 success: function (data) {
                     toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
-                    fillCategoryHoatDong();
+                    fillByParentHoatDong(newIDHoatDong);
                 },
                 error: function (e) {
                     toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
