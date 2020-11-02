@@ -60,54 +60,45 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="card-title h3" id="ChungToiTitle">Chúng tôi</div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-success float-right" data-toggle="modal"
-                                    data-target="#modalAdd"
-                                    id="addUser">
-                                New
-                                topic
-                            </button>
-                        </div>
-                    </div>
+                    <div class="card-title h3">Chúng tôi</div>
                     <div class="table-responsive">
-                        <!-- Table -->
-                        <table class="table">
+                        <form id="formChungToi">
+                            <!-- Table -->
+                            <table class="table">
 
-                            <!-- Table head -->
-                            <thead class="mdb-color darken-3">
-                            <tr class="text-white">
-                                <th>#</th>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Meta title</th>
-                                <th>Detail</th>
-                                <th>Title parent</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <!-- Table head -->
+                                <!-- Table head -->
+                                <thead class="mdb-color darken-3">
+                                <tr class="text-white">
+                                    <th>#</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Meta title</th>
+                                    <th>Detail</th>
+                                    <th>Title parent</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <!-- Table head -->
 
-                            <!-- Table body -->
-                            <tbody id="dataCategory">
+                                <!-- Table body -->
+                                <tbody id="dataCategory">
 
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>ID</td>
-                                <td>Title</td>
-                                <td>Meta title</td>
-                                <td>Detail</td>
-                                <td>ID parent</td>
-                                <td>Title parent</td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ID</td>
+                                    <td>Title</td>
+                                    <td>Meta title</td>
+                                    <td>Detail</td>
+                                    <td>ID parent</td>
+                                    <td>Title parent</td>
+                                </tr>
 
-                            </tbody>
-                            <!-- Table body -->
-                        </table>
-                        <!-- Table -->
+                                </tbody>
+                                <!-- Table body -->
+                            </table>
+                            <!-- Table -->
+                        </form>
+
                     </div>
 
 
@@ -124,54 +115,45 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="card-title h3">Hoạt động</div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-success float-right" data-toggle="modal"
-                                    data-target="#modalAdd"
-                                    id="addUser2">
-                                New
-                                topic
-                            </button>
-                        </div>
-                    </div>
+                    <div class="card-title h3">Hoạt động</div>
                     <div class="table-responsive">
-                        <!-- Table -->
-                        <table class="table">
+                        <form id="formHoatDong">
+                            <!-- Table -->
+                            <table class="table">
 
-                            <!-- Table head -->
-                            <thead class="mdb-color darken-3">
-                            <tr class="text-white">
-                                <th>#</th>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Meta title</th>
-                                <th>Detail</th>
-                                <th>Title parent</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <!-- Table head -->
+                                <!-- Table head -->
+                                <thead class="mdb-color darken-3">
+                                <tr class="text-white">
+                                    <th>#</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Meta title</th>
+                                    <th>Detail</th>
+                                    <th>Title parent</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <!-- Table head -->
 
-                            <!-- Table body -->
-                            <tbody id="dataCategory2">
+                                <!-- Table body -->
+                                <tbody id="dataCategory2">
 
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>ID</td>
-                                <td>Title</td>
-                                <td>Meta title</td>
-                                <td>Detail</td>
-                                <td>ID parent</td>
-                                <td>Title parent</td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ID</td>
+                                    <td>Title</td>
+                                    <td>Meta title</td>
+                                    <td>Detail</td>
+                                    <td>ID parent</td>
+                                    <td>Title parent</td>
+                                </tr>
 
-                            </tbody>
-                            <!-- Table body -->
-                        </table>
-                        <!-- Table -->
+                                </tbody>
+                                <!-- Table body -->
+                            </table>
+                            <!-- Table -->
+                        </form>
+
                     </div>
 
 
@@ -209,8 +191,8 @@
             "pagingType": "full_numbers"
         });
         $('body').ready(fillCategoryChungToi(), fillCategoryHoatDong());
-        var oldIDChungToi = '';
-        var newIDChungToi = '';
+        var oldIDChungToi = 'chungtoi';
+        var newIDChungToi = 'chungtoi';
         $(document).on('click', 'option.enterChungToi', function () {
 
             var id = $(this).val();
@@ -232,8 +214,8 @@
                 }
             });
         });
-        var oldIDHoatDong = '';
-        var newIDHoatDong  = '';
+        var oldIDHoatDong = 'hoatdong';
+        var newIDHoatDong = 'hoatdong';
         $(document).on('click', 'option.enterHoatDong', function () {
             console.log("run - enterHoatDong");
             var id = $(this).val();
@@ -260,15 +242,13 @@
 
         var listCategoryChungToi = [];
         var listCategoryHoatDong = [];
+
         function fillCategoryChungToi() {
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/chungtoi',
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function () {
-                    $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-                },
                 success: function (data) {
                     listCategoryChungToi = data;
                 },
@@ -284,9 +264,6 @@
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
-                beforeSend: function () {
-                    $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-                },
                 success: function (data) {
                     listCategoryHoatDong = data;
                 },
@@ -307,19 +284,20 @@
                     '<td class="p-4">' + listCategoryHoatDong[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
-                    '<td>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
+                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
                     '</tr>'
             }
-            htmlContent += '<tr>' +
+            htmlContent += ' <tr>' +
                 '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                '<td class="p-4">id</td>' +
-                '<td class="p-4">title</td>' +
-                '<td class="p-4">metatitle</td>' +
-                '<td class="p-4">detail</td>' +
-                '<td class="p-4">parentTitle</td>' +
-                '<td>'+((listCategoryHoatDong.length==0)?addOptionBack(true,oldIDHoatDong,'HoatDong'):'')+'</td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                '<td class="p-4"></td>' +
+                '<td><option value="'+newIDHoatDong+'" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory2').html(htmlContent);
+
         };
 
         function fillToTableChungToi() {
@@ -334,17 +312,21 @@
                     '<td class="p-4">' + listCategoryChungToi[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
-                    '<td>' + addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') + '</td>' +
+                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option>' +
+                    addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
+
+                    addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
+                    '</td>' +
                     '</tr>';
             }
             htmlContent += '<tr>' +
                 '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                '<td class="p-4">id</td>' +
-                '<td class="p-4">title</td>' +
-                '<td class="p-4">metatitle</td>' +
-                '<td class="p-4">detail</td>' +
-                '<td class="p-4">parentTitle</td>' +
-                '<td>'+((listCategoryChungToi.length==0)?addOptionBack(true,oldIDChungToi,'ChungToi'):'')+'</td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                '<td class="p-4"></td>' +
+                '<td><option value="'+newIDChungToi+'" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory').html(htmlContent);
         };
@@ -365,13 +347,66 @@
             }
         };
 
+        // them
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
 
-        $('#loading-image').bind('ajaxStart', function () {
-            $(this).hide();
-        }).bind('ajaxStop', function () {
-            $(this).show();
+        $(document).on('click','#addChungtoi',function () {
+            console.log($(this).val());
+            var formData = $('#formChungToi').serializeObject();
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function () {
+                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                    fillCategoryChungToi();
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                },
+                processData: false,
+                type: 'POST',
+                url: '/api/addtopic/'+$(this).val()
+            });
         });
+        $(document).on('click','#addHoatDong',function () {
+            console.log($(this).val());
+            var formData = $('#formHoatDong').serializeObject();
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function (data) {
+                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                    fillCategoryHoatDong();
+                },
+                error: function (e) {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                },
+                processData: false,
+                type: 'POST',
+                url: '/api/addtopic/'+$(this).val()
+            });
+
+        });
+
+        // them
     });
+
 </script>
 
 </html>

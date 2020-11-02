@@ -1,6 +1,7 @@
 package vn.automation.sunweb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.commons.CategoryResponse;
@@ -11,6 +12,7 @@ import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.UserService;
 
+import javax.swing.text.html.parser.Entity;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -88,5 +90,12 @@ public class AdminRestController {
         return ResponseEntity.ok().body(responseList);
     }
 
+
+    @PostMapping("/addtopic/{id}")
+    public ResponseEntity addTopic(@PathVariable String id,@RequestBody CategoryResponse categoryResponse){
+        categoryResponse.setIdParent(id);
+        System.out.println(categoryResponse);
+        return ResponseEntity.ok().body(categoryService.save(categoryResponse));
+    }
 //    CategoryAPI
 }
