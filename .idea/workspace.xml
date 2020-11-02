@@ -28,7 +28,6 @@
     <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="Xong xong them danh muc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604298752068</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Xong xong them danh muc">
+      <created>1604310741662</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1604310741662</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +426,8 @@
     <MESSAGE value="xong Nguoi dung" />
     <MESSAGE value="Xong hiển thị quản lí người dùng" />
     <MESSAGE value="Xong hiển thị quản lí danh mục" />
-    <option name="LAST_COMMIT_MESSAGE" value="Xong hiển thị quản lí danh mục" />
+    <MESSAGE value="Xong xong them danh muc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Xong xong them danh muc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="859" y="386" width="419" height="308" key="#Assign_Data_Sources" timestamp="1603868977988">
@@ -553,11 +560,11 @@
     </state>
     <state x="165" y="0" width="996" height="710" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602834912412" />
     <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603763730034" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1604298767992">
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1604310749710">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604298767992" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1604310749710" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

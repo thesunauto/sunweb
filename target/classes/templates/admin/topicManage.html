@@ -200,6 +200,7 @@
             newIDChungToi = id;
             fillByParentChungToi(id);
         });
+
         function fillByParentChungToi(id) {
             $.ajax({
                 url: 'http://localhost:8080/api/getlistCategory/' + id,
@@ -219,7 +220,6 @@
         }
 
 
-
         var oldIDHoatDong = 'hoatdong';
         var newIDHoatDong = 'hoatdong';
         $(document).on('click', 'option.enterHoatDong', function () {
@@ -229,24 +229,26 @@
             newIDHoatDong = id;
             fillByParentHoatDong(id);
         });
-        function fillByParentHoatDong(id) {
-    $.ajax({
-        url: 'http://localhost:8080/api/getlistCategory/' + id,
-        type: 'POST',
-        dataType: 'JSON',
-        processData: false,
-        beforeSend: function () {
-            $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-        },
-        success: function (value) {
-            listCategoryHoatDong = value;
 
-        },
-        complete: function () {
-            fillToTableHoatDong();
+        function fillByParentHoatDong(id) {
+            $.ajax({
+                url: 'http://localhost:8080/api/getlistCategory/' + id,
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                beforeSend: function () {
+                    $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+                },
+                success: function (value) {
+                    listCategoryHoatDong = value;
+
+                },
+                complete: function () {
+                    fillToTableHoatDong();
+                }
+            });
         }
-    });
-}
+
         var listCategoryChungToi = [];
         var listCategoryHoatDong = [];
 
@@ -291,7 +293,7 @@
                     '<td class="p-4">' + listCategoryHoatDong[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
-                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
+                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
                     '</tr>'
             }
             htmlContent += ' <tr>' +
@@ -301,7 +303,7 @@
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
-                '<td><option value="'+newIDHoatDong+'" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
+                '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory2').html(htmlContent);
 
@@ -319,7 +321,7 @@
                     '<td class="p-4">' + listCategoryChungToi[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
-                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option>' +
+                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm">Delete</option>' +
                     addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
 
                     addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
@@ -333,7 +335,7 @@
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
-                '<td><option value="'+newIDChungToi+'" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
+                '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory').html(htmlContent);
         };
@@ -371,7 +373,7 @@
             return o;
         };
 
-        $(document).on('click','#addChungtoi',function () {
+        $(document).on('click', '#addChungtoi', function () {
             console.log($(this).val());
             var formData = $('#formChungToi').serializeObject();
             $.ajax({
@@ -387,10 +389,10 @@
                 },
                 processData: false,
                 type: 'POST',
-                url: '/api/addtopic/'+$(this).val()
+                url: '/api/addtopic/' + $(this).val()
             });
         });
-        $(document).on('click','#addHoatDong',function () {
+        $(document).on('click', '#addHoatDong', function () {
             console.log($(this).val());
             var formData = $('#formHoatDong').serializeObject();
             $.ajax({
@@ -406,12 +408,22 @@
                 },
                 processData: false,
                 type: 'POST',
-                url: '/api/addtopic/'+$(this).val()
+                url: '/api/addtopic/' + $(this).val()
             });
 
         });
 
         // them
+
+
+        // xoa
+        $(document).on('click', '.deleteChungToi', function () {
+            console.log($(this).val());
+        });
+        $(document).on('click', '.deleteHoatDong', function () {
+            console.log($(this).val());
+        });
+        // xoa
     });
 
 </script>
