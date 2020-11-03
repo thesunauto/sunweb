@@ -162,6 +162,200 @@
 
         </section>
         <!-- Section: Basic examples -->
+        <section>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are u sure?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            You really want to delete this item
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEdit"
+                 aria-hidden="true">
+                <div class="modal-dialog cascading-modal" role="document">
+                    <!-- Content -->
+                    <div class="modal-content">
+
+                        <!-- Modal cascading tabs -->
+                        <div class="modal-c-tabs">
+
+                            <!-- Nav tabs -->
+                            <ul class="nav md-tabs tabs-2 light-blue darken-3" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#panel17" role="tab"><i
+                                            class="fas fa-cogs mr-1"></i>
+                                        Hoạt động</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel18" role="tab"><i
+                                            class="fas fa-user-friends mr-1"></i>
+                                        Chúng tôi</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panels -->
+                            <div class="tab-content">
+                                <!-- Panel 17 -->
+                                <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
+
+                                    <!-- Body -->
+                                    <div class="modal-body mb-1">
+                                        <div class="navbar navbar-light grey lighten-4  m-1"
+                                             th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("hoatdong").get())}'>
+
+                                            <!-- Navbar brand -->
+                                            <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+
+
+
+                                            <!-- Collapse button -->
+                                            <button class="navbar-toggler toggler-example" type="button"
+                                                    data-toggle="collapse"
+                                                    data-target="#chungToi1"
+                                                    th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                                    aria-expanded="false" aria-label="Toggle navigation"><span
+                                                    class="dark-blue-text"
+                                                    th:if="!${ct.categories.isEmpty()}">
+                                                <i class="far fa-caret-square-down"></i></span>
+                                            </button>
+
+                                            <!-- Collapsible content -->
+                                            <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
+
+                                                <!-- Links -->
+                                                <ul class="navbar-nav mr-auto">
+                                                    <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                        th:each='ct1 : ${ct.categories}'>
+                                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+
+                                                        <button class="navbar-toggler toggler-example" type="button"
+                                                                data-toggle="collapse"
+                                                                data-target="#chungToi1"
+                                                                th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                                                class="dark-blue-text"
+                                                                th:if="!${ct1.categories.isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                                        </button>
+                                                        <div class="collapse navbar-collapse"
+                                                             th:id="menuChungtoi+*{ct1.getId()}">
+                                                            <ul class="navbar-nav mr-auto">
+                                                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                                    th:each='ct2 : ${ct1.categories}'>
+                                                                    <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct2.getTitle()}"  th:value="*{ct2.getId()}"></option>
+
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <!-- Links -->
+
+                                            </div>
+                                            <!-- Collapsible content -->
+
+                                        </div>
+                                    </div>
+                                    <!-- Footer -->
+
+
+                                </div>
+                                <!-- Panel 7 -->
+
+                                <!-- Panel 18 -->
+                                <div class="tab-pane fade" id="panel18" role="tabpanel">
+
+                                    <!-- Body -->
+                                    <div class="modal-body">
+
+                                        <div class="navbar navbar-light grey lighten-4  m-1"
+                                             th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("chungtoi").get())}'>
+
+                                            <!-- Navbar brand -->
+                                            <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+
+
+                                            <!-- Collapse button -->
+                                            <button class="navbar-toggler toggler-example" type="button"
+                                                    data-toggle="collapse"
+                                                    data-target="#chungToi1"
+                                                    th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                                    aria-expanded="false" aria-label="Toggle navigation"><span
+                                                    class="dark-blue-text"
+                                                    th:if="!${ct.categories.isEmpty()}">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                                            <!-- Collapsible content -->
+                                            <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
+
+                                                <!-- Links -->
+                                                <ul class="navbar-nav mr-auto">
+                                                    <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                        th:each='ct1 : ${ct.categories}'>
+                                                        <option style="cursor: pointer;"  class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+                                                        <button class="navbar-toggler toggler-example" type="button"
+                                                                data-toggle="collapse"
+                                                                data-target="#chungToi1"
+                                                                th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                                                class="dark-blue-text"
+                                                                th:if="!${ct1.categories.isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                                        </button>
+                                                        <div class="collapse navbar-collapse"
+                                                             th:id="menuChungtoi+*{ct1.getId()}">
+                                                            <ul class="navbar-nav mr-auto">
+                                                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                                    th:each='ct2 : ${ct1.categories}'>
+                                                                    <option style="cursor: pointer;"  class="navbar-brand black-text"  th:value="*{ct2.getId()}"
+                                                                            th:text="*{ct2.getTitle()}"></option>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <!-- Links -->
+
+                                            </div>
+                                            <!-- Collapsible content -->
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- Footer -->
+
+                                </div>
+                                <!-- Panel 8 -->
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Content -->
+                </div>
+            </div>
+        </section>
     </div>
 
 
@@ -293,7 +487,7 @@
                     '<td class="p-4">' + listCategoryHoatDong[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
-                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
+                    '<td>' + '<option class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
                     '</tr>'
             }
             htmlContent += ' <tr>' +
@@ -321,7 +515,7 @@
                     '<td class="p-4">' + listCategoryChungToi[i].metatitle + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
-                    '<td>' + '<option class="btn btn-default btn-sm">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm">Delete</option>' +
+                    '<td>' + '<option class="btn btn-default btn-sm"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
                     addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
 
                     addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
