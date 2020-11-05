@@ -90,14 +90,17 @@ private UserService userService;
 
     @GetMapping("/manageUser")
     public String user(Model model) {
-        model.addAttribute("pageN", 1);
         return "admin/userManage";
     }
 
     @GetMapping("/manageTopic")
     public String topic(Model model) {
-        model.addAttribute("pageN", 2);
         return "admin/topicManage";
+    }
+
+    @GetMapping("/managePost")
+    public String post(Model model) {
+        return "admin/postManage";
     }
 
 }

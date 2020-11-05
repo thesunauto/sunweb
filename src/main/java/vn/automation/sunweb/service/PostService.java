@@ -18,6 +18,10 @@ public class PostService {
         return Optional.ofNullable(limit).map(value->postRepository.findAll(PageRequest.of(0,limit)).getContent()).orElseGet(()->postRepository.findAll());
     }
 
+    public List<Post> findAll(Integer page, Integer limit){
+        return postRepository.findAll(PageRequest.of(page,limit)).getContent();
+    }
+
     public Post findById(Integer id){
         return Optional.ofNullable(id).map(value -> postRepository.findById(id).get()).orElseGet(()->postRepository.findById(1).get());
     }
@@ -33,4 +37,5 @@ public class PostService {
         post.setContext(idPost+".html");
         return  postRepository.save(post);
     }
+
 }

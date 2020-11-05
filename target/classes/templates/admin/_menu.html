@@ -6,16 +6,18 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li th:class="${pageN==0}?'nav-link active':'nav-link'">
+            <li th:class="${#httpServletRequest.getRequestURI()=='/admin'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin}">Bài viết mới</a>
             </li>
-            <li th:class="${pageN==1}?'nav-link active':'nav-link'">
+            <li th:class="${#httpServletRequest.getRequestURI()=='/admin/manageUser'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/manageUser}">Quản lí người dùng</a>
             </li>
-            <li th:class="${pageN==2}?'nav-link active':'nav-link'">
+            <li th:class="${#httpServletRequest.getRequestURI()=='/admin/manageTopic'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/manageTopic}">Quản lí danh mục</a>
             </li>
-
+            <li th:class="${#httpServletRequest.getRequestURI()=='/admin/managePost'}?'nav-link active':'nav-link'">
+                <a class="nav-link" th:href="@{/admin/managePost}">Quản lí bài viết</a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item dropdown">

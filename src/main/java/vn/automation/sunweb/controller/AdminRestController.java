@@ -5,11 +5,14 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.commons.CategoryResponse;
+import vn.automation.sunweb.commons.PostResponse;
 import vn.automation.sunweb.commons.UserResponse;
 import vn.automation.sunweb.entity.Category;
+import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.entity.User;
 import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.service.CategoryService;
+import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
 
 import javax.swing.text.html.parser.Entity;
@@ -26,6 +29,8 @@ public class AdminRestController {
     private UserService userService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private PostService postService;
 
     //    UserAPI
     @PostMapping("/getlistuser")
@@ -121,4 +126,36 @@ public class AdminRestController {
        return categoryService.edit(categoryResponse);
     }
 //    CategoryAPI
+
+
+//    PostAPI
+
+    @PostMapping("/getlistPost-{page}-{limit}")
+    public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page,@PathVariable(value = "limit") Integer limit){
+        List<PostResponse> postResponses = new ArrayList<>();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        postService.findAll(page,limit).forEach(post -> {
+            postResponses.add(PostResponse.builder()
+                    .idCategory(post.getCategory().getId())
+                    .id(post.getId())
+                    .title(post.getTitle())
+                    .metatitle(post.getMetatitle())
+                    .isshowindex(post.getIsshowindex())
+                    .ispublic(post.getIspulic())
+                    .dateCreated(post.getDatecreated().format(dateTimeFormatter))
+                    .dateUpdated(post.getDateupdated().format(dateTimeFormatter))
+                    .datepuliced(post.getDatepuliced().format(dateTimeFormatter))
+                    .image(post.getImage())
+                    .content(post.getContext())
+                    .build());
+        });
+
+        return ResponseEntity.ok().body(postResponses);
+    }
+
+    @PostMapping("getPageNum")
+    public ResponseEntity getPageNum(){
+        return ResponseEntity.ok().body(postService.findAll(null).size()/10+1);
+    }
+//    PostAPI
 }

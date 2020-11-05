@@ -1,10 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+
+    <!-- Your custom styles (optional) -->
+    <style>
+
+    </style>
 </head>
+
 <body>
 
+<!--Main Navigation-->
+<header>
+
+    <th:block th:include="/admin/_menu"></th:block>
+
+</header>
+<!--Main Navigation-->
+
+<!-- Main layout -->
+<main>
+    <div class="container-fluid p-5 ">
+
+        <!-- Section: Basic examples -->
+        <section>
+
+
+            <!-- Top Table UI -->
+            <div class="card p-2 mb-5">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-lg-3 col-md-12">
+
+                        <h3 class="flex-center font-weight-bold">Post Manage</h3>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Blue select -->
+                        <select class="mdb-select colorful-select dropdown-primary mx-2 md-form mt-3 md-dropdown">
+                            <option value="" disabled selected>Show only</option>
+                            <option value="1">All <span> (2000)</span></option>
+                            <option value="2">Never opened <span> (200)</span></option>
+                            <option value="3">Opened but unanswered <span> (1800)</span></option>
+                            <option value="4">Answered <span> (200)</span></option>
+                            <option value="5">Unsunscribed <span> (50)</span></option>
+                        </select>
+                        <!-- /Blue select -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Blue select -->
+                        <select class="mdb-select colorful-select dropdown-primary mx-2 md-form mt-3 md-dropdown">
+                            <option value="" disabled selected>Filter segments</option>
+                            <option value="1">Contacts in no segments <span> (100)</span></option>
+                            <option value="1">Segment 1 <span> (2000)</span></option>
+                            <option value="2">Segment 2 <span> (1000)</span></option>
+                            <option value="3">Segment 3 <span> (4000)</span></option>
+                        </select>
+                        <!-- /Blue select -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-3 col-md-6">
+
+                        <form class="form-inline md-form mt-2 ml-2">
+                            <input class="form-control mt-2" type="text" placeholder="Search" style="max-width: 150px;">
+                            <button class="btn btn-sm btn-primary ml-2 px-1"><i class="fas fa-search"></i> </button>
+                        </form>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Top Table UI -->
+
+            <div class="card card-cascade narrower z-depth-1">
+
+                <!-- Card image -->
+                <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-th-large mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-columns mt-0"></i></button>
+                    </div>
+
+                    <a href="" class="white-text mx-3">Table post</a>
+
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-pencil-alt mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-eraser mt-0"></i></button>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-info-circle mt-0"></i></button>
+                    </div>
+
+                </div>
+                <!-- /Card image -->
+
+                <div class="px-4">
+
+                    <div class="table-responsive">
+                        <!-- Table -->
+                        <table class="table table-hover mb-0">
+
+                            <!-- Table head -->
+                            <thead>
+                            <tr>
+                                <th>
+                                    <input class="form-check-input" type="checkbox" id="checkbox">
+                                    <label class="form-check-label mr-2 label-table" for="checkbox"></label>
+                                </th>
+                                <th class="th-lg">ID</th>
+                                <th class="th-lg">Title</th>
+                                <th class="th-lg">Meta title</th>
+                                <th class="th-lg">Show Index</th>
+                                <th class="th-lg">Công khai</th>
+                                <th class="th-lg">Ngày tạo</th>
+                                <th class="th-lg">Ngày cập nhật</th>
+                                <th class="th-lg">Ngày công khai</th>
+                                <th class="th-lg">Hình ảnh</th>
+                            </tr>
+                            </thead>
+                            <!-- Table head -->
+
+                            <!-- Table body -->
+                            <tbody id="tablePost">
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" id="checkbox1">
+                                    <label class="form-check-label mr-2 label-table" for="checkbox1"></label>
+                                </th>
+                                <td class="th-lg">ID</td>
+                                <td class="th-lg">Title</td>
+                                <td class="th-lg">Meta title</td>
+                                <td class="th-lg">Show Index</td>
+                                <td class="th-lg">Công khai</td>
+                                <td class="th-lg">Ngày tạo</td>
+                                <td class="th-lg">Ngày cập nhật</td>
+                                <td class="th-lg">Ngày công khai</td>
+                                <td class="th-lg">Hình ảnh</td>
+                            </tr>
+                            </tbody>
+                            <!-- Table body -->
+                        </table>
+                        <!-- Table -->
+                    </div>
+
+                    <hr class="my-0">
+
+                    <!-- Bottom Table UI -->
+                    <div class="d-flex justify-content-between">
+
+
+                        <!-- Pagination -->
+                        <nav class="my-4">
+                            <ul id="dataPage" class="pagination pagination-circle pg-blue mb-0">
+
+
+                                <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link">1</a></li>
+                                <li class="page-item"><a class="page-link">2</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                                <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+
+                            </ul>
+                        </nav>
+                        <!-- /Pagination -->
+
+                    </div>
+                    <!-- Bottom Table UI -->
+
+                </div>
+            </div>
+
+        </section>
+        <!-- Section: Basic examples -->
+
+    </div>
+
+</main>
+<!-- Main layout -->
+
+
+<!-- SCRIPTS -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+<!-- Custom scripts -->
+<script>
+    // SideNav Initialization
+
+    // Material Select Initialization
+    $(document).ready(function () {
+        var listPost = [];
+        var pageNum = 0;
+        var pageNumSize = 0;
+        $('body').ready(loadPost(0));
+
+        function loadPost(page) {
+
+            $.ajax({
+                url: '/api/getlistPost-'+page+'-10',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (result) {
+                    listPost = result;fillToTablePost();
+                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+            $.ajax({
+                url: '/api/getPageNum',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    pageNumSize = data;fillPage()
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+
+
+        }
+
+        function fillToTablePost() {
+            console.log("fillToTablePost")
+            var content = '';
+            for(var i = 0; i<listPost.length;i++){
+                content += ' <tr>\n' +
+                    '<th scope="row">\n' +
+                    '<input class="form-check-input" type="checkbox" id="checkbox'+listPost[i].id+'">\n' +
+                    '<label class="form-check-label mr-2 label-table" for="checkbox'+listPost[i].id+'"></label>\n' +
+                    '</th>\n' +
+                    '<td class="th-lg">'+listPost[i].id+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].title+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].metatitle+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].isshowindex+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].ispublic+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].dateCreated+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].dateUpdated+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].datepuliced+'</td>\n' +
+                    '<td class="th-lg">'+listPost[i].image+'</td>\n' +
+                    '</tr>';
+            }
+            $('#tablePost').html(content);
+        }
+        function fillPage(){
+           var contentPage1 = '<li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>\n' +
+                '<li class="page-item disabled">\n' +
+                '<a class="page-link" aria-label="Previous">\n' +
+                '<span aria-hidden="true">&laquo;</span>\n' +
+                '<span class="sr-only">Previous</span>\n' +
+                '</a>\n' +
+                '</li>';
+           var contentPage2 = '';
+            console.log(listPost.length+' - '+listPost.length/10)
+            for(var ii = 0;ii<pageNumSize;ii++){
+                contentPage2+='<li class="page-item '+(ii==pageNum?'active':'')+'"><option style="cursor: pointer;" value="'+ii+'" class="page-link page-linkk">'+(ii+1)+'</option></li>';
+            }
+           var contentPage3 = '<li class="page-item">\n' +
+                '<a class="page-link" aria-label="Next">\n' +
+                '<span aria-hidden="true">&raquo;</span>\n' +
+                '<span class="sr-only">Next</span>\n' +
+                '</a>\n' +
+                '</li>\n' +
+                '<li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>'
+            $('#dataPage').html(contentPage1+contentPage2+contentPage3);
+        }
+
+        $(document).on('click','option.page-linkk',function () {
+            pageNum = $(this).val();
+            loadPost(pageNum);
+        });
+
+    });
+
+</script>
 </body>
+
 </html>

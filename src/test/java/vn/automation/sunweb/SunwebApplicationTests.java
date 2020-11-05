@@ -10,6 +10,7 @@ import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.repository.PostRepository;
 import vn.automation.sunweb.repository.UserRepository;
 import vn.automation.sunweb.service.CategoryService;
+import vn.automation.sunweb.service.PostService;
 
 import java.time.LocalDateTime;
 
@@ -19,9 +20,13 @@ class SunwebApplicationTests {
     @Autowired private CategoryRepository categoryRepository;
     @Autowired private UserRepository userRepository;
     @Autowired private CategoryService categoryService;
+    @Autowired private PostService postService;
+
     @Test
     void contextLoads() {
-        System.out.println(categoryService.getOne("tech").getCategory().getCategory().getCategory().getCategory()==null);
+        System.out.println(postService.findAll(0,10));
+        System.out.println(postService.findAll(1,10));
+        System.out.println(postService.findAll(2,10));
     }
 
 }
