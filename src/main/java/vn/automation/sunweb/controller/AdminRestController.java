@@ -66,22 +66,23 @@ public class AdminRestController {
             response.setTitle(value.getTitle());
             response.setMetatitle(value.getMetatitle());
             response.setDetail(value.getDetail());
-            if(value.getCategory().getCategory()!=null){
+            if (value.getCategory().getCategory() != null) {
                 response.setHasParent(true);
 
-                    response.setIdParent(value.getCategory().getCategory().getId());
+                response.setIdParent(value.getCategory().getCategory().getId());
 
 
                 response.setParentTitle(value.getCategory().getTitle());
-            }else {response.setIdParent(null);
+            } else {
+                response.setIdParent(null);
                 response.setHasParent(false);
             }
 
             response.setIsMax(false);
 
-            try{
-                response.setIsMax(categoryService.getOne(value.getId()).getCategory().getCategory().getCategory().getCategory()==null);
-            }catch (Exception e){
+            try {
+                response.setIsMax(categoryService.getOne(value.getId()).getCategory().getCategory().getCategory().getCategory() == null);
+            } catch (Exception e) {
             }
 
 
@@ -92,10 +93,32 @@ public class AdminRestController {
 
 
     @PostMapping("/addtopic/{id}")
-    public ResponseEntity addTopic(@PathVariable String id,@RequestBody CategoryResponse categoryResponse){
+    public ResponseEntity addTopic(@PathVariable String id, @RequestBody CategoryResponse categoryResponse) {
         categoryResponse.setIdParent(id);
         System.out.println(categoryResponse);
         return ResponseEntity.ok().body(categoryService.save(categoryResponse));
+    }
+
+    @PostMapping("/deletetopic-{id}")
+    public ResponseEntity deleteTopic(@PathVariable String id) {
+        return ResponseEntity.ok().body(categoryService.delete(id));
+    }
+
+    @PostMapping("/gettopic-{id}")
+    public ResponseEntity getTopic(@PathVariable String id) {
+        Category category = categoryService.getOne(id);
+        return ResponseEntity.ok().body(
+                CategoryResponse.builder()
+                        .id(category.getId())
+                        .title(category.getTitle())
+                        .metatitle(category.getMetatitle())
+                .detail(category.getDetail()).build()
+        );
+    }
+
+    @PostMapping("/edittopic")
+    public boolean editTopic(@RequestBody CategoryResponse categoryResponse){
+       return categoryService.edit(categoryResponse);
     }
 //    CategoryAPI
 }

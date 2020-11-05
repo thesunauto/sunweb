@@ -48,4 +48,24 @@ public class CategoryService {
         return false;
     }
 
+    public boolean delete(String id){
+        try{categoryRepository.delete(getOne(id)); return true;}catch (Exception e){e.printStackTrace();}
+        return false;
+    }
+
+    public boolean edit(CategoryResponse categoryResponse) {
+
+        try {
+            Category category = getOne(categoryResponse.getId());
+            category.setTitle(categoryResponse.getTitle());
+            category.setMetatitle(categoryResponse.getMetatitle());
+            category.setDetail(categoryResponse.getDetail());
+            categoryRepository.save(category);
+            return true;
+        }catch (Exception e){
+            System.out.println("edit category");
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
