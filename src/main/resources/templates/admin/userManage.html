@@ -234,7 +234,7 @@
                     },
                     processData: false,
                     type: 'POST',
-                    url: 'http://localhost:8080/api/saveuser'
+                    url: '/api/saveuser'
                 });
             } else {
                 toastr.warning('username is exists', '', {positionClass: 'md-toast-top-right'});
@@ -286,7 +286,7 @@
 
         function loadUser() {
             $.ajax({
-                url: 'http://localhost:8080/api/getlistuser',
+                url: '/api/getlistuser',
                 type: 'POST',
                 dataType: 'JSON',
                 success: function (data) {

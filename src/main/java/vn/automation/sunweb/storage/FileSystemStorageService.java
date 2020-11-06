@@ -9,13 +9,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.stream.Stream;
 
 @Service
@@ -40,7 +38,14 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public String create(String filename) throws  IOException {
-            return Files.createFile(this.rootLocation.resolve(filename)).toString();
+        Path file = this.rootLocation.resolve(filename);
+        File f = new File(file.toFile().getPath());
+       if(f.exists()){
+           return file.toString();
+       }else {
+           return Files.createFile(this.rootLocation.resolve(filename)).toString();
+       }
+
     }
 
     @Override

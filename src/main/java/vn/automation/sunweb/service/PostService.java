@@ -2,6 +2,7 @@ package vn.automation.sunweb.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.repository.PostRepository;
@@ -21,6 +22,8 @@ public class PostService {
     public List<Post> findAll(Integer page, Integer limit){
         return postRepository.findAll(PageRequest.of(page,limit)).getContent();
     }
+
+
 
     public Post findById(Integer id){
         return Optional.ofNullable(id).map(value -> postRepository.findById(id).get()).orElseGet(()->postRepository.findById(1).get());

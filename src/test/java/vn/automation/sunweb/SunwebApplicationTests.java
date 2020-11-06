@@ -13,6 +13,9 @@ import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 class SunwebApplicationTests {
@@ -24,9 +27,9 @@ class SunwebApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println(postService.findAll(0,10));
-        System.out.println(postService.findAll(1,10));
-        System.out.println(postService.findAll(2,10));
+
+
+
     }
 
 }

@@ -14,12 +14,17 @@ import vn.automation.sunweb.repository.CategoryRepository;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
+import vn.automation.sunweb.storage.StorageService;
 
 import javax.swing.text.html.parser.Entity;
+import java.io.*;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequestMapping("/api")
 @RestController
@@ -31,6 +36,8 @@ public class AdminRestController {
     private CategoryService categoryService;
     @Autowired
     private PostService postService;
+    @Autowired
+    private StorageService storageService;
 
     //    UserAPI
     @PostMapping("/getlistuser")
@@ -134,7 +141,17 @@ public class AdminRestController {
     public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page,@PathVariable(value = "limit") Integer limit){
         List<PostResponse> postResponses = new ArrayList<>();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         postService.findAll(page,limit).forEach(post -> {
+            Path html = storageService.load(post.getContext());
+            BufferedReader bufferedReader = null;
+            String context = "";
+            try {
+                bufferedReader = new BufferedReader(new FileReader(html.toFile()));
+                context = bufferedReader.lines().collect(Collectors.joining());
+            } catch (Exception e) {
+                context = "";
+            }
             postResponses.add(PostResponse.builder()
                     .idCategory(post.getCategory().getId())
                     .id(post.getId())
@@ -146,16 +163,39 @@ public class AdminRestController {
                     .dateUpdated(post.getDateupdated().format(dateTimeFormatter))
                     .datepuliced(post.getDatepuliced().format(dateTimeFormatter))
                     .image(post.getImage())
-                    .content(post.getContext())
+                    .content(context)
                     .build());
         });
 
         return ResponseEntity.ok().body(postResponses);
     }
 
-    @PostMapping("getPageNum")
+    @PostMapping("/getPageNum")
     public ResponseEntity getPageNum(){
         return ResponseEntity.ok().body(postService.findAll(null).size()/10+1);
+    }
+
+    @PostMapping("/editPost")
+    public ResponseEntity editPost(@RequestBody PostResponse postResponse){
+        Post post = postService.findById(postResponse.getId());
+        post.setTitle(postResponse.getTitle());
+        post.setMetatitle(postResponse.getMetatitle());
+        post.setIspulic(postResponse.getIspublic());
+        post.setIsshowindex(postResponse.getIsshowindex());
+        post.setContext(postResponse.getContent());
+        String ct = post.getContext();
+        post.setContext("error");
+        postService.addPost(post);
+        try {
+            String filename = storageService.create(post.getId() + ".html");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+            bw.write(ct);
+            bw.close();
+            postService.saveFileContextPost(post.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok().body("123");
     }
 //    PostAPI
 }
