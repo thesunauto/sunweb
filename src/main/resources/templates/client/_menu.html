@@ -74,7 +74,7 @@
                 <!-- Body -->
                 <div class="modal-body mb-0">
                     <div class="navbar navbar-light grey lighten-4  m-1"
-                         th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("chungtoi").get())}'>
+                         th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
 
                         <!-- Navbar brand -->
                         <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
@@ -147,7 +147,7 @@
                 <!-- Body -->
                 <div class="modal-body mb-0">
                     <div class="navbar navbar-light grey lighten-4  m-1"
-                         th:each='ct : ${@categoryRepository.findByCategory(@categoryRepository.findById("hoatdong").get())}'>
+                         th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
 
                         <!-- Navbar brand -->
                         <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>

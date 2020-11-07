@@ -276,7 +276,7 @@
 
         function fillByParentChungToi(id) {
             $.ajax({
-                url: 'http://localhost:8080/api/getlistCategory/' + id,
+                url: '/api/getlistCategory/' + id,
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,
@@ -305,7 +305,7 @@
 
         function fillByParentHoatDong(id) {
             $.ajax({
-                url: 'http://localhost:8080/api/getlistCategory/' + id,
+                url: '/api/getlistCategory/' + id,
                 type: 'POST',
                 dataType: 'JSON',
                 processData: false,

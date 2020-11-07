@@ -22,10 +22,10 @@ public class CategoryService {
         return Optional.ofNullable(limit).map(value -> categoryRepository.findAll(PageRequest.of(0,limit)).getContent()).orElseGet(()->categoryRepository.findAll());
     }
     public List<Category> findByIdparent(Category category){
-        return Optional.ofNullable(category).map(value->categoryRepository.findByCategory(value)).orElseGet(()->categoryRepository.findByCategory(null));
+        return Optional.ofNullable(category).map(value->categoryRepository.findByCategoryAndIsdeleted(value,false)).orElseGet(()->categoryRepository.findByCategoryAndIsdeleted(null,false));
     }
     public Collection<Category> findByIdparent(String category){
-        return Optional.ofNullable(category).map(value->categoryRepository.getOne(value).getCategories()).orElseGet(()->categoryRepository.findByCategory(null));
+        return Optional.ofNullable(category).map(value->categoryRepository.findByCategoryAndIsdeleted(categoryRepository.getOne(value),false)).orElseGet(()->categoryRepository.findByCategoryAndIsdeleted(null,false));
     }
     public Category getOne(String id){
         return categoryRepository.findById(id).orElse(new Category());
@@ -40,7 +40,7 @@ public class CategoryService {
             category.setDetail(categoryResponse.getDetail());
             category.setDatecreated(LocalDateTime.now());
             category.setCategory(categoryRepository.getOne(categoryResponse.getIdParent()));
-            category.setIsdeleted(0);
+            category.setIsdeleted(false);
             category.setUser(userRepository.findById("admin").get());
             categoryRepository.save(category);
             return true;
@@ -49,7 +49,9 @@ public class CategoryService {
     }
 
     public boolean delete(String id){
-        try{categoryRepository.delete(getOne(id)); return true;}catch (Exception e){e.printStackTrace();}
+        Category category = getOne(id);
+        category.setIsdeleted(true);
+        try{categoryRepository.save(category); return true;}catch (Exception e){e.printStackTrace();}
         return false;
     }
 

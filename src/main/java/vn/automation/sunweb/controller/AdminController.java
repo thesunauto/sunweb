@@ -75,7 +75,7 @@ private UserService userService;
     public @ResponseBody
     Map<String, String> getCategory(@RequestParam("id") String id) {
         Map<String, String> categoryValues = new HashMap<>();
-        List<Category> categories = categoryRepository.findByCategory(categoryRepository.findById(id).get());
+        List<Category> categories = categoryRepository.findByCategoryAndIsdeleted(categoryRepository.findById(id).get(),false);
         for (Category category : categories) {
             categoryValues.put(category.getId(), category.getTitle());
         }

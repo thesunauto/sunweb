@@ -31,7 +31,7 @@ public class Category implements Serializable {
     private Category category;
 
     @Column(name = "isdeleted", nullable = false)
-    private Integer isdeleted;
+    private Boolean isdeleted;
 
     @Column(name = "metatitle")
     private String metatitle;
