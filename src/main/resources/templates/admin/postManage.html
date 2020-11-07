@@ -484,7 +484,17 @@
         })
 
         $('#submitDel').click(function () {
-            console.log(idDel)
+            $.ajax({
+               url:'/api/deletePost-'+idDel,
+                type: 'POST',
+                success: function () {
+                    toastr.success('the post has been deleted', '', {positionClass: 'md-toast-top-right'});
+                    loadPost(pageNum);
+                    },
+                error: function () {
+                    toastr.error('Cannot delete post', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
         });
     });
 

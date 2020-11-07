@@ -20,7 +20,7 @@ public class PostService {
     }
 
     public List<Post> findAll(Integer page, Integer limit){
-        return postRepository.findAll(PageRequest.of(page,limit)).getContent();
+        return postRepository.findAllByIsdeleted(PageRequest.of(page,limit),false).getContent();
     }
 
 
