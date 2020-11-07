@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.repository.CategoryRepository;
@@ -43,8 +40,9 @@ public class MainController {
         return "client/index";
     }
 
-    @GetMapping("/listPost")
-    public String listPost() {
+    @GetMapping("/listPost/{idcategory}")
+    public String listPost(@PathVariable String idcategory) {
+        
         return "client/listPost";
     }
 
