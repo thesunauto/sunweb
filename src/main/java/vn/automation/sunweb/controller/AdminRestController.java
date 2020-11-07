@@ -197,5 +197,14 @@ public class AdminRestController {
         }
         return ResponseEntity.ok().body("123");
     }
+
+    @PostMapping("/deletePost-{id}")
+    public ResponseEntity deletePost(@PathVariable Integer id){
+        try {
+            postService.deletePost(id);
+            return ResponseEntity.ok().body(true);
+        }catch (Exception e){ }
+        return ResponseEntity.ok().body(false);
+    }
 //    PostAPI
 }

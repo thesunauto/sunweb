@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Admin</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -266,10 +266,8 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="md-form">
                                             <textarea rows="4" id="TextContent" type="text" name="content"
-                                                      class="form-control md-textarea" autocomplete="off"></textarea>
-                                        </div>
+                                                      class="form-control md-textarea" autocomplete="off" required></textarea>
                                     </div>
                                 </div>
                             </form>
@@ -278,6 +276,28 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button id="submitEdit" type="button" class="btn btn-primary" data-dismiss="modal">Confirm
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete2"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete2">System say:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn thật sự muốn xóa bài viết ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="submitDel">Yes</button>
                         </div>
                     </div>
                 </div>
@@ -349,7 +369,7 @@
                 content += ' <tr>\n' +
                     '<th scope="row">\n' +
                     '<option value="' + listPost[i].id + '" class="btn btn-outline-white btn-rounded btn-sm px-2 blue-gradient btnEdit"  data-toggle="modal" data-target="#exampleModal">Edit</option>\n' +
-                    '<option class="btn btn-outline-white btn-rounded btn-sm px-2 blue-gradient">Del</option>\n' +
+                    '<option value="' + listPost[i].id + '" class="btn btn-outline-white btn-rounded btn-sm px-2 blue-gradient btnDelete" data-toggle="modal" data-target="#modalDelete">Del</option>\n' +
                     '</th>\n' +
                     '<td class="th-lg">' + listPost[i].id + '</td>\n' +
                     '<td class="th-lg">' + listPost[i].title + '</td>\n' +
@@ -455,8 +475,16 @@
                 type: 'POST',
                 url: '/api/editPost'
             });
+        });
 
+        var idDel = -1;
 
+        $(document).on('click','option.btnDelete',function () {
+            idDel = $(this).val();
+        })
+
+        $('#submitDel').click(function () {
+            console.log(idDel)
         });
     });
 
