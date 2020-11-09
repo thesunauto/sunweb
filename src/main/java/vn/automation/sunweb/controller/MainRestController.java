@@ -68,4 +68,26 @@ public class MainRestController {
     public ResponseEntity getPageNum(@RequestParam(value = "idcategory") String idcategory) {
         return ResponseEntity.ok().body(postService.findAll(idcategory).size() / 10 + 1);
     }
+
+    @PostMapping("/getTop3PostNew")
+    public ResponseEntity getTop3PostNew(){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        List<PostResponse> postResponses = new ArrayList<>();
+        postService.getTop3new().forEach(post -> {
+            postResponses.add(PostResponse.builder()
+                    .id(post.getId())
+                    .idCategory(post.getCategory().getId())
+                    .title(post.getTitle())
+                    .metatitle(post.getMetatitle())
+                    .isshowindex(post.getIsshowindex())
+                    .ispublic(post.getIsshowindex())
+                    .dateCreated(post.getDatecreated().format(dateTimeFormatter))
+                    .dateUpdated(post.getDateupdated().format(dateTimeFormatter))
+                    .datepuliced(post.getDatepuliced().format(dateTimeFormatter))
+                    .image(post.getImage())
+                    .user(post.getUser().getName())
+                    .build());
+        });
+        return ResponseEntity.ok().body(postResponses);
+    }
 }

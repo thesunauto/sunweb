@@ -58,4 +58,8 @@ public class PostService {
         post.setIsdeleted(true);
         return postRepository.save(post);
     }
+
+    public List<Post> getTop3new(){
+       return postRepository.findTop3ByOrderByDatecreatedDesc();
+    }
 }

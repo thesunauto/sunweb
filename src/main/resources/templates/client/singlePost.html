@@ -105,10 +105,10 @@
         <section class="mb-5 wow fadeIn" data-wow-delay="0.3s">
 
             <!-- Section heading -->
-            <h3 class="text-center my-5 text-center h3">Bài viết liên quan</h3>
+            <h3 class="text-center my-5 text-center h3">Có thể bạn quan tâm</h3>
 
             <!-- Grid row -->
-            <div class="row">
+            <div class="row" id="dataRelate">
 
                 <!-- Grid column -->
                 <div class="col-lg-4 col-md-12 mb-4">
@@ -261,6 +261,67 @@
             }
             next.children(':first-child').clone().appendTo($(this));
         }
+    });
+
+    $(document).ready(function () {
+        $('body').ready(loadRelate());
+
+        var listRelate = [];
+
+        function loadRelate() {
+            $.ajax({
+               url: '/api/getTop3PostNew',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                   listRelate = data;
+                   fillRelate();
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+        }
+
+        function fillRelate() {
+            var content = '';
+            for(var i = 0; i<listRelate.length;i++){
+                content += '<div class="col-lg-4 col-md-12 mb-4">\n' +
+                    '\n' +
+                    '                    <!-- Card Light -->\n' +
+                    '                    <div class="card">\n' +
+                    '                        <!-- Card image -->\n' +
+                    '                        <div class="view overlay">\n' +
+                    '                            <img  style="object-fit: cover;  object-position: center;  width: 100%;  height: 250px;" src="/get/'+listRelate[i].image+'"\n' +
+                    '                                 class="card-img-top"\n' +
+                    '                                 alt="">\n' +
+                    '                            <a>\n' +
+                    '                                <div class="mask"></div>\n' +
+                    '                            </a>\n' +
+                    '                        </div>\n' +
+                    '                        <!-- /.Card image -->\n' +
+                    '                        <!-- Card content -->\n' +
+                    '                        <div class="card-body">\n' +
+                    '                            <!-- Social shares button -->\n' +
+                    '                            <a class="activator mr-3"><i class="fas fa-share-alt"></i></a>\n' +
+                    '                            <!-- Title -->\n' +
+                    '                            <h4 class="card-title">'+listRelate[i].title+'</h4>\n' +
+                    '                            <hr>\n' +
+                    '                            <!-- Text -->\n' +
+                    '                            <p class="card-text">'+listRelate[i].metatitle+'</p>\n' +
+                    '                            <a class="link-text">\n' +
+                    '                                <a href="/singlePost?id='+listRelate[i].id+'">Xem thêm <i class="fas fa-chevron-right"></i></a>\n' +
+                    '                            </a>\n' +
+                    '                        </div>\n' +
+                    '                        <!-- /.Card content -->\n' +
+                    '                    </div>\n' +
+                    '                    <!-- /.Card Light -->\n' +
+                    '\n' +
+                    '                </div>';
+            }
+            $('#dataRelate').html(content);
+        }
+
     });
 </script>
 </body>

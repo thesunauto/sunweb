@@ -28,7 +28,9 @@ class SunwebApplicationTests {
     @Test
     void contextLoads() {
 
-
+postService.getTop3new().forEach(post -> {
+    System.out.println(post);
+});
 
     }
 

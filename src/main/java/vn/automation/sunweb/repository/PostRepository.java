@@ -15,4 +15,5 @@ public interface PostRepository extends JpaRepository<Post, Integer>, JpaSpecifi
     Page<Post> findAllByIsdeleted(Pageable var1,Boolean isdeleted);
 
     Page<Post> findAllByIsdeletedAndCategory(Pageable var1, Boolean isdeleted, Category category);
+    List<Post> findTop3ByOrderByDatecreatedDesc();
 }
