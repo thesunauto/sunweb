@@ -21,4 +21,5 @@ public class PostResponse {
     private String datepuliced;
     private String image;
     private String content;
+    private String user;
 }

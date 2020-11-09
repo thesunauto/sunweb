@@ -46,10 +46,10 @@
                 <section>
                     <div class="card-body">
                         <div class="view view-cascade gradient-card-header gradient narrower py-2 mx-4 my-4 d-flex justify-content-center align-items-center">
-                            <a href="" id="navTitle" class="h3 font-weight-bold white-text">Bài viết mới</a>
+                            <a href="" id="navTitle" class="h3 font-weight-bold white-text">New post</a>
                         </div>
                         <div class="px-5">
-                            <form method="post" th:action="@{/admin}" th:object="${postOB}">
+                            <form method="post" th:action="@{/admin}" th:object="${postOB}"  enctype="multipart/form-data">
                                 <input type="hidden" th:field="*{datecreated}" th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}">
                                 <input id="isshowindexVal" type="hidden" th:field="*{isshowindex}">
                                 <input id="ispulicVal" type="hidden" th:field="*{ispulic}">
@@ -63,7 +63,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-mdb-color btn-rounded float-left">
                                                     <span>Choose file</span>
-                                                    <input th:field="*{image}" id="imgInp" type="file">
+                                                    <input id="imgInp" type="file" name="file">
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +79,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="md-form">
-                                            <label class="px-2 border rounded" style="cursor: pointer;" for="category" id="category" data-toggle="modal" data-target="#modalLRFormDemo">Danh mục &ensp;<i class="fas fa-caret-down"></i></label>
+                                            <i class="fas fa-layer-group prefix"></i>
+                                            <label class="py-1 px-3 border rounded" style="cursor: pointer;" for="category" id="category" data-toggle="modal" data-target="#modalLRFormDemo">Topic &ensp;<i class="fas fa-caret-down"></i></label>
                                             <input th:field="*{category}" type="hidden" name="category" id="categoryVal">
                                         </div>
 
@@ -162,7 +163,7 @@
                                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
 
                                         <!-- Navbar brand -->
-                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:classappend="${@categoryService.findByIdparent(ct.getId()).isEmpty()} ? 'allowSe' : ''" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
 
 
 
@@ -173,7 +174,7 @@
                                                 th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
                                                 aria-expanded="false" aria-label="Toggle navigation"><span
                                                 class="dark-blue-text"
-                                                th:if="!${ct.categories.isEmpty()}">
+                                                th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}">
                                                 <i class="far fa-caret-square-down"></i></span>
                                         </button>
 
@@ -183,8 +184,8 @@
                                             <!-- Links -->
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                    th:each='ct1 : ${ct.categories}'>
-                                                    <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+                                                    th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                                    <option style="cursor: pointer;" class="navbar-brand black-text"  th:classappend="${@categoryService.findByIdparent(ct1.getId()).isEmpty()} ? 'allowSe' : ''" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
 
                                                     <button class="navbar-toggler toggler-example" type="button"
                                                             data-toggle="collapse"
@@ -192,16 +193,15 @@
                                                             th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
                                                             aria-expanded="false" aria-label="Toggle navigation"><span
                                                             class="dark-blue-text"
-                                                            th:if="!${ct1.categories.isEmpty()}">
+                                                            th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
                                             <i class="far fa-caret-square-down"></i></span>
                                                     </button>
                                                     <div class="collapse navbar-collapse"
                                                          th:id="menuChungtoi+*{ct1.getId()}">
                                                         <ul class="navbar-nav mr-auto">
                                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                                th:each='ct2 : ${ct1.categories}'>
-                                                                <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct2.getTitle()}"  th:value="*{ct2.getId()}"></option>
-
+                                                                th:each='ct2 : ${ct1.categories}'  th:if="${ct2.isdeleted==false}">
+                                                                <option style="cursor: pointer;" class="navbar-brand black-text"  th:classappend="${@categoryService.findByIdparent(ct2.getId()).isEmpty()} ? 'allowSe' : ''" th:text="*{ct2.getTitle()}"  th:value="*{ct2.getId()}"></option>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -230,7 +230,7 @@
                                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
 
                                         <!-- Navbar brand -->
-                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
+                                        <option style="cursor: pointer;" class="navbar-brand black-text" th:classappend="${@categoryService.findByIdparent(ct.getId()).isEmpty()} ? 'allowSe' : ''" th:text="*{ct.getTitle()}"  th:value="*{ct.getId()}"></option>
 
 
                                         <!-- Collapse button -->
@@ -240,7 +240,7 @@
                                                 th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
                                                 aria-expanded="false" aria-label="Toggle navigation"><span
                                                 class="dark-blue-text"
-                                                th:if="!${ct.categories.isEmpty()}">
+                                                th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}">
                         <i class="far fa-caret-square-down"></i></span></button>
 
                                         <!-- Collapsible content -->
@@ -249,23 +249,23 @@
                                             <!-- Links -->
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                    th:each='ct1 : ${ct.categories}'>
-                                                    <option style="cursor: pointer;"  class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
+                                                    th:each='ct1 : ${ct.categories}'  th:if="${ct1.isdeleted==false}">
+                                                    <option style="cursor: pointer;"  class="navbar-brand black-text" th:classappend="${ct1.categories.isEmpty()} ? 'allowSe' : ''" th:text="*{ct1.getTitle()}"  th:value="*{ct1.getId()}"></option>
                                                     <button class="navbar-toggler toggler-example" type="button"
                                                             data-toggle="collapse"
                                                             data-target="#chungToi1"
                                                             th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
                                                             aria-expanded="false" aria-label="Toggle navigation"><span
                                                             class="dark-blue-text"
-                                                            th:if="!${ct1.categories.isEmpty()}">
+                                                            th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
                                             <i class="far fa-caret-square-down"></i></span>
                                                     </button>
                                                     <div class="collapse navbar-collapse"
                                                          th:id="menuChungtoi+*{ct1.getId()}">
                                                         <ul class="navbar-nav mr-auto">
                                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
-                                                                th:each='ct2 : ${ct1.categories}'>
-                                                                <option style="cursor: pointer;"  class="navbar-brand black-text"  th:value="*{ct2.getId()}"
+                                                                th:each='ct2 : ${ct1.categories}'  th:if="${ct2.isdeleted==false}">
+                                                                <option style="cursor: pointer;"  class="navbar-brand black-text" th:classappend="${@categoryService.findByIdparent(ct2.getId()).isEmpty()} ? 'allowSe' : ''"  th:value="*{ct2.getId()}"
                                                                    th:text="*{ct2.getTitle()}"></option>
                                                             </li>
                                                         </ul>
@@ -337,10 +337,10 @@
         });
         $(document).ready(function () {
             $('.mdb-select').materialSelect();
-        });
+        });``
 
-        $(".navbar-brand").click(function () {
-            $('#category').text($(this).text());
+        $(".allowSe").click(function () {
+            $('#category').html($(this).text()+' <i class="fas fa-caret-down"></i>');
             $('#categoryVal').val($(this).val());
             $('#modalLRFormDemo').modal('hide');
         });

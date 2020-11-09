@@ -14,6 +14,7 @@ import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
 import vn.automation.sunweb.storage.StorageService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +31,7 @@ public class MainController {
     public MainController(StorageService storageService) {
         this.storageService = storageService;
     }
-
+@Autowired private CategoryService categoryService;
     @Autowired private PostService postService;
    @Autowired private PostRepository postRepository;
 
@@ -40,9 +41,18 @@ public class MainController {
         return "client/index";
     }
 
-    @GetMapping("/listPost/{idcategory}")
-    public String listPost(@PathVariable String idcategory) {
-        
+    @GetMapping("/view-wherecategory={idcategory}")
+    public String viewCategory(@PathVariable String idcategory, HttpServletRequest request) {
+        Category category = categoryService.getOne(idcategory);
+        if(postService.findAll(category.getId()).size()==1){
+            return "redirect:/singlePost?id=43";
+        }
+        return "redirect:/listPost?idcategory="+category.getId();
+    }
+
+    @GetMapping("/listPost")
+    public String listPost(Model model,@RequestParam(value = "idcategory",required = true) String idcategory){
+        model.addAttribute("category",categoryService.getOne(idcategory));
         return "client/listPost";
     }
 

@@ -106,9 +106,13 @@ public class AdminRestController {
 
     @PostMapping("/addtopic/{id}")
     public ResponseEntity addTopic(@PathVariable String id, @RequestBody CategoryResponse categoryResponse) {
-        categoryResponse.setIdParent(id);
-        System.out.println(categoryResponse);
-        return ResponseEntity.ok().body(categoryService.save(categoryResponse));
+        if (categoryService.getOne(id).getPosts().isEmpty()) {
+            categoryResponse.setIdParent(id);
+            return ResponseEntity.ok().body(categoryService.save(categoryResponse));
+        } else {
+
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/deletetopic-{id}")
@@ -124,13 +128,13 @@ public class AdminRestController {
                         .id(category.getId())
                         .title(category.getTitle())
                         .metatitle(category.getMetatitle())
-                .detail(category.getDetail()).build()
+                        .detail(category.getDetail()).build()
         );
     }
 
     @PostMapping("/edittopic")
-    public boolean editTopic(@RequestBody CategoryResponse categoryResponse){
-       return categoryService.edit(categoryResponse);
+    public boolean editTopic(@RequestBody CategoryResponse categoryResponse) {
+        return categoryService.edit(categoryResponse);
     }
 //    CategoryAPI
 
@@ -138,11 +142,11 @@ public class AdminRestController {
 //    PostAPI
 
     @PostMapping("/getlistPost-{page}-{limit}")
-    public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page,@PathVariable(value = "limit") Integer limit){
+    public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page, @PathVariable(value = "limit") Integer limit) {
         List<PostResponse> postResponses = new ArrayList<>();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        postService.findAll(page,limit).forEach(post -> {
+        postService.findAll(page, limit).forEach(post -> {
             Path html = storageService.load(post.getContext());
             BufferedReader bufferedReader = null;
             String context = "";
@@ -171,12 +175,12 @@ public class AdminRestController {
     }
 
     @PostMapping("/getPageNum")
-    public ResponseEntity getPageNum(){
-        return ResponseEntity.ok().body(postService.findAll(null).size()/10+1);
+    public ResponseEntity getPageNum() {
+        return ResponseEntity.ok().body(postService.findAll().size() / 10 + 1);
     }
 
     @PostMapping("/editPost")
-    public ResponseEntity editPost(@RequestBody PostResponse postResponse){
+    public ResponseEntity editPost(@RequestBody PostResponse postResponse) {
         Post post = postService.findById(postResponse.getId());
         post.setTitle(postResponse.getTitle());
         post.setMetatitle(postResponse.getMetatitle());
@@ -199,11 +203,12 @@ public class AdminRestController {
     }
 
     @PostMapping("/deletePost-{id}")
-    public ResponseEntity deletePost(@PathVariable Integer id){
+    public ResponseEntity deletePost(@PathVariable Integer id) {
         try {
             postService.deletePost(id);
             return ResponseEntity.ok().body(true);
-        }catch (Exception e){ }
+        } catch (Exception e) {
+        }
         return ResponseEntity.ok().body(false);
     }
 //    PostAPI

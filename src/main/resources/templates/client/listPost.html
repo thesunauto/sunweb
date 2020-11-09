@@ -52,159 +52,40 @@
             </div>
 
         </section>
-
+        <input type="hidden" id="idCategory" th:value="${category.getId()}">
         <section class="my-5 text-center text-lg-left wow fadeIn" data-wow-delay="0.3s">
-            <h2 class="text-center my-4 h1">Tên loại bài viết 1</h2>
+            <h2 class="text-center my-4 h1" th:text="${category.title}">Tên loại bài viết 1</h2>
+            <p class="text-center mb-5 w-responsive mx-auto" th:text="${category.detail}">Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.</p>
 
-            <!-- Section description -->
-            <p class="text-center mb-5 w-responsive mx-auto">Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.Mô tả loại bài viết.</p>
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-4 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1">
-                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
-                             alt="">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-7 mb-4">
-                    <!-- Excerpt -->
-                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
-                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
-                </div>
-                <!-- Grid column -->
+            <div id="dataPost">
 
             </div>
-            <!-- Grid row -->
-
-            <hr class="mb-5">
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-4 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1">
-                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
-                             alt="">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-7 mb-4">
-                    <!-- Excerpt -->
-                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
-                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-            <hr class="mb-5">
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-4 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1">
-                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
-                             alt="">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-7 mb-4">
-                    <!-- Excerpt -->
-                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
-                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-            <hr class="mb-5">
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-4 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1">
-                        <img th:src="@{/img/img781x521-1.png}" class="img-fluid"
-                             alt="">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-7 mb-4">
-                    <!-- Excerpt -->
-                    <h4 class="mb-4"><strong>Tiêu đề bài viết</strong></h4>
-                    <p>Mô tả ngắn bài biết Mô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biếtMô tả ngắn bài biết</p>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-            <hr class="mb-5">
 
             <!-- Pagination dark -->
             <nav class="wow fadeIn mb-4 mt-4" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-                <ul class="pagination pg-dark flex-center">
+                <ul class="pagination pg-dark flex-center" id="dataPage">
                     <!-- Arrow left -->
-                    <li class="page-item">
-                        <a class="page-link waves-effect waves-effect" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link waves-effect waves-effect" aria-label="Previous">-->
+<!--                            <span aria-hidden="true">«</span>-->
+<!--                            <span class="sr-only">Previous</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
 
                     <!-- Numbers -->
                     <li class="page-item active"><a class="page-link waves-effect waves-effect">1</a></li>
-                    <li class="page-item"><a class="page-link waves-effect waves-effect">2</a></li>
+
                     <li class="page-item"><a class="page-link waves-effect waves-effect">3</a></li>
                     <li class="page-item"><a class="page-link waves-effect waves-effect">4</a></li>
                     <li class="page-item"><a class="page-link waves-effect waves-effect">5</a></li>
 
                     <!-- Arrow right -->
-                    <li class="page-item">
-                        <a class="page-link waves-effect waves-effect" aria-label="Next">
-                            <span aria-hidden="true">»</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link waves-effect waves-effect" aria-label="Next">-->
+<!--                            <span aria-hidden="true">»</span>-->
+<!--                            <span class="sr-only">Next</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </nav>
             <!-- /Pagination dark -->
@@ -233,7 +114,7 @@
 <script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
 
 <!-- Custom scripts -->
-<script>
+<script >
 
     new WOW().init();
     $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
@@ -250,6 +131,88 @@
             }
             next.children(':first-child').clone().appendTo($(this));
         }
+    });
+
+    $(document).ready(function () {
+        $('body').ready(loadPost(0));
+        var listPost = [];
+        var pageNumSize = -1;
+        var pageNum =0;
+
+
+
+        function loadPost(page) {
+            $.ajax({
+                url: '/api/getlistpostbycategory-'+page+'-10?idcategory='+$('#idCategory').val(),
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (result) {
+                    listPost = result;
+                    fillPost();
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+            $.ajax({
+                url: '/api/getpagenumbycategory?idcategory='+$('#idCategory').val(),
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    pageNumSize = data;
+                    fillPage()
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+        };
+
+        function fillPost() {
+            var content = '';
+            for(var i = 0;i<listPost.length;i++){
+                content += '<div class="row">\n' +
+                    '                    <!-- Grid column -->\n' +
+                    '                    <div class="col-lg-4 mb-4">\n' +
+                    '                        <!-- Featured image -->\n' +
+                    '                        <div class="view overlay z-depth-1">\n' +
+                    '                            <img src="/get/'+listPost[i].image+'" class="img-fluid"\n' +
+                    '                                 alt=""  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">\n' +
+                    '                            <a>\n' +
+                    '                                <div class="mask rgba-white-slight"></div>\n' +
+                    '                            </a>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '                    <!-- Grid column -->\n' +
+                    '\n' +
+                    '                    <!-- Grid column -->\n' +
+                    '                    <div class="col-lg-7 mb-4">\n' +
+                    '                        <!-- Excerpt -->\n' +
+                    '                        <h4 class="mb-4"><strong>'+listPost[i].title+'</strong></h4>\n' +
+                    '                        <p>'+listPost[i].metatitle+'</p>\n' +
+                    '                        <p>by <a><strong>'+listPost[i].user+'</strong></a>, '+listPost[i].dateCreated+'</p>\n' +
+                    '                        <a class="btn btn-primary" th:href="@{/singlePost}">Xem thêm</a>\n' +
+                    '                    </div>\n' +
+                    '                    <!-- Grid column -->\n' +
+                    '                </div>\n' +
+                    '                <hr class="mb-5">';
+            }
+            $('#dataPost').html(content);
+        }
+
+        function fillPage() {
+           var content = '';
+            for(var ii = 0 ; ii< pageNumSize; ii++){
+                content += '<li class="page-item '+(ii==pageNum?'active':'')+'"><option style="cursor: pointer" value="'+ii+'" class="page-link waves-effect waves-effect pagePost">'+(ii+1)+'</option></li>';
+            }
+            $('#dataPage').html(content);
+        }
+
+        $(document).on('click','option.pagePost',function () {
+            pageNum = $(this).val();
+            loadPost(pageNum);
+        })
+
     });
 </script>
 </body>

@@ -4,7 +4,9 @@ package vn.automation.sunweb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.entity.User;
@@ -19,8 +21,10 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -29,6 +33,7 @@ import java.util.*;
 @RequestMapping("/admin")
 public class AdminController {
     private StorageService storageService;
+    private final String UPLOAD_DIR = "./uploads/";
 
     public AdminController(StorageService storageService) {
         this.storageService = storageService;
@@ -49,7 +54,7 @@ private UserService userService;
 
 
     @PostMapping()
-    public String addPost(Model model, @ModelAttribute(value = "postOB") Post post,@RequestParam(value = "category") String categoryId) {
+    public String addPost(Model model, @ModelAttribute(value = "postOB") Post post,@RequestParam(value = "category") String categoryId,@RequestParam("file") MultipartFile file) {
         post.setDatecreated(LocalDateTime.now());
         post.setDatepuliced(LocalDateTime.now());
         post.setDateupdated(LocalDateTime.now());
@@ -58,6 +63,18 @@ private UserService userService;
         post.setUser(userRepository.getOne("admin"));
         String ct = post.getContext();
         post.setContext("error");
+        post.setImage("michael-lg-1.jpg");
+        // normalize the file path
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        // save the file on the local file system
+        try {
+            Path path = Paths.get(UPLOAD_DIR + fileName);
+            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            post.setImage(fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         model.addAttribute("message", Optional.ofNullable(postService.addPost(post)).map(t -> "thành công").orElse("thất bại"));
         try {
