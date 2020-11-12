@@ -47,6 +47,9 @@ public class MainController {
         if(postService.findAll(category.getId()).size()==1){
             return "redirect:/singlePost?id=43";
         }
+        if(postService.findAll(category.getId()).size()==0){
+            return "client/noPost";
+        }
         return "redirect:/listPost?idcategory="+category.getId();
     }
 

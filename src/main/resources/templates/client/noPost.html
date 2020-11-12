@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sun M&E</title>
+    <link rel="icon" th:href="@{/img/logo100x100.png}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
+    <!-- Custom styles -->
+
+    <style>
+
+
+        .font-up-bold .breadcrumb-item + .breadcrumb-item::before {
+            content: none;
+        }
+
+        .font-up-bold .breadcrumb-item a h5::after {
+            content: "/";
+            margin-left: 1rem;
+            color: #868e96;
+        }
+
+    </style>
+</head>
+
+<body class="single-page">
+
+<!-- Main Navigation -->
+<th:block th:include="/client/_menu"></th:block>
+<!-- Main Navigation -->
+<!-- Main layout -->
+<main class="pt-5">
+
+    <div class="container-fluid my-5 py-5 z-depth-1">
+
+
+        <!--Section: Content-->
+        <section class="dark-grey-text text-center">
+
+            <h3 class="font-weight-bold pt-4 mb-4">COMING SOON</h3>
+
+            <h5 class="font-weight-bold font-italic mb-5">Mục này đang trong quá trình thêm hiện chưa có thông tin gì</h5>
+
+            <div class="row mx-lg-5 mx-md-3">
+                <div class="col-md-12 mb-4">
+
+                    <div class="view mb-5">
+                        <img  th:src="@{/img/coming-soon.png}" class="img-fluid" alt="smaple image">
+                    </div>
+
+                    <h5 class="font-weight-normal text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
+
+</main>
+<!-- Main layout -->
+
+<!-- Footer -->
+<th:block th:include="/client/_footer"></th:block>
+<!-- Footer Links -->
+
+
+<!-- Footer -->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+
+<!-- Custom scripts -->
+<script>
+
+    new WOW().init();
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 3; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+
+    $(document).ready(function () {
+        $('body').ready(loadRelate());
+
+        var listRelate = [];
+
+        function loadRelate() {
+            $.ajax({
+               url: '/api/getTop3PostNew',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                   listRelate = data;
+                   fillRelate();
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+        }
+
+        function fillRelate() {
+            var content = '';
+            for(var i = 0; i<listRelate.length;i++){
+                content += '<div class="col-lg-4 col-md-12 mb-4">\n' +
+                    '\n' +
+                    '                    <!-- Card Light -->\n' +
+                    '                    <div class="card">\n' +
+                    '                        <!-- Card image -->\n' +
+                    '                        <div class="view overlay">\n' +
+                    '                            <img  style="object-fit: cover;  object-position: center;  width: 100%;  height: 250px;" src="/get/'+listRelate[i].image+'"\n' +
+                    '                                 class="card-img-top"\n' +
+                    '                                 alt="">\n' +
+                    '                            <a>\n' +
+                    '                                <div class="mask"></div>\n' +
+                    '                            </a>\n' +
+                    '                        </div>\n' +
+                    '                        <!-- /.Card image -->\n' +
+                    '                        <!-- Card content -->\n' +
+                    '                        <div class="card-body">\n' +
+                    '                            <!-- Social shares button -->\n' +
+                    '                            <a class="activator mr-3"><i class="fas fa-share-alt"></i></a>\n' +
+                    '                            <!-- Title -->\n' +
+                    '                            <h4 class="card-title">'+listRelate[i].title+'</h4>\n' +
+                    '                            <hr>\n' +
+                    '                            <!-- Text -->\n' +
+                    '                            <p class="card-text">'+listRelate[i].metatitle+'</p>\n' +
+                    '                            <a class="link-text">\n' +
+                    '                                <a href="/singlePost?id='+listRelate[i].id+'">Xem thêm <i class="fas fa-chevron-right"></i></a>\n' +
+                    '                            </a>\n' +
+                    '                        </div>\n' +
+                    '                        <!-- /.Card content -->\n' +
+                    '                    </div>\n' +
+                    '                    <!-- /.Card Light -->\n' +
+                    '\n' +
+                    '                </div>';
+            }
+            $('#dataRelate').html(content);
+        }
+
+    });
+</script>
+</body>
+
+</html>

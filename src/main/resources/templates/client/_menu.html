@@ -77,7 +77,7 @@
                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${'/view-wherecategory='+ct.getId()}}"></a>
+                        <a class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
 
 
                         <!-- Collapse button -->
@@ -97,7 +97,7 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                     th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
-                                    <a class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${'/view-wherecategory='+ct1.getId()}}"></a>
+                                    <a class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()?'/view-wherecategory='+ct1.getId():'#'}}"></a>
                                     <button class="navbar-toggler toggler-example" type="button"
                                             data-toggle="collapse"
                                             data-target="#chungToi1"
@@ -150,7 +150,7 @@
                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
 
                         <!-- Navbar brand -->
-                        <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${'/view-wherecategory='+ct.getId()}}"></a>
+                        <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
 
 
 
@@ -172,7 +172,7 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                     th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
-                                    <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${'/view-wherecategory='+ct1.getId()}}"></a>
+                                    <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()? '/view-wherecategory='+ct1.getId():'#'}}"></a>
 
                                     <button class="navbar-toggler toggler-example" type="button"
                                             data-toggle="collapse"
