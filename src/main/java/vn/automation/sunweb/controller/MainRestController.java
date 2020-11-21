@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.commons.PostResponse;
+import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
@@ -14,6 +15,7 @@ import java.io.FileReader;
 import java.nio.file.Path;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,11 +33,11 @@ public class MainRestController {
     private StorageService storageService;
 
     @PostMapping("/getlistpostbycategory-{page}-{limit}")
-    public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page, @PathVariable(value = "limit") Integer limit,@RequestParam(value = "idcategory") String idcategory) {
+    public ResponseEntity getlistPost(@PathVariable(value = "page") Integer page, @PathVariable(value = "limit") Integer limit, @RequestParam(value = "idcategory") String idcategory) {
         List<PostResponse> postResponses = new ArrayList<>();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        postService.findAll(page, limit,idcategory).forEach(post -> {
+        postService.findAll(page, limit, idcategory).forEach(post -> {
             Path html = storageService.load(post.getContext());
             BufferedReader bufferedReader = null;
             String context = "";
@@ -45,6 +47,7 @@ public class MainRestController {
             } catch (Exception e) {
                 context = "";
             }
+            if(post.getIspulic()){
             postResponses.add(PostResponse.builder()
                     .idCategory(post.getCategory().getId())
                     .id(post.getId())
@@ -58,7 +61,7 @@ public class MainRestController {
                     .image(post.getImage())
                     .content(context)
                     .user(post.getUser().getName())
-                    .build());
+                    .build());}
         });
 
         return ResponseEntity.ok().body(postResponses);
@@ -70,7 +73,7 @@ public class MainRestController {
     }
 
     @PostMapping("/getTop3PostNew")
-    public ResponseEntity getTop3PostNew(){
+    public ResponseEntity getTop3PostNew() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         List<PostResponse> postResponses = new ArrayList<>();
         postService.getTop3new().forEach(post -> {
@@ -89,5 +92,39 @@ public class MainRestController {
                     .build());
         });
         return ResponseEntity.ok().body(postResponses);
+    }
+
+    @PostMapping("/getTreeCategory")
+    public ResponseEntity getTreeCategory(@RequestParam(value = "idcategory") String idcategory) {
+        List<String> caTr = new ArrayList<>();
+        Category category = categoryService.getOne(idcategory);
+        caTr.add(category.getTitle());
+        if (category.getCategory() == null) {
+            Collections.reverse(caTr);
+            return ResponseEntity.ok().body(caTr);
+        }else{
+            caTr.add(category.getCategory().getTitle());
+            if(category.getCategory().getCategory()==null){   Collections.reverse(caTr);
+                return ResponseEntity.ok().body(caTr);
+            }else{
+                caTr.add(category.getCategory().getCategory().getTitle());
+                if(category.getCategory().getCategory().getCategory()==null){   Collections.reverse(caTr);
+                    return ResponseEntity.ok().body(caTr);
+                }else{
+                    caTr.add(category.getCategory().getCategory().getCategory().getTitle());
+                    if(category.getCategory().getCategory().getCategory().getCategory()==null){   Collections.reverse(caTr);
+                        return ResponseEntity.ok().body(caTr);
+                    }else{
+                        caTr.add(category.getCategory().getCategory().getCategory().getCategory().getTitle());
+                        if(category.getCategory().getCategory().getCategory().getCategory().getCategory()==null){   Collections.reverse(caTr);
+                            return ResponseEntity.ok().body(caTr);
+                        }else{
+                            return ResponseEntity.ok().body(null);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

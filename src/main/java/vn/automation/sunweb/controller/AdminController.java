@@ -73,7 +73,7 @@ private UserService userService;
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             post.setImage(fileName);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
 
         model.addAttribute("message", Optional.ofNullable(postService.addPost(post)).map(t -> "thành công").orElse("thất bại"));

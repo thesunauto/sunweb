@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import vn.automation.sunweb.commons.CategoryResponse;
+import vn.automation.sunweb.commons.FileResponse;
 import vn.automation.sunweb.commons.PostResponse;
 import vn.automation.sunweb.commons.UserResponse;
 import vn.automation.sunweb.entity.Category;
@@ -76,7 +79,7 @@ public class AdminRestController {
             CategoryResponse response = new CategoryResponse();
             response.setId(value.getId());
             response.setTitle(value.getTitle());
-            response.setMetatitle(value.getMetatitle());
+            response.setImage(value.getImage());
             response.setDetail(value.getDetail());
             if (value.getCategory().getCategory() != null) {
                 response.setHasParent(true);
@@ -115,9 +118,26 @@ public class AdminRestController {
         return ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/upload-file")
+    @ResponseBody
+    public FileResponse uploadFile(@RequestParam("file") MultipartFile file) {
+        String name = storageService.store(file);
+
+        String uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/download/")
+                .path(name)
+                .toUriString();
+
+        return new FileResponse(name, uri, file.getContentType(), file.getSize());
+    }
+
     @PostMapping("/deletetopic-{id}")
     public ResponseEntity deleteTopic(@PathVariable String id) {
-        return ResponseEntity.ok().body(categoryService.delete(id));
+        if(!id.startsWith(".")){
+            return ResponseEntity.ok().body(categoryService.delete(id));
+        }
+        return ResponseEntity.ok().body(false);
+
     }
 
     @PostMapping("/gettopic-{id}")
@@ -127,7 +147,7 @@ public class AdminRestController {
                 CategoryResponse.builder()
                         .id(category.getId())
                         .title(category.getTitle())
-                        .metatitle(category.getMetatitle())
+                        .image(category.getImage())
                         .detail(category.getDetail()).build()
         );
     }

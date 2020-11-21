@@ -33,8 +33,8 @@ public class Category implements Serializable {
     @Column(name = "isdeleted", nullable = false)
     private Boolean isdeleted;
 
-    @Column(name = "metatitle")
-    private String metatitle;
+    @Column(name = "image")
+    private String image;
 
     @Column(name = "title", nullable = false)
     private String title;

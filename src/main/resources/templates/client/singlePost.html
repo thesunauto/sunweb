@@ -44,7 +44,7 @@
         <section class="my-5 text-center text-lg-left wow fadeIn" data-wow-delay="0.2s">
             <div class="font-up-bold text-uppercase">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" id="dataBC">
                         <li class="breadcrumb-item"><a class="" href="#">
                             <h5 class="mr-3 mb-0"><strong>Trang chủ</strong></h5>
                         </a></li>
@@ -76,6 +76,7 @@
                                 <div class=""></div>
                             </a>
                         </div>
+                        <input type="hidden" th:value="${post.getCategory().getId()}" id="idcategory">
 
                         <!-- Post data -->
                         <div class="card-body card-body-cascade text-center">
@@ -264,10 +265,34 @@
     });
 
     $(document).ready(function () {
-        $('body').ready(loadRelate());
+        $('body').ready(loadRelate(),loadBC());
 
         var listRelate = [];
 
+
+
+        function loadBC() {
+            $.ajax({
+                url:'/api/getTreeCategory?idcategory='+$('#idcategory').val(),
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    listBC = data;
+                },complete:function () {
+                    fillBC();
+                }
+            });
+        }
+
+        function fillBC() {
+            var content = '';
+            for(var i =0;i<listBC.length;i++){
+                content+='<li class="breadcrumb-item"><a class="" href="#">\n' +
+                    '<h5 class="mr-3 mb-0"><strong>'+listBC[i]+'</strong></h5>\n' +
+                    '</a></li>';
+            }
+            $('#dataBC').html(content);
+        }
         function loadRelate() {
             $.ajax({
                url: '/api/getTop3PostNew',

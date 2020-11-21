@@ -62,4 +62,6 @@ public class PostService {
     public List<Post> getTop3new(){
        return postRepository.findTop3ByOrderByDatecreatedDesc();
     }
+
+
 }

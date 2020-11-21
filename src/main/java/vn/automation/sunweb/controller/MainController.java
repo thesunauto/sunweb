@@ -45,7 +45,7 @@ public class MainController {
     public String viewCategory(@PathVariable String idcategory, HttpServletRequest request) {
         Category category = categoryService.getOne(idcategory);
         if(postService.findAll(category.getId()).size()==1){
-            return "redirect:/singlePost?id=43";
+            return "redirect:/singlePost?id="+category.getPosts().iterator().next().getId();
         }
         if(postService.findAll(category.getId()).size()==0){
             return "client/noPost";

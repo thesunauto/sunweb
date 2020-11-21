@@ -127,7 +127,7 @@
                                     <th>#</th>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Meta title</th>
+                                    <th>Image</th>
                                     <th>Detail</th>
                                     <th>Title parent</th>
                                     <th>Action</th>
@@ -142,7 +142,7 @@
                                     <th scope="row">1</th>
                                     <td>ID</td>
                                     <td>Title</td>
-                                    <td>Meta title</td>
+                                    <td>Image</td>
                                     <td>Detail</td>
                                     <td>ID parent</td>
                                     <td>Title parent</td>
@@ -209,11 +209,17 @@
                                            class="form-control validate">
                                     <label data-error="wrong" data-success="right" for="caTitle">Title</label>
                                 </div>
-                                <div class="md-form mb-5">
-                                    <i class="fas fa-pen prefix grey-text"></i>
-                                    <input placeholder="enter topic meta title" type="text" id="caMetaTile" name="metatitle"
-                                           class="form-control validate">
-                                    <label data-error="wrong" data-success="right" for="caMetaTile">Meta title</label>
+                                <div class="file-field">
+                                    <div class="z-depth-1-half mb-4">
+                                        <img id="blah" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid"
+                                             alt="example placeholder"  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="btn btn-mdb-color btn-rounded float-left">
+                                            <span>Choose file</span>
+                                            <input id="imgInp" type="file" name="file">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="md-form mb-5">
                                     <i class="fas fa-pen prefix grey-text"></i>
@@ -257,6 +263,28 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function () {
+
+        $(document).on('change','.custom-file-input',function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        })
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+
         $(".button-collapse").sideNav();
         new WOW().init();
         // Material Design example
@@ -363,7 +391,7 @@
                     '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].id + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].title + '</td>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].metatitle + '</td>' +
+                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryHoatDong[i].image+'" alt=""></td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
                     '<td>' + '<option value="' + listCategoryHoatDong[i].id + '" class="btn btn-default btn-sm btnEditCategory" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
@@ -373,7 +401,10 @@
                 '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
+                '<td class="p-4"><div class="custom-file">\n' +
+                '    <input name="image" type="file" class="custom-file-input" id="customFile">\n' +
+                '    <label class="custom-file-label" for="customFile">Choose file</label>\n' +
+                '  </div></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
                 '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
@@ -391,7 +422,7 @@
                     '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
                     '<td class="p-4">' + listCategoryChungToi[i].id + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].title + '</td>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].metatitle + '</td>' +
+                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryChungToi[i].image+'" alt=""></td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
                     '<td>' + '<option value="' + listCategoryChungToi[i].id + '" class="btn btn-default btn-sm btnEditCategory"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
@@ -405,13 +436,18 @@
                 '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Meta title" name="metatitle"></td>' +
+                '<td class="p-4"><div class="custom-file">\n' +
+                '<input  name="image" type="file" class="custom-file-input" id="customFile2">\n' +
+                '<label class="custom-file-label" for="customFile2">Choose file</label>\n' +
+                '</div></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
                 '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory').html(htmlContent);
         };
+
+
 
         function addOptionNext(isMax, value, enter) {
             if (!isMax) {
@@ -447,8 +483,17 @@
         };
 
         $(document).on('click', '#addChungtoi', function () {
-            console.log($(this).val());
+
+
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#customFile2')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
             var formData = $('#formChungToi').serializeObject();
+            formData.image = $('#customFile2')[0].files[0].name;
+            console.log()
             $.ajax({
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
@@ -466,8 +511,16 @@
             });
         });
         $(document).on('click', '#addHoatDong', function () {
-            console.log($(this).val());
+
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#customFile')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
             var formData = $('#formHoatDong').serializeObject();
+            formData.image =$('#customFile')[0].files[0].name;
+            console.log(formData);
             $.ajax({
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
@@ -503,8 +556,14 @@
             $.ajax({
                 url: '/api/deletetopic-' + idDelete,
                 type: 'POST',
-                success: function () {
-                    toastr.success('Deleted successfully', '', {positionClass: 'md-toast-top-right'});
+                success: function (result) {
+                    var bo = result;
+                    if(bo){
+                        toastr.success('Deleted successfully', '', {positionClass: 'md-toast-top-right'});
+                    }else{
+                        toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
+                    }
+
                 }, error: function () {
                     toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
                 }
@@ -529,7 +588,7 @@
                 success: function (data) {
                     category = data;
                     $('#caTitle').val(data.title);
-                    $('#caMetaTile').val(data.metatitle);
+                    $('#blah').attr('src', '/get/'+data.image);
                     $('#caDetail').val(data.detail);
                     $('#caId').val(data.id);
                     $('#caId2').text('Edit topic - ' + data.id);
@@ -542,8 +601,14 @@
         });
 
         $(document).on('click', '#confirmEdit', function () {
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#imgInp')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
             var editData = $('#editData').serializeObject();
-            console.log(editData)
+            editData.image = $('#imgInp')[0].files[0].name;
             $.ajax({
                 url: '/api/edittopic',
                 type: 'POST',

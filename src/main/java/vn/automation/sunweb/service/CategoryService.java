@@ -36,7 +36,7 @@ public class CategoryService {
             Category category = new Category();
             category.setId(categoryResponse.getId());
             category.setTitle(categoryResponse.getTitle());
-            category.setMetatitle(categoryResponse.getMetatitle());
+            category.setImage(categoryResponse.getImage());
             category.setDetail(categoryResponse.getDetail());
             category.setDatecreated(LocalDateTime.now());
             category.setCategory(categoryRepository.getOne(categoryResponse.getIdParent()));
@@ -60,7 +60,7 @@ public class CategoryService {
         try {
             Category category = getOne(categoryResponse.getId());
             category.setTitle(categoryResponse.getTitle());
-            category.setMetatitle(categoryResponse.getMetatitle());
+            category.setImage(categoryResponse.getImage());
             category.setDetail(categoryResponse.getDetail());
             categoryRepository.save(category);
             return true;
