@@ -40,121 +40,206 @@
 <!--Main Layout-->
 <main class="p-0">
     <div class="container-fluid mb-5">
+        <section>
+            <div class="card my-2">
+                <div class="card-body">
+                    <div class="row">
 
+                        <div class="col-sm">
+                            <H3 class="my-auto float-left">List topic</H3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Section: Basic examples -->
         <section>
 
-            <!-- Gird column -->
-            <div class="col-md-12">
+            <div class="my-3"></div>
 
-                <h3 class="my-4 dark-grey-text font-weight-bold">Danh sách loại bài viết</h3>
+            <div class="card">
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="tblUser" class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>ID
-                                    </th>
-                                    <th>TopicName
-                                    </th>
-                                    <th>Detail
-                                    </th>
-                                    <th>Image
-                                    </th>
-                                    <th>Action
-                                    </th>
+                <div class="card-body">
+                    <div class="card-title h3">Chúng tôi</div>
+                    <div class="table-responsive">
+                        <form id="formChungToi">
+                            <!-- Table -->
+                            <table class="table">
+
+                                <!-- Table head -->
+                                <thead class="mdb-color darken-3">
+                                <tr class="text-white">
+                                    <th>#</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Meta title</th>
+                                    <th>Detail</th>
+                                    <th>Title parent</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <!-- Table head -->
+
+                                <!-- Table body -->
+                                <tbody id="dataCategory">
+
                                 <tr>
-                                    <td>TP-01</td>
-                                    <td>Gì gì sdfsdfđó</td>
-                                    <td>Edinbursdfsdfsdfsdfgh</td>
-                                    <td>nothing@sdfsdfsdfsdfsdfsgmial.com</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Chi tiết</button>
-                                        <button class="btn btn-warning btn-sm">Ẩn</button>
-                                        <button class="btn btn-success btn-sm">Thêm bài viết</button>
-                                        <button class="btn btn-success btn-sm">Thêm mục con</button>
-                                    </td>
+                                    <th scope="row">1</th>
+                                    <td>ID</td>
+                                    <td>Title</td>
+                                    <td>Meta title</td>
+                                    <td>Detail</td>
+                                    <td>ID parent</td>
+                                    <td>Title parent</td>
                                 </tr>
-                                <tr>
-                                    <td>TP-01</td>
-                                    <td>Gì gì sdfsdfđó</td>
-                                    <td>Edinbursdfsdfsdfsdfgh</td>
-                                    <td>nothing@sdfsdfsdfsdfsdfsgmial.com</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Chi tiết</button>
-                                        <button class="btn btn-warning btn-sm">Ẩn</button>
-                                        <button class="btn btn-success btn-sm">Thêm bài viết</button>
-                                        <button class="btn btn-success btn-sm">Thêm mục con</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TP-01</td>
-                                    <td>Gì gì sdfsdfđó</td>
-                                    <td>Edinbursdfsdfsdfsdfgh</td>
-                                    <td>nothing@sdfsdfsdfsdfsdfsgmial.com</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Chi tiết</button>
-                                        <button class="btn btn-warning btn-sm">Ẩn</button>
-                                        <button class="btn btn-success btn-sm">Thêm bài viết</button>
-                                        <button class="btn btn-success btn-sm">Thêm mục con</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TP-01</td>
-                                    <td>Gì gì sdfsdfđó</td>
-                                    <td>Edinbursdfsdfsdfsdfgh</td>
-                                    <td>nothing@sdfsdfsdfsdfsdfsgmial.com</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Chi tiết</button>
-                                        <button class="btn btn-warning btn-sm">Ẩn</button>
-                                        <button class="btn btn-success btn-sm">Thêm bài viết</button>
-                                        <button class="btn btn-success btn-sm">Thêm mục con</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TP-01</td>
-                                    <td>Gì gì sdfsdfđó</td>
-                                    <td>Edinbursdfsdfsdfsdfgh</td>
-                                    <td>nothing@sdfsdfsdfsdfsdfsgmial.com</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Chi tiết</button>
-                                        <button class="btn btn-warning btn-sm">Ẩn</button>
-                                        <button class="btn btn-success btn-sm">Thêm bài viết</button>
-                                        <button class="btn btn-success btn-sm">Thêm mục con</button>
-                                    </td>
-                                </tr>
+
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>ID
-                                    </th>
-                                    <th>TopicName
-                                    </th>
-                                    <th>Detail
-                                    </th>
-                                    <th>Image
-                                    </th>
-                                    <th>Action
-                                    </th>
-                                </tr>
-                                </tfoot>
+                                <!-- Table body -->
                             </table>
-                        </div>
+                            <!-- Table -->
+                        </form>
 
                     </div>
+
+
                 </div>
-
             </div>
-            <!-- Gird column -->
-
 
         </section>
         <!-- Section: Basic examples -->
+        <!-- Section: Basic examples -->
+        <section>
+
+            <div class="my-3"></div>
+
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="card-title h3">Hoạt động</div>
+                    <div class="table-responsive">
+                        <form id="formHoatDong">
+                            <!-- Table -->
+                            <table class="table">
+
+                                <!-- Table head -->
+                                <thead class="mdb-color darken-3">
+                                <tr class="text-white">
+                                    <th>#</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Image</th>
+                                    <th>Detail</th>
+                                    <th>Title parent</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <!-- Table head -->
+
+                                <!-- Table body -->
+                                <tbody id="dataCategory2">
+
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ID</td>
+                                    <td>Title</td>
+                                    <td>Image</td>
+                                    <td>Detail</td>
+                                    <td>ID parent</td>
+                                    <td>Title parent</td>
+                                </tr>
+
+                                </tbody>
+                                <!-- Table body -->
+                            </table>
+                            <!-- Table -->
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+        <!-- Section: Basic examples -->
+        <section>
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are u sure?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            You really want to delete this item
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="actionDelete" type="button" class="btn btn-primary" data-dismiss="modal">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <form id="editData">
+                <input type="hidden" name="id" id="caId">
+                <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 id="caId2" class="modal-title w-100 font-weight-bold">Edit topic</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-5">
+                                    <i class="fas fa-pen prefix grey-text"></i>
+                                    <input placeholder="enter topic title" type="text" id="caTitle" name="title"
+                                           class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="caTitle">Title</label>
+                                </div>
+                                <div class="file-field">
+                                    <div class="z-depth-1-half mb-4">
+                                        <img id="blah" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid"
+                                             alt="example placeholder"  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="btn btn-mdb-color btn-rounded float-left">
+                                            <span>Choose file</span>
+                                            <input id="imgInp" type="file" name="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-form mb-5">
+                                    <i class="fas fa-pen prefix grey-text"></i>
+                                    <input placeholder="enter topic detail" type="text" id="caDetail" name="detail"
+                                           class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="caDetail">Detail</label>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button type="button" id="confirmEdit" class="btn btn-unique" data-dismiss="modal">Confirm <i
+                                        class="fas fa-paper-plane-o ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+
 
     </div>
 
@@ -178,13 +263,377 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function () {
+
+        $(document).on('change','.custom-file-input',function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        })
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+
         $(".button-collapse").sideNav();
         new WOW().init();
         // Material Design example
         $('#tblUser').DataTable({
             "pagingType": "full_numbers"
         });
+        $('body').ready(fillCategoryChungToi(), fillCategoryHoatDong());
+        var oldIDChungToi = 'chungtoi';
+        var newIDChungToi = 'chungtoi';
+        $(document).on('click', 'option.enterChungToi', function () {
+
+            var id = $(this).val();
+            oldIDChungToi = newIDChungToi;
+            newIDChungToi = id;
+            fillByParentChungToi(id);
+        });
+
+        function fillByParentChungToi(id) {
+            $.ajax({
+                url: '/api/getlistCategory/' + id,
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                beforeSend: function () {
+                    $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+                },
+                success: function (value) {
+                    listCategoryChungToi = value;
+                },
+                complete: function () {
+                    fillToTableChungToi();
+                }
+            });
+        }
+
+
+        var oldIDHoatDong = 'hoatdong';
+        var newIDHoatDong = 'hoatdong';
+        $(document).on('click', 'option.enterHoatDong', function () {
+            console.log("run - enterHoatDong");
+            var id = $(this).val();
+            oldIDHoatDong = newIDHoatDong;
+            newIDHoatDong = id;
+            fillByParentHoatDong(id);
+        });
+
+        function fillByParentHoatDong(id) {
+            $.ajax({
+                url: '/api/getlistCategory/' + id,
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                beforeSend: function () {
+                    $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+                },
+                success: function (value) {
+                    listCategoryHoatDong = value;
+
+                },
+                complete: function () {
+                    fillToTableHoatDong();
+                }
+            });
+        }
+
+        var listCategoryChungToi = [];
+        var listCategoryHoatDong = [];
+
+        function fillCategoryChungToi() {
+            $.ajax({
+                url: '/api/getlistCategory/chungtoi',
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                success: function (data) {
+                    listCategoryChungToi = data;
+                },
+                complete: function () {
+                    fillToTableChungToi();
+                }
+            })
+        }
+
+        function fillCategoryHoatDong() {
+            $.ajax({
+                url: '/api/getlistCategory/hoatdong',
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                success: function (data) {
+                    listCategoryHoatDong = data;
+                },
+                complete: function () {
+                    fillToTableHoatDong();
+                }
+            })
+        };
+
+        function fillToTableHoatDong() {
+            var htmlContent = '';
+            for (var i = 0; i < listCategoryHoatDong.length; i++) {
+                htmlContent +=
+                    '<tr class="wow fadeIn"  data-wow-delay="0.6s">' +
+                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                    '<td class="p-4">' + listCategoryHoatDong[i].id + '</td>' +
+                    '<td class="p-4">' + listCategoryHoatDong[i].title + '</td>' +
+                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryHoatDong[i].image+'" alt=""></td>' +
+                    '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
+                    '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
+                    '<td>' + '<option value="' + listCategoryHoatDong[i].id + '" class="btn btn-default btn-sm btnEditCategory" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
+                    '</tr>'
+            }
+            htmlContent += ' <tr>' +
+                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                '<td class="p-4"><div class="custom-file">\n' +
+                '    <input name="image" type="file" class="custom-file-input" id="customFile">\n' +
+                '    <label class="custom-file-label" for="customFile">Choose file</label>\n' +
+                '  </div></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                '<td class="p-4"></td>' +
+                '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
+                '</tr>';
+            $('#dataCategory2').html(htmlContent);
+
+        };
+
+        function fillToTableChungToi() {
+            var htmlContent = '';
+
+            for (var i = 0; i < listCategoryChungToi.length; i++) {
+                htmlContent +=
+                    '<tr>' +
+                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                    '<td class="p-4">' + listCategoryChungToi[i].id + '</td>' +
+                    '<td class="p-4">' + listCategoryChungToi[i].title + '</td>' +
+                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryChungToi[i].image+'" alt=""></td>' +
+                    '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
+                    '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
+                    '<td>' + '<option value="' + listCategoryChungToi[i].id + '" class="btn btn-default btn-sm btnEditCategory"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
+                    addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
+
+                    addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
+                    '</td>' +
+                    '</tr>';
+            }
+            htmlContent += '<tr>' +
+                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                '<td class="p-4"><div class="custom-file">\n' +
+                '<input  name="image" type="file" class="custom-file-input" id="customFile2">\n' +
+                '<label class="custom-file-label" for="customFile2">Choose file</label>\n' +
+                '</div></td>' +
+                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                '<td class="p-4"></td>' +
+                '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
+                '</tr>';
+            $('#dataCategory').html(htmlContent);
+        };
+
+
+
+        function addOptionNext(isMax, value, enter) {
+            if (!isMax) {
+                return '<option value="' + value + '" class="btn-next btn btn-default btn-sm enter' + enter + '"> >> </option>';
+            } else {
+                return '';
+            }
+        };
+
+        function addOptionBack(hasparent, value, enter) {
+            if (hasparent) {
+                return '<option value="' + value + '" class="btn-back btn btn-default btn-sm enter' + enter + '"> << </option>';
+            } else {
+                return '';
+            }
+        };
+
+        // them
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        $(document).on('click', '#addChungtoi', function () {
+
+
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#customFile2')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
+            var formData = $('#formChungToi').serializeObject();
+            formData.image = $('#customFile2')[0].files[0].name;
+            console.log()
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function () {
+                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                    fillByParentChungToi(newIDChungToi)
+                },
+                error: function () {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                },
+                processData: false,
+                type: 'POST',
+                url: '/api/addtopic/' + $(this).val()
+            });
+        });
+        $(document).on('click', '#addHoatDong', function () {
+
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#customFile')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
+            var formData = $('#formHoatDong').serializeObject();
+            formData.image =$('#customFile')[0].files[0].name;
+            console.log(formData);
+            $.ajax({
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function (data) {
+                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                    fillByParentHoatDong(newIDHoatDong);
+                },
+                error: function (e) {
+                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                },
+                processData: false,
+                type: 'POST',
+                url: '/api/addtopic/' + $(this).val()
+            });
+
+        });
+
+        // them
+
+
+        // xoa
+        var idDelete = '';
+
+        $(document).on('click', '.deleteChungToi', function () {
+            idDelete = $(this).val();
+        });
+        $(document).on('click', '.deleteHoatDong', function () {
+            idDelete = $(this).val();
+        });
+
+        $(document).on('click', '#actionDelete', function () {
+            $.ajax({
+                url: '/api/deletetopic-' + idDelete,
+                type: 'POST',
+                success: function (result) {
+                    var bo = result;
+                    if(bo){
+                        toastr.success('Deleted successfully', '', {positionClass: 'md-toast-top-right'});
+                    }else{
+                        toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
+                    }
+
+                }, error: function () {
+                    toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+            setTimeout(function () {
+                fillByParentChungToi(newIDChungToi);
+                fillByParentHoatDong(newIDHoatDong);
+            }, 200);
+
+        })
+        // xoa
+
+
+        // sua
+        var category = {};
+        $(document).on('click', 'option.btnEditCategory', function () {
+            var idCa = $(this).val();
+            $.ajax({
+                url: '/api/gettopic-' + idCa,
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    category = data;
+                    $('#caTitle').val(data.title);
+                    $('#blah').attr('src', '/get/'+data.image);
+                    $('#caDetail').val(data.detail);
+                    $('#caId').val(data.id);
+                    $('#caId2').text('Edit topic - ' + data.id);
+                },
+                error: function (e) {
+                    toastr.error('Can not find topic - ' + e, '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+
+        });
+
+        $(document).on('click', '#confirmEdit', function () {
+
+            var formUpload = new FormData();
+            formUpload.append('file',$('#imgInp')[0].files[0]);
+            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
+            var editData = $('#editData').serializeObject();
+            editData.image = $('#imgInp')[0].files[0].name;
+            $.ajax({
+                url: '/api/edittopic',
+                type: 'POST',
+                dataType: 'JSON',
+                contentType: 'application/json',
+                processData: false,
+                data: JSON.stringify(editData),
+                success: function () {
+                    toastr.success('update success', '', {positionClass: 'md-toast-top-right'});
+                },
+                error: function (e) {
+                    toastr.error('update false', '', {positionClass: 'md-toast-top-right'});
+                }
+            });
+            setTimeout(function () {
+                fillByParentChungToi(newIDChungToi);
+                fillByParentHoatDong(newIDHoatDong);
+            }, 200);
+        });
+
+
+        // sua
+
     });
+
 </script>
 
 </html>
