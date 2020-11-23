@@ -5,12 +5,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.automation.sunweb.commons.PostResponse;
 import vn.automation.sunweb.entity.Category;
+import vn.automation.sunweb.entity.Post;
 import vn.automation.sunweb.service.CategoryService;
 import vn.automation.sunweb.service.PostService;
 import vn.automation.sunweb.service.UserService;
 import vn.automation.sunweb.storage.StorageService;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.time.format.DateTimeFormatter;
@@ -126,5 +128,33 @@ public class MainRestController {
             }
         }
 
+    }
+
+    @PostMapping("/getPost/{id}")
+    public ResponseEntity getPost(@PathVariable Integer id){
+        Post post = postService.findById(id);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Path html = storageService.load(post.getContext());
+        BufferedReader bufferedReader = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(html.toFile()));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String context = bufferedReader.lines().collect(Collectors.joining());
+        return ResponseEntity.ok().body(PostResponse.builder()
+                .user(post.getUser().getName())
+                .image(post.getImage())
+                .datepuliced(post.getDatepuliced().format(dateTimeFormatter))
+                .dateUpdated(post.getDateupdated().format(dateTimeFormatter))
+                .dateCreated(post.getDatecreated().format(dateTimeFormatter))
+                .content(context)
+                .ispublic(post.getIspulic())
+                .isshowindex(post.getIsshowindex())
+                .metatitle(post.getMetatitle())
+                .title(post.getTitle())
+                .idCategory(post.getCategory().getTitle())
+                .id(post.getId())
+                .build());
     }
 }
