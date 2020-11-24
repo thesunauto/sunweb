@@ -42,6 +42,8 @@ public class CategoryService {
             category.setCategory(categoryRepository.getOne(categoryResponse.getIdParent()));
             category.setIsdeleted(false);
             category.setUser(userRepository.findById("admin").get());
+            category.setIsshowindex(categoryResponse.getIsShowIndex()!=null);
+            System.out.println(category);
             categoryRepository.save(category);
             return true;
         }catch (Exception e){}
@@ -62,6 +64,7 @@ public class CategoryService {
             category.setTitle(categoryResponse.getTitle());
             category.setImage(categoryResponse.getImage());
             category.setDetail(categoryResponse.getDetail());
+            category.setIsshowindex(categoryResponse.getIsShowIndex()!=null);
             categoryRepository.save(category);
             return true;
         }catch (Exception e){

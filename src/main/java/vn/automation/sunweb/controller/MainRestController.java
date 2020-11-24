@@ -3,6 +3,7 @@ package vn.automation.sunweb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.automation.sunweb.commons.CategoryResponse;
 import vn.automation.sunweb.commons.PostResponse;
 import vn.automation.sunweb.entity.Category;
 import vn.automation.sunweb.entity.Post;
@@ -156,5 +157,18 @@ public class MainRestController {
                 .idCategory(post.getCategory().getTitle())
                 .id(post.getId())
                 .build());
+    }
+
+    @PostMapping("/getCategoryShowingIndex")
+    public ResponseEntity getCategoryShowingIndex(){
+        List<CategoryResponse> responseList = new ArrayList<>();
+        categoryService.findAll(null).forEach(category -> {
+            if(category.getIsdeleted()==false){
+                if(category.getId().startsWith(".")){
+                    
+                }
+            }
+        });
+        return ResponseEntity.ok().body(null);
     }
 }

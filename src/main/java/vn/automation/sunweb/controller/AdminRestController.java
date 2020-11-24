@@ -81,6 +81,7 @@ public class AdminRestController {
             response.setTitle(value.getTitle());
             response.setImage(value.getImage());
             response.setDetail(value.getDetail());
+            response.setIsShowIndex(value.getIsshowindex()?"on":"off");
             if (value.getCategory().getCategory() != null) {
                 response.setHasParent(true);
 
@@ -111,6 +112,7 @@ public class AdminRestController {
     public ResponseEntity addTopic(@PathVariable String id, @RequestBody CategoryResponse categoryResponse) {
         if (categoryService.getOne(id).getPosts().isEmpty()) {
             categoryResponse.setIdParent(id);
+            System.out.println(categoryResponse);
             return ResponseEntity.ok().body(categoryService.save(categoryResponse));
         } else {
 
@@ -146,6 +148,7 @@ public class AdminRestController {
         return ResponseEntity.ok().body(
                 CategoryResponse.builder()
                         .id(category.getId())
+                        .isShowIndex(category.getIsshowindex()?"on":"off")
                         .title(category.getTitle())
                         .image(category.getImage())
                         .detail(category.getDetail()).build()

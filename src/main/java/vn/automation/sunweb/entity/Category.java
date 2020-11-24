@@ -39,6 +39,9 @@ public class Category implements Serializable {
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Column(name = "isshowindex", nullable = false)
+    private Boolean isshowindex;
+
     @ManyToOne
     @JoinColumn(name = "usercreated")
     @EqualsAndHashCode.Exclude

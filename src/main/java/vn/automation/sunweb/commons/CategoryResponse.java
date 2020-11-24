@@ -22,5 +22,6 @@ public class CategoryResponse {
     private String parentTitle;
     private String idParent;
     private Boolean hasParent;
+    private String isShowIndex;
     private Boolean isMax;
 }
