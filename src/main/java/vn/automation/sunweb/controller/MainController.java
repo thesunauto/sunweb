@@ -37,7 +37,8 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("categoryIn",categoryService);
         return "client/index";
     }
 

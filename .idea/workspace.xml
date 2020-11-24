@@ -25,20 +25,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="fix upload image category">
+    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="done fix category">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/commons/CategoryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/commons/CategoryResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/AdminRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/controller/MainRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/automation/sunweb/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/topicManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vn/automation/sunweb/controller/MainController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +240,7 @@
       <workItem from="1605867251078" duration="7000" />
       <workItem from="1605921509690" duration="12786000" />
       <workItem from="1606093672738" duration="8145000" />
-      <workItem from="1606180264605" duration="11412000" />
+      <workItem from="1606180264605" duration="17456000" />
     </task>
     <task id="LOCAL-00001" summary="14.10">
       <created>1602670896085</created>
@@ -551,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606094986384</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="done fix category">
+      <created>1606207309626</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1606207309626</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +599,8 @@
     <MESSAGE value="Xong post" />
     <MESSAGE value="going to done" />
     <MESSAGE value="fix upload image category" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix upload image category" />
+    <MESSAGE value="done fix category" />
+    <option name="LAST_COMMIT_MESSAGE" value="done fix category" />
   </component>
   <component name="WindowStateProjectService">
     <state x="859" y="386" width="419" height="308" key="#Assign_Data_Sources" timestamp="1603868977988">
@@ -646,46 +653,46 @@
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
     <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603763852384" />
-    <state width="1875" height="280" key="GridCell.Tab.0.bottom" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.0.bottom" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.0.center" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.0.center" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="280" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.0.left" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.0.left" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="280" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.0.right" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.0.right" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="280" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.1.bottom" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.1.bottom" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="280" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.1.center" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.1.center" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="280" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.1.left" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.1.left" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="280" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
-    <state width="1875" height="280" key="GridCell.Tab.1.right" timestamp="1606205905573">
+    <state width="1875" height="280" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
+    <state width="1875" height="280" key="GridCell.Tab.1.right" timestamp="1606210564479">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="280" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606205905573" />
+    <state width="1875" height="280" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606210564479" />
     <state width="1875" height="356" key="GridCell.Tab.2.bottom" timestamp="1606103223970">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -122,41 +122,9 @@
 
     <div class="container-fluid">
 
-        <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
-            <h2 class="text-center my-4 h1">Lĩnh vực hoạt động</h2>
-            <div class="row">
-                <div class="col-sm d-flex justify-content-center">
-                    <figure class="photo red">
-                        <img th:src="@{/img/img440x320-1.png}" alt="sample33"/>
-                        <figcaption>
-                            <h2>Cơ <span> Điện</span></h2>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-sm d-flex justify-content-center">
-                    <figure class="photo blue"><img th:src="@{/img/img440x320-2.png}"
-                                                    alt="sample34"/>
-                        <figcaption>
-                            <h2>Hạ <span> Tầng</span></h2>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-sm d-flex justify-content-center">
-                    <figure class="photo"><img th:src="@{/img/img440x320-3.png}"
-                                               alt="sample35"/>
-                        <figcaption>
-                            <h2>Sản <span> Xuất</span></h2>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-            </div>
+        <div id="dataCategory"></div>
 
-
-        </section>
-        <hr class="mb-5">
+         <hr class="mb-5">
         <!-- Section: Blog v.2 -->
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
 
@@ -673,6 +641,70 @@
                 next = $(this).siblings(':first');
             }
             next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+
+    $(document).ready(function () {
+        var listCategory = [];
+        $('body').ready(loadCategory());
+
+        function loadCategory() {
+            $.ajax({
+                url: '/api/getCategoryShowingIndex',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    listCategory = data;
+                },
+                error: function (e) {
+                    toastr.error(e, '', {positionClass: 'md-toast-top-right'});
+                },
+                complete: function () {
+                    fillCategory();
+                }
+            });
+        };
+
+        function fillCategory() {
+            var content = '';
+            var idParents = [];
+            for (var i = 0; i < listCategory.length; i++) {
+                if (idParents.indexOf(listCategory[i].idParent) == -1) {
+                    idParents.push(listCategory[i].idParent)
+                }
+            }
+            for (var ii = 0; ii < idParents.length; ii++) {
+                var title = '';
+                for(var z = 0;z<listCategory.length;z++){
+                    if(listCategory[z].idParent == idParents[ii]){
+                        title = listCategory[z].parentTitle;
+                        break;
+                    }
+                }
+                content += '<section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">\n' +
+                    '            <h2 class="text-center my-4 h1">'+title+'</h2>\n' +
+                    '            <div class="row">';
+
+                for (var iii = 0; iii < listCategory.length; iii++) {
+                    if (listCategory[iii].idParent == idParents[ii]) {
+                        var color = '';
+                        if(iii%3==0){color='red'}else if(iii%2==0){color='blue'}else {color=''}
+                        content+='<div class="col-sm d-flex justify-content-center">\n' +
+                            '                    <figure class="photo '+color+'" style="min-height: 220px;">\n' +
+                            '                        <img src="/get/'+listCategory[iii].image+'" alt="sample33"/>\n' +
+                            '                        <figcaption>\n' +
+                            '                            <h2>'+listCategory[iii].title+'</h2>\n' +
+                            '                        </figcaption>\n' +
+                            '                        <a href="#"></a>\n' +
+                            '                    </figure>\n' +
+                            '                </div>';
+                    }
+                }
+
+                content += '</div>\n' +
+                    '        </section>';
+            }
+            $('#dataCategory').html(content);
         }
     });
 </script>

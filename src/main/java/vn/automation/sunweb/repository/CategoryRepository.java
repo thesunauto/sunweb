@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Category, String>, JpaSpecificationExecutor<Category> {
     List<Category> findByCategoryAndIsdeleted(Category category,Boolean isdeleted);
+    List<Category> findAllByIsshowindexAndIsdeleted(Boolean isshowindex,Boolean isdeleted);
 }

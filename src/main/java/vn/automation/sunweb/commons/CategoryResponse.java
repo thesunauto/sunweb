@@ -17,7 +17,7 @@ public class CategoryResponse {
     private String id;
     private String title;
     private String image;
-    private File imageBytes;
+
     private String detail;
     private String parentTitle;
     private String idParent;

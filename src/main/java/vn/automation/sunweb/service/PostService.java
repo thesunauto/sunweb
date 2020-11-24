@@ -63,5 +63,7 @@ public class PostService {
        return postRepository.findTop3ByOrderByDatecreatedDesc();
     }
 
-
+    public List<Post> getTop3newIndex(){
+        return postRepository.findTop3ByIsshowindexAndIspulicAndIsdeletedOrderByDatecreatedDesc(true,true,true);
+    }
 }

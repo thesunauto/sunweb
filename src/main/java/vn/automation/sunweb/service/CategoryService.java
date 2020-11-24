@@ -73,4 +73,8 @@ public class CategoryService {
         }
         return false;
     }
+
+    public List<Category> getCategoryIndex(){
+        return categoryRepository.findAllByIsshowindexAndIsdeleted(true,false);
+    }
 }

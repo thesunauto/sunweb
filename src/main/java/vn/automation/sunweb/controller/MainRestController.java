@@ -162,13 +162,18 @@ public class MainRestController {
     @PostMapping("/getCategoryShowingIndex")
     public ResponseEntity getCategoryShowingIndex(){
         List<CategoryResponse> responseList = new ArrayList<>();
-        categoryService.findAll(null).forEach(category -> {
-            if(category.getIsdeleted()==false){
-                if(category.getId().startsWith(".")){
-                    
-                }
-            }
+        categoryService.getCategoryIndex().forEach(category -> {
+            responseList.add(CategoryResponse.builder()
+                    .isShowIndex(category.getIsshowindex()?"on":"off")
+                    .id(category.getId())
+                    .detail(category.getDetail())
+                    .image(category.getImage())
+                    .title(category.getTitle())
+                    .hasParent(category.getCategory()!=null)
+                    .idParent(category.getCategory().getId())
+                    .parentTitle(category.getCategory().getTitle())
+                    .build());
         });
-        return ResponseEntity.ok().body(null);
+        return ResponseEntity.ok().body(responseList);
     }
 }
