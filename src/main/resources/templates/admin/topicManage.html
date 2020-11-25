@@ -52,118 +52,119 @@
                 </div>
             </div>
         </section>
-        <!-- Section: Basic examples -->
+
         <section>
+            <!-- Classic tabs -->
+            <div class="classic-tabs mx-2">
 
-            <div class="my-3"></div>
+                <ul class="nav tabs-orange" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show" id="profile-tab-classic-orange" data-toggle="tab" href="#profile-classic-orange"
+                           role="tab" aria-controls="profile-classic-orange" aria-selected="true"><i class="fas fa-user fa-2x pb-2"
+                                                                                                     aria-hidden="true"></i><br>Chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="follow-tab-classic-orange" data-toggle="tab" href="#follow-classic-orange"
+                           role="tab" aria-controls="follow-classic-orange" aria-selected="false"><i class="fas fa-atom fa-2x pb-2"
+                                                                                                     aria-hidden="true"></i><br>Hoạt dộng</a>
+                    </li>
+                </ul>
 
-            <div class="card">
+                <div class="tab-content card" id="myClassicTabContentOrange">
+                    <div class="tab-pane fade active show" id="profile-classic-orange" role="tabpanel" aria-labelledby="profile-tab-classic-orange">
+                        <div class="table-responsive">
+                            <form id="formChungToi">
+                                <!-- Table -->
+                                <table class="table">
 
-                <div class="card-body">
-                    <div class="card-title h3">Chúng tôi</div>
-                    <div class="table-responsive">
-                        <form id="formChungToi">
-                            <!-- Table -->
-                            <table class="table">
+                                    <!-- Table head -->
+                                    <thead class="mdb-color darken-3">
+                                    <tr class="text-white">
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Meta title</th>
+                                        <th>Detail</th>
+                                        <th>Title parent</th>
+                                        <th>Showing index</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <!-- Table head -->
 
-                                <!-- Table head -->
-                                <thead class="mdb-color darken-3">
-                                <tr class="text-white">
-                                    <th>#</th>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Meta title</th>
-                                    <th>Detail</th>
-                                    <th>Title parent</th>
-                                    <th>Showing index</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <!-- Table head -->
+                                    <!-- Table body -->
+                                    <tbody id="dataCategory">
 
-                                <!-- Table body -->
-                                <tbody id="dataCategory">
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>ID</td>
+                                        <td>Title</td>
+                                        <td>Meta title</td>
+                                        <td>Detail</td>
+                                        <td>ID parent</td>
+                                        <td>Title parent</td>
+                                    </tr>
 
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Meta title</td>
-                                    <td>Detail</td>
-                                    <td>ID parent</td>
-                                    <td>Title parent</td>
-                                </tr>
+                                    </tbody>
+                                    <!-- Table body -->
+                                </table>
+                                <!-- Table -->
+                            </form>
 
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table -->
-                        </form>
+                        </div>
 
                     </div>
+                    <div class="tab-pane fade" id="follow-classic-orange" role="tabpanel" aria-labelledby="follow-tab-classic-orange">
 
+                        <div class="table-responsive">
+                            <form id="formHoatDong">
+                                <!-- Table -->
+                                <table class="table">
 
-                </div>
-            </div>
+                                    <!-- Table head -->
+                                    <thead class="mdb-color darken-3">
+                                    <tr class="text-white">
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Detail</th>
+                                        <th>Title parent</th>
+                                        <th>Showing index</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <!-- Table head -->
 
-        </section>
-        <!-- Section: Basic examples -->
-        <!-- Section: Basic examples -->
-        <section>
+                                    <!-- Table body -->
+                                    <tbody id="dataCategory2">
 
-            <div class="my-3"></div>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>ID</td>
+                                        <td>Title</td>
+                                        <td>Image</td>
+                                        <td>Detail</td>
+                                        <td>ID parent</td>
+                                        <td>Title parent</td>
+                                    </tr>
 
-            <div class="card">
+                                    </tbody>
+                                    <!-- Table body -->
+                                </table>
+                                <!-- Table -->
+                            </form>
 
-                <div class="card-body">
-                    <div class="card-title h3">Hoạt động</div>
-                    <div class="table-responsive">
-                        <form id="formHoatDong">
-                            <!-- Table -->
-                            <table class="table">
-
-                                <!-- Table head -->
-                                <thead class="mdb-color darken-3">
-                                <tr class="text-white">
-                                    <th>#</th>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th>Detail</th>
-                                    <th>Title parent</th>
-                                    <th>Showing index</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <!-- Table head -->
-
-                                <!-- Table body -->
-                                <tbody id="dataCategory2">
-
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Image</td>
-                                    <td>Detail</td>
-                                    <td>ID parent</td>
-                                    <td>Title parent</td>
-                                </tr>
-
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table -->
-                        </form>
-
+                        </div>
                     </div>
-
-
                 </div>
-            </div>
 
+            </div>
+            <!-- Classic tabs -->
         </section>
-        <!-- Section: Basic examples -->
+
+
+
         <section>
             <!-- Button trigger modal -->
 

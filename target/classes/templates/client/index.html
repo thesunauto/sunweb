@@ -137,12 +137,15 @@
             <!-- Grid row -->
             <div class="row">
 
+
+
+
                 <!-- Grid column -->
-                <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                <div th:each="baiviet : ${@postService.getTop3newIndex()}" class="col-lg-4 col-md-12 mb-lg-0 mb-4">
                     <!-- Featured image -->
                     <div class="view overlay z-depth-1 mb-2">
-                        <img th:src="@{/img/img781x521-1.png}"
-                             class="img-fluid"
+                        <img th:src="@{${'/get/'+baiviet.getImage()}}"
+                             class="img-fluid"  style="object-fit: cover;  object-position: center;  width: 100%;  height: 320px;"
                              alt="First sample image">
                         <a>
                             <div class="mask rgba-white-slight"></div>
@@ -151,65 +154,14 @@
 
                     <!-- Excerpt -->
                     <a href="" class="pink-text">
-                        <h6 class="mb-3 mt-3"><i class="fas fa-map "></i><strong> Loại tin</strong></h6>
+                        <h6 class="mb-3 mt-3"><i class="fas fa-at"></i>&nbsp;<strong th:text="${baiviet.getCategory().getTitle()}"> Loại tin</strong></h6>
                     </a>
-                    <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                    <h4 class="font-weight-bold mb-3" th:text="${baiviet.getTitle()}">Tiêu đề bài viết</h4>
+                    <p>by <a><strong th:text="${baiviet.getUser().getName()}">Người viết</strong></a>, <span th:text="${baiviet.getDatecreated()}">dd/MM/yyyy</span></p>
+                    <p th:text="${baiviet.getMetatitle()}">Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
                         (trích)
                         (trích) (trích) (trích) (trích) (trích)</p>
-                    <a class="btn btn-primary">Read more</a>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1 mb-2">
-                        <img th:src="@{/img/img781x521-1.png}"
-                             class="img-fluid"
-                             alt="First sample image">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!-- Excerpt -->
-                    <a href="" class="pink-text">
-                        <h6 class="mb-3 mt-3"><i class="fas fa-map "></i><strong> Loại tin</strong></h6>
-                    </a>
-                    <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
-                        (trích)
-                        (trích) (trích) (trích) (trích) (trích)</p>
-                    <a class="btn btn-primary">Read more</a>
-                </div>
-                <!-- Grid column -->
-
-
-                <!-- Grid column -->
-                <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-                    <!-- Featured image -->
-                    <div class="view overlay z-depth-1 mb-2">
-                        <img th:src="@{/img/img781x521-1.png}"
-                             class="img-fluid"
-                             alt="First sample image">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!-- Excerpt -->
-                    <a href="" class="pink-text">
-                        <h6 class="mb-3 mt-3"><i class="fas fa-map "></i><strong> Loại tin</strong></h6>
-                    </a>
-                    <h4 class="font-weight-bold mb-3">Tiêu đề bài viết</h4>
-                    <p>by <a><strong>Người viết</strong></a>, dd/MM/yyyy</p>
-                    <p>Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
-                        (trích)
-                        (trích) (trích) (trích) (trích) (trích)</p>
-                    <a class="btn btn-primary">Read more</a>
+                    <a class="btn btn-primary" th:href="@{${'/singlePost?id='+baiviet.getId()}}">Read more</a>
                 </div>
                 <!-- Grid column -->
 
@@ -240,8 +192,7 @@
                 </li>
             </ul>
             <div class="tab-content card pt-5" id="myTabContentJust">
-                <div class="tab-pane fade show active" id="home-just" role="tabpanel"
-                     aria-labelledby="home-tab-just">
+                <div class="tab-pane fade show active" id="home-just" role="tabpanel" aria-labelledby="home-tab-just">
                     <div class="row">
                         <div class="col-sm">
                             <!-- Card -->
@@ -646,7 +597,7 @@
 
     $(document).ready(function () {
         var listCategory = [];
-        $('body').ready(loadCategory());
+        $('body').ready(loadCategory(),loadPostHighlights());
 
         function loadCategory() {
             $.ajax({
@@ -695,7 +646,7 @@
                             '                        <figcaption>\n' +
                             '                            <h2>'+listCategory[iii].title+'</h2>\n' +
                             '                        </figcaption>\n' +
-                            '                        <a href="#"></a>\n' +
+                            '                        <a href="/view-wherecategory='+listCategory[iii].id+'"></a>\n' +
                             '                    </figure>\n' +
                             '                </div>';
                     }
@@ -706,6 +657,91 @@
             }
             $('#dataCategory').html(content);
         }
+        
+        
+        var listPost = [];
+        
+        function loadPostHighlights() {
+            $.ajax({
+                url:'/api/getPostShowingIndex',
+                dataType: 'JSON',
+                type: 'POST',
+                success: function (data) {
+                    listPost = data;
+                },error: function (e) {
+                    toastr.error(e, '', {positionClass: 'md-toast-top-right'});
+                },complete: function () {
+                    fillPostHighlights();
+                }
+            })
+        }
+        
+        
+        function fillPostHighlights() {
+            var category = [];
+            var contentmyTabJust = '';
+            for(var i = 0; i<listPost.length;i++){
+                if(category.indexOf(listPost[i].idCategory)==-1){
+                    var active = '';
+                    if(i==0){
+                        active = 'active';
+                    }
+                    category.push(listPost[i].idCategory);
+                    contentmyTabJust += '<li class="nav-item">\n' +
+                        '                    <a class="nav-link '+active+'" id="home-tab-just" data-toggle="tab" href="#'+listPost[i].idCategory+'" role="tab"\n' +
+                        '                       aria-controls="home-just"\n' +
+                        '                       aria-selected="true">'+listPost[i].titleCategory+'</a>\n' +
+                        '                </li>'
+                }
+            }
+          
+            $('#myTabJust').html(contentmyTabJust);
+
+            var contentmyTabContentJust = '';
+            for(var ii = 0; ii< category.length;ii++){
+                var active2 = '';
+                if(ii == 0){
+                    active2 = 'show active';
+                }
+                contentmyTabContentJust+='<div class="tab-pane fade '+active2+'" id="'+category[ii]+'" role="tabpanel" aria-labelledby="profile-tab-just">\n' +
+                    '                    <div class="row">';
+                for(var iiii = 0; iiii<listPost.length;iiii++){
+                    if(listPost[iiii].idCategory == category[ii]){
+                        contentmyTabContentJust+='<div class="col-sm mb-3">\n' +
+                            '                            <!-- Card -->\n' +
+                            '                            <div class="card">\n' +
+                            '\n' +
+                            '                                <!-- Card image -->\n' +
+                            '                                <img class="card-img-top" src="/get/'+listPost[iiii].image+'" alt="Card image cap"  style="object-fit: cover;  object-position: center;  width: 100%;  height: 350px;">\n' +
+                            '\n' +
+                            '                                <!-- Card content -->\n' +
+                            '                                <div class="card-body">\n' +
+                            '\n' +
+                            '                                    <!-- Title -->\n' +
+                            '                                    <h4 class="card-title"><a>'+listPost[iiii].title+'</a></h4>\n' +
+                            '                                    <!-- Text -->\n' +
+                            '                                    <p class="card-text"> '+listPost[iiii].metatitle+'...</p>\n' +
+                            '                                    <!-- Button -->\n' +
+                            '                                    <a href="/singlePost?id='+listPost[iiii].id+'" class="btn btn-elegant"><i class="far fa-eye pr-2"\n' +
+                            '                                                                                     aria-hidden="true"></i>Xem thêm\n' +
+                            '                                    </a>\n' +
+                            '\n' +
+                            '                                </div>\n' +
+                            '\n' +
+                            '                            </div>\n' +
+                            '                        </div>';
+                    }
+                }
+                contentmyTabContentJust+='</div>\n' +
+                    '                </div>';
+            }
+
+$('#myTabContentJust').html(contentmyTabContentJust);
+
+
+
+        }
+        
     });
 </script>
 </body>

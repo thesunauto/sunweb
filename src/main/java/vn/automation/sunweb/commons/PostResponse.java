@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PostResponse {
     private String idCategory;
+    private String titleCategory;
     private Integer id;
     private String title;
     private String metatitle;

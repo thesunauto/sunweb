@@ -176,4 +176,24 @@ public class MainRestController {
         });
         return ResponseEntity.ok().body(responseList);
     }
+
+    @PostMapping("/getPostShowingIndex")
+    public ResponseEntity getPostShowingIndex(){
+        List<PostResponse> postResponses = new ArrayList<>();
+        postService.getPostShowIndex().forEach(post -> {
+            postResponses.add(PostResponse.builder()
+                    .id(post.getId())
+                    .idCategory(post.getCategory().getId())
+                    .title(post.getTitle())
+                    .metatitle(post.getMetatitle())
+                    .isshowindex(post.getIsshowindex())
+                    .ispublic(post.getIsshowindex())
+                    .dateCreated(post.getDatecreated().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
+                    .image(post.getImage())
+                    .user(post.getUser().getName())
+                    .titleCategory(post.getCategory().getTitle())
+                    .build());
+        });
+        return ResponseEntity.ok().body(postResponses);
+    }
 }
