@@ -9,7 +9,7 @@
             <li th:class="${#httpServletRequest.getRequestURI()=='/admin'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin}">Bài viết mới</a>
             </li>
-            <li th:class="${#httpServletRequest.getRequestURI()=='/admin/manageUser'}?'nav-link active':'nav-link'">
+            <li  th:class="${#httpServletRequest.getRequestURI()=='/admin/manageUser'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/manageUser}">Quản lí người dùng</a>
             </li>
             <li th:class="${#httpServletRequest.getRequestURI()=='/admin/manageTopic'}?'nav-link active':'nav-link'">
@@ -28,7 +28,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-dark"
                      aria-labelledby="navbarDropdownMenuLink-333">
                     <a class="dropdown-item" href="#">Thông tin tài khoản</a>
-                    <a class="dropdown-item" href="#">Đăng xuất</a>
+                    <a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a>
                 </div>
             </li>
         </ul>

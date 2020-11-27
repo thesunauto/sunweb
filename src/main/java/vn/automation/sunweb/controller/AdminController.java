@@ -124,4 +124,12 @@ private UserService userService;
         return "admin/postManage";
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "admin/login";
+    }
+    @GetMapping("/loginfail")
+    public String loginfail(){
+        return "admin/login";
+    }
 }
