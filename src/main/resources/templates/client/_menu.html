@@ -1,39 +1,148 @@
 <header xmlns:th="http://www.thymeleaf.org">
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar stylish-color">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img th:src="@{/img/logo251x92.png}" style="height: 40px;" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng
-                            tôi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <style>
+        .double-nav .breadcrumb-dn {
+            color: #fff;
+        }
+
+
+        .full-screen {
+            z-index: 999;
+            margin-left: 100px;
+            position: fixed;
+            display: none;
+            bottom: 0;
+            left: 0;
+            width: -webkit-calc(100% - 100px);
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .main-title {
+            background-color: #4285F4;
+            overflow: auto;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+            position: fixed;
+            border: none;
+            background: rgba(63, 63, 63, 0);
+        }
+
+        .dropdown:hover {
+            color: #ff3138;
+            transform: translateX(15px);
+            transition: 0.2s ease-in-out;
+        }
+
+        .dropdown {
+            transition: 0.2s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .dropdown > .dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff !important;
+            background: #ff3138 !important;
+        }
+
+
+    </style>
+
+    <!-- Sidebar navigation -->
+    <div id="slide-out" class="side-nav white fixed" style="width: 100px!important;">
+        <ul class="custom-scrollbar">
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a style="width: 100%;" class="d-flex align-items-center" href="#"><img src="/img/logo100x100.png"
+                                                                                            class="flex-center"
+                                                                                            style="padding: 0; margin:auto;  width: 60px; height: 60px;"></a>
+                </div>
+            </li>
+            <li>
+                <div style="height: 75vh !important;">
+                    <div class="flex-center text-dark">
+                        <button type="button" class="btn btn-danger open-full-screen"><i id="changIcon"
+                                                                                         class="fas fa-bars fa-2x"></i>
+                        </button>
                     </div>
-                </form>
+                </div>
+            </li>
+
+        </ul>
+
+
+        <div class="sidenav-bg white"></div>
+    </div>
+    <!--/. Sidebar navigation -->
+    <!-- Navbar -->
+    <div class="d-block d-xl-none">
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg double-nav white">
+
+            <!-- SideNav slide-out button -->
+
+            <a class="nav-link" data-wow-delay="0.4s" data-toggle="modal"
+               data-target="#fluidModalChungToi">CHÚNG TÔI</a>
+            <div class="navbar-brand">
+                <a href="/"><img src="/img/logo100x100.png"
+                                 class="flex-center"
+                                 style="padding: 0; margin:auto;  width: 60px; height: 60px;"></a>
             </div>
-        </div>
-    </nav>
+            <a class="nav-link" data-wow-delay="0.4s" data-toggle="modal"
+               data-target="#fluidModalHoatDong">HOẠT ĐỘNG</a>
+
+
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+
+            </div>
+
+        </nav>
+    </div>
+
+
+    <!-- /.Navbar -->
+
+    <!--    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar stylish-color">-->
+    <!--        <div class="container">-->
+    <!--            <a class="navbar-brand" href="#">-->
+    <!--                <img th:src="@{/img/logo251x92.png}" style="height: 40px;" alt="">-->
+    <!--            </a>-->
+    <!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"-->
+    <!--                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--                <span class="navbar-toggler-icon"></span>-->
+    <!--            </button>-->
+    <!--            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">-->
+    <!--                <ul class="navbar-nav mr-auto">-->
+    <!--                    <li class="nav-item active">-->
+    <!--                        <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>-->
+    <!--                    </li>-->
+    <!--                    <li class="nav-item">-->
+    <!--                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng-->
+    <!--                            tôi</a>-->
+    <!--                    </li>-->
+    <!--                    <li class="nav-item">-->
+    <!--                        <a class="nav-link" data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>-->
+    <!--                    </li>-->
+    <!--                </ul>-->
+    <!--                <form class="form-inline">-->
+    <!--                    <div class="md-form my-0">-->
+    <!--                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+    <!--                    </div>-->
+    <!--                </form>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </nav>-->
 
     <!-- Intro Section -->
-    <div th:if="${#httpServletRequest.requestURI=='/'}" class="view jarallax" data-jarallax='{"speed": 0.2}'
-         th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;'">
+    <div th:if="${#httpServletRequest.requestURI=='/'}" class="view" data-jarallax='{"speed": 0.2}'
+         th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;height: 100vh;'">
         <div class="mask rgba-black-light">
             <div class="container h-100 d-flex justify-content-center align-items-center">
                 <div class="row pt-5 mt-3">
@@ -58,6 +167,183 @@
         </div>
     </div>
     <!-- Modal: Subscription From -->
+    <div class="d-none d-xl-block">
+        <div class="full-screen">
+            <div class="z-depth-1 h-50 pl-5">
+
+                <div class="card my-2 z-depth-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Chúng tôi</h4>
+
+                        <div href="/" class="row">
+
+                                <div class="dropdown dropright float-left">
+
+                                    <a class="dropdown-toggle"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="h4 moving-left">LV1 nhân đẹp trai</span>
+                                    </a>
+
+
+                                    <div class="dropdown-menu">
+
+                                        <div class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle" type="button"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle" type="button"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle" type="button"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <div class="dropdown-menu" >
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <span class="h5">LV1 nhân đẹp trai</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="dropdown dropright float-left">
+                                <a class="dropdown-toggle" style="" id="dropdownMenuButton1q"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4 moving-left">LV1 nhân đẹp trai</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1q">
+
+                                    <div class="dropdown dropright float-left">
+                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton1as"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="h4">LV1 nhân đẹp trai</span>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1as">
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="dropdown dropright float-left">
+                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton12v"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="h4">LV1 nhân đẹp trai</span>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton12v">
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown dropright float-left">
+                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton13b"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="h4">LV1 nhân đẹp trai</span>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton13b">
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                            <a class="dropdown-item">
+                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-2"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="z-depth-1 h-50 pl-5">
+
+                <div class="card my-2 z-depth-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Hoạt động</h4>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4"></div>
+                                <div class="col-4"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fade left" id="fluidModalChungToi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-notify modal-full-height modal-left" role="document">
@@ -77,14 +363,14 @@
                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
 
                         <!-- Navbar brand -->
-                        <a class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
+                        <a class="navbar-brand black-text" th:text="*{ct.getTitle()}"
+                           th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
 
 
                         <!-- Collapse button -->
                         <button class="navbar-toggler toggler-example" type="button"
                                 data-toggle="collapse"
-                                data-target="#chungToi1"
-                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},ria-controls='menuChungtoi'+*{ct.getId()}"
+                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},aria-controls='menuChungtoi'+*{ct.getId()}"
                                 aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="dark-blue-text"
                                 th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}">
@@ -97,11 +383,11 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                     th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
-                                    <a class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()?'/view-wherecategory='+ct1.getId():'#'}}"></a>
+                                    <a class="navbar-brand black-text" th:text="*{ct1.getTitle()}"
+                                       th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()?'/view-wherecategory='+ct1.getId():'#'}}"></a>
                                     <button class="navbar-toggler toggler-example" type="button"
                                             data-toggle="collapse"
-                                            data-target="#chungToi1"
-                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},aria-controls='menuChungtoi'+*{ct1.getId()}"
                                             aria-expanded="false" aria-label="Toggle navigation"><span
                                             class="dark-blue-text"
                                             th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
@@ -112,8 +398,9 @@
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                 th:each='ct2 : ${ct1.categories}' th:if="${ct2.isdeleted==false}">
-                                                <a class="navbar-brand black-text" th:href="@{${'/view-wherecategory='+ct2.getId()}}"
-                                                        th:text="*{ct2.getTitle()}"></a>
+                                                <a class="navbar-brand black-text"
+                                                   th:href="@{${'/view-wherecategory='+ct2.getId()}}"
+                                                   th:text="*{ct2.getTitle()}"></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -150,14 +437,13 @@
                          th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
 
                         <!-- Navbar brand -->
-                        <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
-
+                        <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"
+                           th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
 
 
                         <!-- Collapse button -->
                         <button class="navbar-toggler toggler-example" type="button"
                                 data-toggle="collapse"
-                                data-target="#chungToi1"
                                 th:attr="data-target='#menuHoatDong'+*{ct.getId()},ria-controls='menuHoatDong'+*{ct.getId()}"
                                 aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="dark-blue-text"
@@ -172,23 +458,26 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                     th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
-                                    <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct1.getTitle()}"  th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()? '/view-wherecategory='+ct1.getId():'#'}}"></a>
+                                    <a style="cursor: pointer;" class="navbar-brand black-text"
+                                       th:text="*{ct1.getTitle()}"
+                                       th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()? '/view-wherecategory='+ct1.getId():'#'}}"></a>
 
                                     <button class="navbar-toggler toggler-example" type="button"
                                             data-toggle="collapse"
-                                            data-target="#chungToi1"
-                                            th:attr="data-target='#menuHoatDong'+*{ct1.getId()},ria-controls='menuChungtoi'+*{ct1.getId()}"
+                                            th:attr="data-target='#menuHoatDong'+*{ct1.getId()},ria-controls='menuHoatDong'+*{ct1.getId()}"
                                             aria-expanded="false" aria-label="Toggle navigation"><span
                                             class="dark-blue-text"
                                             th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
                                             <i class="far fa-caret-square-down"></i></span>
                                     </button>
                                     <div class="collapse navbar-collapse"
-                                         th:id="menuChungtoi+*{ct1.getId()}">
+                                         th:id="menuHoatDong+*{ct1.getId()}">
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item navbar navbar-light grey lighten-4 m-1"
                                                 th:each='ct2 : ${ct1.categories}' th:if="${ct2.isdeleted==false}">
-                                                <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct2.getTitle()}"  th:href="@{${'/view-wherecategory='+ct2.getId()}}"></a>
+                                                <a style="cursor: pointer;" class="navbar-brand black-text"
+                                                   th:text="*{ct2.getTitle()}"
+                                                   th:href="@{${'/view-wherecategory='+ct2.getId()}}"></a>
 
                                             </li>
                                         </ul>
@@ -207,5 +496,52 @@
         </div>
     </div>
     <!-- Full Height Modal Right Success Demo -->
+    <!-- JQuery -->
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+    <script>
+        $(document).ready(function () {
+
+            // SideNav Button Initialization
+            $(".button-collapse").sideNav({
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: false, // Closes side-nav on &lt;a&gt; clicks, useful for Angular/Meteor
+                breakpoint: 1440, // Breakpoint for button collapse
+                menuWidth: 140, // Width for sidenav
+                timeDurationOpen: 300, // Time duration open menu
+                timeDurationClose: 200, // Time duration open menu
+                timeDurationOverlayOpen: 50, // Time duration open overlay
+                timeDurationOverlayClose: 200, // Time duration close overlay
+                easingOpen: 'easeOutQuad', // Open animation
+                showOverlay: true, // Display overflay
+                showCloseButton: false // Append close button into siednav
+            });
+            // SideNav Scrollbar Initialization
+            var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+            var ps = new PerfectScrollbar(sideNavScrollbar);
+        })
+        $(function () {
+            $openFullScreen = $(".open-full-screen");
+            $fullScreen = $(".full-screen");
+
+            $openFullScreen.on("click", function () {
+                $fullScreen.animate({width: 'toggle'}, 350);
+                $("i", this).toggleClass("fa-bars fa-angle-double-right");
+            });
+
+            $(".close").on("click", function () {
+                $fullScreen.animate({width: 'toggle'}, 350);
+            });
+
+            $(".save").on("click", function () {
+                $fullScreen.animate({width: 'toggle'}, 350);
+            });
+        });
+    </script>
 </header>
 

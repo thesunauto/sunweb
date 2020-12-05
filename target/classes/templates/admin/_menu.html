@@ -1,4 +1,4 @@
-<nav xmlns:th="http://www.thymeleaf.org" class="navbar navbar-expand-lg navbar-dark stylish-color">
+<nav xmlns:th="http://www.thymeleaf.org" class="navbar navbar-expand-lg navbar-dark stylish-color"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <a class="navbar-brand" href="#"><img th:src="@{/img/logo251x92.png}" class="img-fluid" style="height: 50px;" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,21 +9,24 @@
             <li th:class="${#httpServletRequest.getRequestURI()=='/admin'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin}">Bài viết mới</a>
             </li>
-            <li  th:class="${#httpServletRequest.getRequestURI()=='/admin/manageUser'}?'nav-link active':'nav-link'">
+            <li sec:authorize="hasRole('admin')" th:class="${#httpServletRequest.getRequestURI()=='/admin/manageUser'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/manageUser}">Quản lí người dùng</a>
             </li>
-            <li th:class="${#httpServletRequest.getRequestURI()=='/admin/manageTopic'}?'nav-link active':'nav-link'">
+            <li sec:authorize="hasRole('admin')" th:class="${#httpServletRequest.getRequestURI()=='/admin/manageTopic'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/manageTopic}">Quản lí danh mục</a>
             </li>
             <li th:class="${#httpServletRequest.getRequestURI()=='/admin/managePost'}?'nav-link active':'nav-link'">
                 <a class="nav-link" th:href="@{/admin/managePost}">Quản lí bài viết</a>
             </li>
+            <li class="nav-link">
+                <a class="nav-link" target="_blank"  th:href="@{/}">> Trang chủ <</a>
+            </li>
         </ul>
-        <ul class="navbar-nav ml-auto nav-flex-icons">
+        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user"></i> <span sec:authentication="name"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-dark"
                      aria-labelledby="navbarDropdownMenuLink-333">
@@ -32,5 +35,6 @@
                 </div>
             </li>
         </ul>
+
     </div>
 </nav>

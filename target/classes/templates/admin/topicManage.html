@@ -498,10 +498,18 @@
             });
             return o;
         };
-
+        var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         $(document).on('click', '#addChungtoi', function () {
 
+
+
             var formData = $('#formChungToi').serializeObject();
+
+            if(format.test(formData.id)){
+                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                return;
+            }
+
             if($('#customFile2')[0].files[0]!=null){
                 var formUpload = new FormData();
                 formUpload.append('file',$('#customFile2')[0].files[0]);
@@ -535,6 +543,12 @@
         });
         $(document).on('click', '#addHoatDong', function () {
             var formData = $('#formHoatDong').serializeObject();
+
+            if(format.test(formData.id)){
+                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                return;
+            }
+
             if(formData.image =$('#customFile')[0].files[0]!=null){
                 var formUpload = new FormData();
                 formUpload.append('file',$('#customFile')[0].files[0]);
@@ -634,8 +648,14 @@
             editData.image = category.image;
             if($('#blah').attr('src') != '/get/'+category.image){
                 var formUpload = new FormData();
-                formUpload.append('file',$('#imgInp')[0].files[0]);
-                $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+                formUpload.append('file', $('#imgInp')[0].files[0]);
+                $.ajax({
+                    url: '/api/upload-file',
+                    method: 'post',
+                    data: formUpload,
+                    contentType: false,
+                    processData: false
+                })
                 editData.image = $('#imgInp')[0].files[0].name;
             }
 
