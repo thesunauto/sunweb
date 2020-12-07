@@ -30,12 +30,21 @@
             background: rgba(63, 63, 63, 0);
         }
 
-        .dropdown:hover {
+        .dropdown:hover{
             color: #ff3138;
             transform: translateX(15px);
             transition: 0.2s ease-in-out;
         }
+        .dropdown:hover>.dropdown-toggle>span{
+            color: #ff3138;
 
+            transition: 0.2s ease-in-out;
+        }
+        .dropdown>.dropdown-toggle>span{
+            color: #0d0d0d;
+
+            transition: 0.2s ease-in-out;
+        }
         .dropdown {
             transition: 0.2s ease-in-out;
             margin-bottom: 10px;
@@ -60,7 +69,7 @@
         <ul class="custom-scrollbar">
             <li>
                 <div class="logo-wrapper waves-light">
-                    <a style="width: 100%;" class="d-flex align-items-center" href="#"><img src="/img/logo100x100.png"
+                    <a style="width: 100%;" class="d-flex align-items-center" href="/"><img src="/img/logo100x100.png"
                                                                                             class="flex-center"
                                                                                             style="padding: 0; margin:auto;  width: 60px; height: 60px;"></a>
                 </div>
@@ -68,7 +77,7 @@
             <li>
                 <div style="height: 75vh !important;">
                     <div class="flex-center text-dark">
-                        <button type="button" class="btn btn-danger open-full-screen"><i id="changIcon"
+                        <button type="button" class="btn btn-white z-depth-0 text-danger waves-effect open-full-screen"><i id="changIcon"
                                                                                          class="fas fa-bars fa-2x"></i>
                         </button>
                     </div>
@@ -141,9 +150,9 @@
     <!--    </nav>-->
 
     <!-- Intro Section -->
-    <div th:if="${#httpServletRequest.requestURI=='/'}" class="view" data-jarallax='{"speed": 0.2}'
+    <div th:if="${#httpServletRequest.requestURI=='/'}" style="height: 100vh;" data-jarallax='{"speed": 0.2}'
          th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;height: 100vh;'">
-        <div class="mask rgba-black-light">
+        <div class="mask rgba-black-light" style="height: 100vh;">
             <div class="container h-100 d-flex justify-content-center align-items-center">
                 <div class="row pt-5 mt-3">
                     <div class="col-md-12">
@@ -174,145 +183,49 @@
                 <div class="card my-2 z-depth-0">
                     <div class="card-body">
                         <h4 class="card-title">Chúng tôi</h4>
-
-                        <div href="/" class="row">
-
-                                <div class="dropdown dropright float-left">
-
-                                    <a class="dropdown-toggle"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="h4 moving-left">LV1 nhân đẹp trai</span>
-                                    </a>
-
-
-                                    <div class="dropdown-menu">
-
-                                        <div class="dropdown dropright float-left">
-                                            <a class="dropdown-toggle" type="button"
-                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="h4">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="dropdown dropright float-left">
-                                            <a class="dropdown-toggle" type="button"
-                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="h4">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="dropdown dropright float-left">
-                                            <a class="dropdown-toggle" type="button"
-                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="h4">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <div class="dropdown-menu" >
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <span class="h5">LV1 nhân đẹp trai</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="dropdown dropright float-left">
-                                <a class="dropdown-toggle" style="" id="dropdownMenuButton1q"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="h4 moving-left">LV1 nhân đẹp trai</span>
+                        <div class="row" th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
+                            <div th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <a class="dropdown-toggle"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}" >Title LV1</span>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1q">
-
-                                    <div class="dropdown dropright float-left">
-                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton1as"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="h4">LV1 nhân đẹp trai</span>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1as">
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
+                                <div class="dropdown-menu pl-4">
+                                    <div class="row" th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                        <div th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
                                             </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
+                                            <div class="dropdown-menu pl-4">
+                                                <div class="row" th:each="ct2 : ${ct1.categories}">
+                                                    <a th:href="@{${'/view-wherecategory='+ct2.getId()}}" th:if="${@categoryService.findByIdparent(ct2.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                                        <div class="dropdown-toggle"
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="h4" th:text="${ct2.title}" >Title LV1</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
-
-                                    <div class="dropdown dropright float-left">
-                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton12v"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="h4">LV1 nhân đẹp trai</span>
+                                        <a th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <div class="dropdown-toggle"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </div>
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton12v">
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                        </div>
                                     </div>
-
-                                    <div class="dropdown dropright float-left">
-                                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton13b"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="h4">LV1 nhân đẹp trai</span>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton13b">
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <span class="h5">LV1 nhân đẹp trai</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
+                            <a th:href="@{${'/view-wherecategory='+ct.getId()}}" th:if="${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <div class="dropdown-toggle"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="h4" th:text="${ct.title}"></span>
+                                </div>
+                            </a>
+
                         </div>
+
                         <div class="my-2"></div>
 
 
@@ -326,13 +239,47 @@
                 <div class="card my-2 z-depth-0">
                     <div class="card-body">
                         <h4 class="card-title">Hoạt động</h4>
+                        <div class="row" th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
+                            <div th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}" >Title LV1</span>
+                                </a>
+                                <div class="dropdown-menu pl-4">
+                                    <div class="row" th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                        <div th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </a>
+                                            <div class="dropdown-menu pl-4">
+                                                <div class="row" th:each="ct2 : ${ct1.categories}">
+                                                    <a th:href="@{${'/view-wherecategory='+ct2.getId()}}" th:if="${@categoryService.findByIdparent(ct2.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                                        <div class="dropdown-toggle"
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="h4" th:text="${ct2.title}" >Title LV1</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4"></div>
-                                <div class="col-4"></div>
+                                        <a th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <div class="dropdown-toggle"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            <a th:href="@{${'/view-wherecategory='+ct.getId()}}" th:if="${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <div class="dropdown-toggle"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}"></span>
+                                </div>
+                            </a>
+
                         </div>
 
                     </div>

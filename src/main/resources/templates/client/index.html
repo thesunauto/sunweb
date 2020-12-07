@@ -16,7 +16,39 @@
     <!-- Custom styles -->
     <link rel="stylesheet" th:href="@{/css/custom/hover-tab-view.css}">
     <style>
+        @media (max-width: 992px) {
+            .news-tile .card-title {
+                font-size: 1.2rem;
+            }
+        }
 
+        .news-tile .card-title {
+            position: absolute;
+            bottom: 15px;
+            left: 30px;
+            text-align: left;
+        }
+
+        .news-tile h4 {
+            font-size: 1.2rem;
+        }
+
+        .news-tile h3 {
+            font-size: 1.6rem;
+        }
+
+        .rgba-stylish-strong {
+            background-color: rgba(62, 69, 81, .5);
+        }
+
+        .view:hover {
+            -webkit-filter: brightness(140%);
+            transition: all .4s ease-in-out;
+        }
+
+        .view {
+            transition: all .4s ease-in-out;
+        }
 
         .carousel-multi-item.v-2.product-carousel .carousel-inner .carousel-item.active,
         .carousel-multi-item.v-2.product-carousel .carousel-item-next,
@@ -92,15 +124,13 @@
 <th:block th:include="/client/_menu"></th:block>
 <!-- Main Navigation -->
 <!-- Full Height Modal Right Success Demo -->
-
 <!-- Main layout -->
 <main>
-
-    <div class="container-fluid">
+    <div class="container">
 
         <div id="dataCategory"></div>
 
-         <hr class="mb-5">
+        <hr class="mb-5">
         <!-- Section: Blog v.2 -->
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
 
@@ -114,14 +144,13 @@
             <div class="row">
 
 
-
-
                 <!-- Grid column -->
                 <div th:each="baiviet : ${@postService.getTop3newIndex()}" class="col-lg-4 col-md-12 mb-lg-0 mb-4">
                     <!-- Featured image -->
                     <div class="view overlay z-depth-1 mb-2">
                         <img th:src="@{${'/get/'+baiviet.getImage()}}"
-                             class="img-fluid"  style="object-fit: cover;  object-position: center;  width: 100%;  height: 320px;"
+                             class="img-fluid"
+                             style="object-fit: cover;  object-position: center;  width: 100%;  height: 320px;"
                              alt="First sample image">
                         <a>
                             <div class="mask rgba-white-slight"></div>
@@ -130,11 +159,14 @@
 
                     <!-- Excerpt -->
                     <a href="" class="pink-text">
-                        <h6 class="mb-3 mt-3"><i class="fas fa-at"></i>&nbsp;<strong th:text="${baiviet.getCategory().getTitle()}"> Loại tin</strong></h6>
+                        <h6 class="mb-3 mt-3"><i class="fas fa-at"></i>&nbsp;<strong
+                                th:text="${baiviet.getCategory().getTitle()}"> Loại tin</strong></h6>
                     </a>
                     <h4 class="font-weight-bold mb-3" th:text="${baiviet.getTitle()}">Tiêu đề bài viết</h4>
-                    <p>by <a><strong th:text="${baiviet.getUser().getName()}">Người viết</strong></a>, <span th:text="${baiviet.getDatecreated()}">dd/MM/yyyy</span></p>
-                    <p th:text="${baiviet.getMetatitle()}">Trích nội dung bài viết. (trích) (trích) (trích) (trích) (trích) (trích) (trích) (trích)
+                    <p>by <a><strong th:text="${baiviet.getUser().getName()}">Người viết</strong></a>, <span
+                            th:text="${baiviet.getDatecreated()}">dd/MM/yyyy</span></p>
+                    <p th:text="${baiviet.getMetatitle()}">Trích nội dung bài viết. (trích) (trích) (trích) (trích)
+                        (trích) (trích) (trích) (trích)
                         (trích)
                         (trích) (trích) (trích) (trích) (trích)</p>
                     <a class="btn btn-primary" th:href="@{${'/singlePost?id='+baiviet.getId()}}">Read more</a>
@@ -148,256 +180,11 @@
         </section>
         <!-- Section: Blog v.2 -->
         <hr class="mb-5">
-        <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
-            <h2 class="text-center my-4 h1">Nổi bật</h2>
-            <ul class="nav nav-tabs nav-justified md-tabs stylish-color-dark" id="myTabJust" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab-just" data-toggle="tab" href="#home-just" role="tab"
-                       aria-controls="home-just"
-                       aria-selected="true">Dự án</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab-just" data-toggle="tab" href="#profile-just" role="tab"
-                       aria-controls="profile-just"
-                       aria-selected="false">Giải pháp</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab-just" data-toggle="tab" href="#contact-just" role="tab"
-                       aria-controls="contact-just"
-                       aria-selected="false">Tuyển dụng</a>
-                </li>
-            </ul>
-            <div class="tab-content card pt-5" id="myTabContentJust">
-                <div class="tab-pane fade show active" id="home-just" role="tabpanel" aria-labelledby="home-tab-just">
-                    <div class="row">
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
 
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
+        <div id="myTabJust">
 
-                                <!-- Card content -->
-                                <div class="card-body">
+        </div>
 
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="profile-just" role="tabpanel" aria-labelledby="profile-tab-just">
-                    <div class="row">
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="contact-just" role="tabpanel" aria-labelledby="contact-tab-just">
-                    <div class="row">
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <!-- Card -->
-                            <div class="card">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" th:src="@{/img/img781x521-1.png}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title"><a>Tiêu đề bài viết</a></h4>
-                                    <!-- Text -->
-                                    <p class="card-text">(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài
-                                        viết)(Trích dẫn bài viết)(Trích dẫn bài viết)(Trích dẫn bài viết)</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-elegant"><i class="far fa-eye pr-2"
-                                                                                     aria-hidden="true"></i>Xem thêm
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <hr class="mb-5">
         <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">
             <!-- Section heading -->
@@ -528,6 +315,8 @@
             </div>
 
         </section>
+
+
     </div>
 
 </main>
@@ -573,7 +362,7 @@
 
     $(document).ready(function () {
         var listCategory = [];
-        $('body').ready(loadCategory(),loadPostHighlights());
+        $('body').ready(loadCategory(), loadPostHighlights());
 
         function loadCategory() {
             $.ajax({
@@ -602,27 +391,33 @@
             }
             for (var ii = 0; ii < idParents.length; ii++) {
                 var title = '';
-                for(var z = 0;z<listCategory.length;z++){
-                    if(listCategory[z].idParent == idParents[ii]){
+                for (var z = 0; z < listCategory.length; z++) {
+                    if (listCategory[z].idParent == idParents[ii]) {
                         title = listCategory[z].parentTitle;
                         break;
                     }
                 }
                 content += '<section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">\n' +
-                    '            <h2 class="text-center my-4 h1">'+title+'</h2>\n' +
+                    '            <h2 class="text-center my-4 h1">' + title + '</h2>\n' +
                     '            <div class="row">';
 
                 for (var iii = 0; iii < listCategory.length; iii++) {
                     if (listCategory[iii].idParent == idParents[ii]) {
                         var color = '';
-                        if(iii%3==0){color='red'}else if(iii%2==0){color='blue'}else {color=''}
-                        content+='<div class="col-sm d-flex justify-content-center">\n' +
-                            '                    <figure class="photo '+color+'" style="min-height: 220px;">\n' +
-                            '                        <img src="/get/'+listCategory[iii].image+'" alt="sample33"/>\n' +
+                        if (iii % 3 == 0) {
+                            color = 'red'
+                        } else if (iii % 2 == 0) {
+                            color = 'blue'
+                        } else {
+                            color = ''
+                        }
+                        content += '<div class="col-sm d-flex justify-content-center">\n' +
+                            '                    <figure class="photo ' + color + '" style="min-height: 220px;">\n' +
+                            '                        <img src="/get/' + listCategory[iii].image + '" alt="sample33"/>\n' +
                             '                        <figcaption>\n' +
-                            '                            <h2>'+listCategory[iii].title+'</h2>\n' +
+                            '                            <h2>' + listCategory[iii].title + '</h2>\n' +
                             '                        </figcaption>\n' +
-                            '                        <a href="/view-wherecategory='+listCategory[iii].id+'"></a>\n' +
+                            '                        <a href="/view-wherecategory=' + listCategory[iii].id + '"></a>\n' +
                             '                    </figure>\n' +
                             '                </div>';
                     }
@@ -633,91 +428,254 @@
             }
             $('#dataCategory').html(content);
         }
-        
-        
+
+
         var listPost = [];
-        
+
         function loadPostHighlights() {
             $.ajax({
-                url:'/api/getPostShowingIndex',
+                url: '/api/getPostShowingIndex',
                 dataType: 'JSON',
                 type: 'POST',
                 success: function (data) {
                     listPost = data;
-                },error: function (e) {
+                }, error: function (e) {
                     toastr.error(e, '', {positionClass: 'md-toast-top-right'});
-                },complete: function () {
+                }, complete: function () {
                     fillPostHighlights();
                 }
             })
         }
-        
-        
+
+
         function fillPostHighlights() {
             var category = [];
-            var contentmyTabJust = '';
-            for(var i = 0; i<listPost.length;i++){
-                if(category.indexOf(listPost[i].idCategory)==-1){
+            var contentmyTabContentJust = '';
+            for (var i = 0; i < listPost.length; i++) {
+                if (category.indexOf(listPost[i].idCategory) == -1) {
                     var active = '';
-                    if(i==0){
+                    if (i == 0) {
                         active = 'active';
                     }
                     category.push(listPost[i].idCategory);
-                    contentmyTabJust += '<li class="nav-item">\n' +
-                        '                    <a class="nav-link '+active+'" id="home-tab-just" data-toggle="tab" href="#'+listPost[i].idCategory+'" role="tab"\n' +
-                        '                       aria-controls="home-just"\n' +
-                        '                       aria-selected="true">'+listPost[i].titleCategory+'</a>\n' +
-                        '                </li>'
                 }
             }
 
-            $('#myTabJust').html(contentmyTabJust);
 
-            var contentmyTabContentJust = '';
-            for(var ii = 0; ii< category.length;ii++){
-                var active2 = '';
-                if(ii == 0){
-                    active2 = 'show active';
-                }
-                contentmyTabContentJust+='<div class="tab-pane fade '+active2+'" id="'+category[ii]+'" role="tabpanel" aria-labelledby="profile-tab-just">\n' +
-                    '                    <div class="row">';
-                for(var iiii = 0; iiii<listPost.length;iiii++){
-                    if(listPost[iiii].idCategory == category[ii]){
-                        contentmyTabContentJust+='<div class="col-sm mb-3">\n' +
-                            '                            <!-- Card -->\n' +
-                            '                            <div class="card">\n' +
-                            '\n' +
-                            '                                <!-- Card image -->\n' +
-                            '                                <img class="card-img-top" src="/get/'+listPost[iiii].image+'" alt="Card image cap"  style="object-fit: cover;  object-position: center;  width: 100%;  height: 350px;">\n' +
-                            '\n' +
-                            '                                <!-- Card content -->\n' +
-                            '                                <div class="card-body">\n' +
-                            '\n' +
-                            '                                    <!-- Title -->\n' +
-                            '                                    <h4 class="card-title"><a>'+listPost[iiii].title+'</a></h4>\n' +
-                            '                                    <!-- Text -->\n' +
-                            '                                    <p class="card-text"> '+listPost[iiii].metatitle+'...</p>\n' +
-                            '                                    <!-- Button -->\n' +
-                            '                                    <a href="/singlePost?id='+listPost[iiii].id+'" class="btn btn-elegant"><i class="far fa-eye pr-2"\n' +
-                            '                                                                                     aria-hidden="true"></i>Xem thêm\n' +
-                            '                                    </a>\n' +
-                            '\n' +
-                            '                                </div>\n' +
-                            '\n' +
-                            '                            </div>\n' +
-                            '                        </div>';
+            for (var ii = 0; ii < category.length; ii++) {
+                for (var xc = 0; xc < listPost.length; xc++) {
+                    if (listPost[xc].idCategory == category[ii]) {
+                        contentmyTabContentJust += ' <section class="text-center my-5 wow fadeIn" data-wow-delay="0.3s">\n' +
+                            '            <h2 class="text-center my-4 h1">' + listPost[xc].titleCategory + '</h2>\n' +
+                            '            <!--Grid row-->\n' +
+                            '            <div class="row m-0">';
+                        break;
                     }
                 }
-                contentmyTabContentJust+='</div>\n' +
-                    '                </div>';
+
+                var listfu = [];
+                for (var iiii = 0; iiii < listPost.length; iiii++) {
+                    if (listPost[iiii].idCategory == category[ii]) {
+                        listfu.push(listPost[iiii]);
+                    }
+                }
+                if (listfu.length == 0) {
+
+                } else if (listfu.length == 1) {
+                    contentmyTabContentJust += ' <!-- Grid column -->\n' +
+                        '      <div class="col-lg-12 col-md-12">\n' +
+                        '\n' +
+                        '        <!--News tile -->\n' +
+                        '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                        '\n' +
+                        '          <a href="#!" class="text-white">\n' +
+                        '            <img src="/get/' + listfu[0].image + '"\n' +
+                        '             style="object-fit: cover;  object-position: center;  width: 100%;  height: 500px;"    class="img-fluid rounded-bottom" alt="sample image">\n' +
+                        '            <div class="mask rgba-stylish-strong">\n' +
+                        '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                        '                <div>\n' +
+                        '                  <h2 class="card-title font-weight-bold pt-2">\n' +
+                        '                    <strong>' + listfu[0].title + '</strong>\n' +
+                        '                  </h2>\n' +
+                        '\n' +
+                        '                  <p class="mx-5 clearfix d-none d-md-block"></p>\n' +
+                        '                </div>\n' +
+                        '              </div>\n' +
+                        '            </div>\n' +
+                        '          </a>\n' +
+                        '\n' +
+                        '        </div>\n' +
+                        '        <!--News tile -->\n';
+                } else if (listfu.length == 2) {
+                    contentmyTabContentJust += ' <!-- Grid column -->\n' +
+                        '      <div class="col-lg-6 col-md-12">\n' +
+                        '\n' +
+                        '        <!--News tile -->\n' +
+                        '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                        '\n' +
+                        '          <a href="#!" class="text-white">\n' +
+                        '            <img src="/get/' + listfu[0].image + '"\n' +
+                        '              style="object-fit: cover;  object-position: center;  width: 100%;  height: 500px;"   class="img-fluid rounded-bottom" alt="sample image">\n' +
+                        '            <div class="mask rgba-stylish-strong">\n' +
+                        '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                        '                <div>\n' +
+                        '                  <h2 class="card-title font-weight-bold pt-2">\n' +
+                        '                    <strong>' + listfu[0].title + '</strong>\n' +
+                        '                  </h2>\n' +
+                        '\n' +
+
+                        '                </div>\n' +
+                        '              </div>\n' +
+                        '            </div>\n' +
+                        '          </a>\n' +
+                        '\n' +
+                        '        </div>\n' +
+                        '        </div>\n' +
+                        '        <!--News tile -->\n' +
+                        ' <!-- Grid column -->\n' +
+                        '      <div class="col-lg-6 col-md-12">\n' +
+                        '\n' +
+                        '        <!--News tile -->\n' +
+                        '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                        '\n' +
+                        '          <a href="#!" class="text-white">\n' +
+                        '            <img src="/get/' + listfu[1].image + '"\n' +
+                        '             style="object-fit: cover;  object-position: center;  width: 100%;  height: 500px;"    class="img-fluid rounded-bottom" alt="sample image">\n' +
+                        '            <div class="mask rgba-stylish-strong">\n' +
+                        '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                        '                <div>\n' +
+                        '                  <h2 class="card-title font-weight-bold pt-2">\n' +
+                        '                    <strong>' + listfu[1].title + '</strong>\n' +
+                        '                  </h2>\n' +
+                        '\n' +
+
+                        '                </div>\n' +
+                        '              </div>\n' +
+                        '            </div>\n' +
+                        '          </a>\n' +
+                        '\n' +
+                        '        </div>\n' +'        </div>\n' +
+                        '        <!--News tile -->\n'
+                } else {
+                    for (var ai = 2; ai < listfu.length; ai++) {
+                        if (ai < 3) {
+                            contentmyTabContentJust += ' <!-- Grid column -->\n' +
+                                '      <div class="col-lg-8 col-md-12">\n' +
+                                '\n' +
+                                '        <!--News tile -->\n' +
+                                '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                                '\n' +
+                                '          <a href="#!" class="text-white">\n' +
+                                '        <img src="/get/' + listfu[0].image + '"\n' +
+                                '         style="object-fit: cover;  object-position: center;  width: 100%;  height: 520px;"        class="img-fluid rounded-bottom" alt="sample image">\n' +
+                                '            <div class="mask rgba-stylish-strong">\n' +
+                                '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                                '                <div>\n' +
+                                '                  <h2 class="card-title font-weight-bold pt-2">\n' +
+                                '                    <strong>' + listfu[0].title + '</strong>\n' +
+                                '                  </h2>\n' +
+                                '\n' +
+                                '                  <p class="mx-5 clearfix d-none d-md-block"></p>\n' +
+                                '                </div>\n' +
+                                '              </div>\n' +
+                                '            </div>\n' +
+                                '          </a>\n' +
+                                '\n' +
+                                '        </div>\n' +
+                                '        <!--News tile -->\n' +
+                                '\n' +
+                                '      </div>\n' +
+                                '      <!-- Grid column -->\n' +
+                                '\n' +
+                                '      <!-- Grid column -->\n' +
+                                '      <div class="col-lg-4 col-md-12">\n' +
+                                '\n' +
+                                '        <!--News tile -->\n' +
+                                '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                                '\n' +
+                                '          <a href="#!" class="text-white">\n' +
+                                '            <img src="/get/' + listfu[1].image + '"\n' +
+                                '       style="object-fit: cover;  object-position: center;  width: 100%;  height: 250px;"          class="img-fluid rounded-bottom" alt="sample image">\n' +
+                                '            <div class="mask rgba-stylish-strong">\n' +
+                                '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                                '                <div>\n' +
+                                '                  <h4 class="card-title font-weight-bold pt-2">\n' +
+                                '                    <strong>' + listfu[1].title + '</strong>\n' +
+                                '                  </h4>\n' +
+                                '\n' +
+                                '                  <p class="mx-5 clearfix d-none d-md-block"></p>\n' +
+                                '                </div>\n' +
+                                '              </div>\n' +
+                                '            </div>\n' +
+                                '          </a>\n' +
+                                '\n' +
+                                '        </div>\n' +
+                                '        <!--News tile -->\n' +
+                                '\n' +
+                                '        <!--News tile -->\n' +
+                                '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                                '\n' +
+                                '          <a href="#!" class="text-white">\n' +
+                                '            <img src="/get/' + listfu[2].image + '"\n' +
+                                '       style="object-fit: cover;  object-position: center;  width: 100%;  height: 250px;"          class="img-fluid rounded-bottom" alt="sample image">\n' +
+                                '            <div class="mask rgba-stylish-strong">\n' +
+                                '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                                '                <div>\n' +
+                                '                  <h4 class="card-title font-weight-bold pt-2">\n' +
+                                '                    <strong>' + listfu[2].title + '</strong>\n' +
+                                '                  </h4>\n' +
+                                '\n' +
+                                '                  <p class="mx-5 clearfix d-none d-md-block"></p>\n' +
+                                '                </div>\n' +
+                                '              </div>\n' +
+                                '            </div>\n' +
+                                '          </a>\n' +
+                                '\n' +
+                                '        </div>\n' +
+                                '        <!--News tile -->\n' +
+                                '\n' +
+                                '      </div>\n' +
+                                '      <!-- Grid column --> </div><div class="row">';
+                        } else {
+                            contentmyTabContentJust += '<div class="col-lg-4 col-md-12">\n' +
+                                '\n' +
+                                '        <!--News tile -->\n' +
+                                '        <div class="news-tile view zoom z-depth-1 rounded mb-4">\n' +
+                                '\n' +
+                                '          <a href="#!" class="text-white">\n' +
+                                '            <img src="/get/' + listfu[ai].image + '"\n' +
+                                '                 class="img-fluid rounded-bottom" alt="sample image">\n' +
+                                '            <div class="mask rgba-stylish-strong">\n' +
+                                '              <div class="text-white text-center py-lg-5 py-0 my-0">\n' +
+                                '                <div>\n' +
+                                '                  <h4 class="card-title font-weight-bold pt-2">\n' +
+                                '                    <strong>"/get/' + listfu[ai].title + '"</strong>\n' +
+                                '                  </h4>\n' +
+                                '\n' +
+                                '                  <p class="mx-5 clearfix d-none d-md-block"></p>\n' +
+                                '                </div>\n' +
+                                '              </div>\n' +
+                                '            </div>\n' +
+                                '          </a>\n' +
+                                '\n' +
+                                '        </div>\n' +
+                                '        <!--News tile -->\n' +
+                                '      </div>';
+                        }
+                    }
+                }
+
+
+                contentmyTabContentJust += '</div>\n' +
+                    '            <!--Grid row-->\n' +
+                    '        </section>';
             }
 
-$('#myTabContentJust').html(contentmyTabContentJust);
-
+            $('#myTabJust').html(contentmyTabContentJust);
 
 
         }
-        
+
     });
 </script>
 </body>
