@@ -52,116 +52,119 @@
                 </div>
             </div>
         </section>
-        <!-- Section: Basic examples -->
+
         <section>
+            <!-- Classic tabs -->
+            <div class="classic-tabs mx-2">
 
-            <div class="my-3"></div>
+                <ul class="nav tabs-orange" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show" id="profile-tab-classic-orange" data-toggle="tab" href="#profile-classic-orange"
+                           role="tab" aria-controls="profile-classic-orange" aria-selected="true"><i class="fas fa-user fa-2x pb-2"
+                                                                                                     aria-hidden="true"></i><br>Chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="follow-tab-classic-orange" data-toggle="tab" href="#follow-classic-orange"
+                           role="tab" aria-controls="follow-classic-orange" aria-selected="false"><i class="fas fa-atom fa-2x pb-2"
+                                                                                                     aria-hidden="true"></i><br>Hoạt dộng</a>
+                    </li>
+                </ul>
 
-            <div class="card">
+                <div class="tab-content card" id="myClassicTabContentOrange">
+                    <div class="tab-pane fade active show" id="profile-classic-orange" role="tabpanel" aria-labelledby="profile-tab-classic-orange">
+                        <div class="table-responsive">
+                            <form id="formChungToi">
+                                <!-- Table -->
+                                <table class="table">
 
-                <div class="card-body">
-                    <div class="card-title h3">Chúng tôi</div>
-                    <div class="table-responsive">
-                        <form id="formChungToi">
-                            <!-- Table -->
-                            <table class="table">
+                                    <!-- Table head -->
+                                    <thead class="mdb-color darken-3">
+                                    <tr class="text-white">
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Meta title</th>
+                                        <th>Detail</th>
+                                        <th>Title parent</th>
+                                        <th>Showing index</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <!-- Table head -->
 
-                                <!-- Table head -->
-                                <thead class="mdb-color darken-3">
-                                <tr class="text-white">
-                                    <th>#</th>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Meta title</th>
-                                    <th>Detail</th>
-                                    <th>Title parent</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <!-- Table head -->
+                                    <!-- Table body -->
+                                    <tbody id="dataCategory">
 
-                                <!-- Table body -->
-                                <tbody id="dataCategory">
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>ID</td>
+                                        <td>Title</td>
+                                        <td>Meta title</td>
+                                        <td>Detail</td>
+                                        <td>ID parent</td>
+                                        <td>Title parent</td>
+                                    </tr>
 
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Meta title</td>
-                                    <td>Detail</td>
-                                    <td>ID parent</td>
-                                    <td>Title parent</td>
-                                </tr>
+                                    </tbody>
+                                    <!-- Table body -->
+                                </table>
+                                <!-- Table -->
+                            </form>
 
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table -->
-                        </form>
+                        </div>
 
                     </div>
+                    <div class="tab-pane fade" id="follow-classic-orange" role="tabpanel" aria-labelledby="follow-tab-classic-orange">
 
+                        <div class="table-responsive">
+                            <form id="formHoatDong">
+                                <!-- Table -->
+                                <table class="table">
 
-                </div>
-            </div>
+                                    <!-- Table head -->
+                                    <thead class="mdb-color darken-3">
+                                    <tr class="text-white">
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Detail</th>
+                                        <th>Title parent</th>
+                                        <th>Showing index</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <!-- Table head -->
 
-        </section>
-        <!-- Section: Basic examples -->
-        <!-- Section: Basic examples -->
-        <section>
+                                    <!-- Table body -->
+                                    <tbody id="dataCategory2">
 
-            <div class="my-3"></div>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>ID</td>
+                                        <td>Title</td>
+                                        <td>Image</td>
+                                        <td>Detail</td>
+                                        <td>ID parent</td>
+                                        <td>Title parent</td>
+                                    </tr>
 
-            <div class="card">
+                                    </tbody>
+                                    <!-- Table body -->
+                                </table>
+                                <!-- Table -->
+                            </form>
 
-                <div class="card-body">
-                    <div class="card-title h3">Hoạt động</div>
-                    <div class="table-responsive">
-                        <form id="formHoatDong">
-                            <!-- Table -->
-                            <table class="table">
-
-                                <!-- Table head -->
-                                <thead class="mdb-color darken-3">
-                                <tr class="text-white">
-                                    <th>#</th>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th>Detail</th>
-                                    <th>Title parent</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <!-- Table head -->
-
-                                <!-- Table body -->
-                                <tbody id="dataCategory2">
-
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Image</td>
-                                    <td>Detail</td>
-                                    <td>ID parent</td>
-                                    <td>Title parent</td>
-                                </tr>
-
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table -->
-                        </form>
-
+                        </div>
                     </div>
-
-
                 </div>
-            </div>
 
+            </div>
+            <!-- Classic tabs -->
         </section>
-        <!-- Section: Basic examples -->
+
+
+
         <section>
             <!-- Button trigger modal -->
 
@@ -226,6 +229,10 @@
                                     <input placeholder="enter topic detail" type="text" id="caDetail" name="detail"
                                            class="form-control validate">
                                     <label data-error="wrong" data-success="right" for="caDetail">Detail</label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="isShowIndex" type="checkbox" class="form-check-input" id="materialUncheckedzz">
+                                    <label class="form-check-label" for="materialUncheckedzz">Show index</label>
                                 </div>
 
                             </div>
@@ -394,6 +401,7 @@
                     '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryHoatDong[i].image+'" alt=""></td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
+                    '<td class="p-4">' + listCategoryHoatDong[i].isShowIndex + '</td>' +
                     '<td>' + '<option value="' + listCategoryHoatDong[i].id + '" class="btn btn-default btn-sm btnEditCategory" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
                     '</tr>'
             }
@@ -407,6 +415,10 @@
                 '  </div></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
+                '<td class="p-4"><div class="form-check">\n' +
+                '    <input type="checkbox" name="isShowIndex" class="form-check-input" id="materialUnchecked">\n' +
+                '    <label class="form-check-label" for="materialUnchecked">Index</label>\n' +
+                '</div></td>' +
                 '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory2').html(htmlContent);
@@ -425,6 +437,7 @@
                     '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryChungToi[i].image+'" alt=""></td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
                     '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
+                    '<td class="p-4">' + listCategoryChungToi[i].isShowIndex + '</td>' +
                     '<td>' + '<option value="' + listCategoryChungToi[i].id + '" class="btn btn-default btn-sm btnEditCategory"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
                     addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
 
@@ -442,6 +455,10 @@
                 '</div></td>' +
                 '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
                 '<td class="p-4"></td>' +
+                '<td class="p-4"><div class="form-check">\n' +
+                '    <input name="isShowIndex" type="checkbox" class="form-check-input" id="materialUnchecked2">\n' +
+                '    <label class="form-check-label" for="materialUnchecked2">Index</label>\n' +
+                '</div></td>' +
                 '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
                 '</tr>';
             $('#dataCategory').html(htmlContent);
@@ -481,19 +498,33 @@
             });
             return o;
         };
-
+        var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         $(document).on('click', '#addChungtoi', function () {
 
 
 
-            var formUpload = new FormData();
-            formUpload.append('file',$('#customFile2')[0].files[0]);
-            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
-
-
             var formData = $('#formChungToi').serializeObject();
-            formData.image = $('#customFile2')[0].files[0].name;
-            console.log()
+
+            if(format.test(formData.id)){
+                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                return;
+            }
+
+            if($('#customFile2')[0].files[0]!=null){
+                var formUpload = new FormData();
+                formUpload.append('file',$('#customFile2')[0].files[0]);
+                $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
+
+
+
+
+                formData.image = $('#customFile2')[0].files[0].name;
+            }
+
+
+
             $.ajax({
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
@@ -511,16 +542,25 @@
             });
         });
         $(document).on('click', '#addHoatDong', function () {
-
-
-            var formUpload = new FormData();
-            formUpload.append('file',$('#customFile')[0].files[0]);
-            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
-
-
             var formData = $('#formHoatDong').serializeObject();
-            formData.image =$('#customFile')[0].files[0].name;
-            console.log(formData);
+
+            if(format.test(formData.id)){
+                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                return;
+            }
+
+            if(formData.image =$('#customFile')[0].files[0]!=null){
+                var formUpload = new FormData();
+                formUpload.append('file',$('#customFile')[0].files[0]);
+                $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
+
+
+
+                formData.image =$('#customFile')[0].files[0].name;
+                console.log(formData);
+            }
+
+
             $.ajax({
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
@@ -589,8 +629,10 @@
                     category = data;
                     $('#caTitle').val(data.title);
                     $('#blah').attr('src', '/get/'+data.image);
+                    $('#imgInpa').attr('value', '/get/'+data.image);
                     $('#caDetail').val(data.detail);
                     $('#caId').val(data.id);
+                    $('#materialUncheckedzz').prop('checked', (data.isShowIndex == 'on'));
                     $('#caId2').text('Edit topic - ' + data.id);
                 },
                 error: function (e) {
@@ -602,13 +644,24 @@
 
         $(document).on('click', '#confirmEdit', function () {
 
-            var formUpload = new FormData();
-            formUpload.append('file',$('#imgInp')[0].files[0]);
-            $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
-
-
             var editData = $('#editData').serializeObject();
-            editData.image = $('#imgInp')[0].files[0].name;
+            editData.image = category.image;
+            if($('#blah').attr('src') != '/get/'+category.image){
+                var formUpload = new FormData();
+                formUpload.append('file', $('#imgInp')[0].files[0]);
+                $.ajax({
+                    url: '/api/upload-file',
+                    method: 'post',
+                    data: formUpload,
+                    contentType: false,
+                    processData: false
+                })
+                editData.image = $('#imgInp')[0].files[0].name;
+            }
+
+
+
+            console.log(editData)
             $.ajax({
                 url: '/api/edittopic',
                 type: 'POST',
