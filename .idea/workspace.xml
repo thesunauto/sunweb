@@ -23,20 +23,19 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="done fix index">
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="done fix index 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/scss/admin/_style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/static/scss/admin/_style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/templates/admin/topicManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/vn/automation/sunweb/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/11KW_VARIABLE_AC_5ca590bf8fdef.png" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/11KW_VARIABLE_AC_5ca590bf8fdef.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +56,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/thesunauto/sunweb.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1iog5Vl8Et7q9Dis591P3gvLn8o" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -90,7 +96,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -251,14 +257,7 @@
       <workItem from="1607132288620" duration="11621000" />
       <workItem from="1607303625255" duration="15595000" />
       <workItem from="1607326873247" duration="5908000" />
-      <workItem from="1607743054903" duration="1770000" />
-    </task>
-    <task id="LOCAL-00002" summary="15.10">
-      <created>1602753423984</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1602753423985</updated>
+      <workItem from="1607743054903" duration="2877000" />
     </task>
     <task id="LOCAL-00003" summary="15.10">
       <created>1602753546489</created>
@@ -596,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607320272911</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="done fix index 2">
+      <created>1607744996676</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1607744996677</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +618,19 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -641,18 +659,19 @@
     <MESSAGE value="done fix category" />
     <MESSAGE value="done show category index" />
     <MESSAGE value="done fix index" />
-    <option name="LAST_COMMIT_MESSAGE" value="done fix index" />
+    <MESSAGE value="done fix index 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="done fix index 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="859" y="386" width="419" height="308" key="#Assign_Data_Sources" timestamp="1603868977988">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="859" y="386" width="419" height="308" key="#Assign_Data_Sources/0.0.1920.1080@0.0.1920.1080" timestamp="1603868977988" />
-    <state x="229" y="0" key="#Project_Structure" timestamp="1607744854834">
+    <state x="229" y="0" key="#Project_Structure" timestamp="1607744872563">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1602907228727" />
-    <state x="229" y="0" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1607744854834" />
+    <state x="229" y="0" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1607744872563" />
     <state x="387" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603763211321">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -792,11 +811,15 @@
     </state>
     <state x="165" y="0" width="996" height="710" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602834912412" />
     <state x="232" y="0" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1606528819779" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1607320288112">
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2" timestamp="1607745096793">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
-    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607320288112" />
+    <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607745096793" />
+    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog" timestamp="1607744943244">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607744943244" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
