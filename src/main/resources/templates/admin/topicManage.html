@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Material Design Bootstrap</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
-    <!-- Your custom styles (optional) -->
 
+</head>
+
+
+<body class="fixed-sn black-skin">
+
+
+<!--Main Layout-->
+<main class="p-0" layout:fragment="content">
     <style>
         /* Only for snippet */
         .double-nav .breadcrumb-dn {
@@ -24,21 +26,6 @@
             color: #fff
         }
     </style>
-</head>
-
-
-<body class="fixed-sn black-skin">
-
-<!--Main Navigation-->
-<header>
-
-    <th:block th:include="/admin/_menu"></th:block>
-
-</header>
-<!--Main Navigation-->
-
-<!--Main Layout-->
-<main class="p-0">
     <div class="container-fluid mb-5">
         <section>
             <div class="card my-2">
@@ -59,19 +46,24 @@
 
                 <ul class="nav tabs-orange" id="myClassicTabOrange" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link  waves-light active show" id="profile-tab-classic-orange" data-toggle="tab" href="#profile-classic-orange"
-                           role="tab" aria-controls="profile-classic-orange" aria-selected="true"><i class="fas fa-user fa-2x pb-2"
-                                                                                                     aria-hidden="true"></i><br>Chúng tôi</a>
+                        <a class="nav-link  waves-light active show" id="profile-tab-classic-orange" data-toggle="tab"
+                           href="#profile-classic-orange"
+                           role="tab" aria-controls="profile-classic-orange" aria-selected="true"><i
+                                class="fas fa-user fa-2x pb-2"
+                                aria-hidden="true"></i><br>Chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-light" id="follow-tab-classic-orange" data-toggle="tab" href="#follow-classic-orange"
-                           role="tab" aria-controls="follow-classic-orange" aria-selected="false"><i class="fas fa-atom fa-2x pb-2"
-                                                                                                     aria-hidden="true"></i><br>Hoạt dộng</a>
+                        <a class="nav-link waves-light" id="follow-tab-classic-orange" data-toggle="tab"
+                           href="#follow-classic-orange"
+                           role="tab" aria-controls="follow-classic-orange" aria-selected="false"><i
+                                class="fas fa-atom fa-2x pb-2"
+                                aria-hidden="true"></i><br>Hoạt dộng</a>
                     </li>
                 </ul>
 
                 <div class="tab-content card" id="myClassicTabContentOrange">
-                    <div class="tab-pane fade active show" id="profile-classic-orange" role="tabpanel" aria-labelledby="profile-tab-classic-orange">
+                    <div class="tab-pane fade active show" id="profile-classic-orange" role="tabpanel"
+                         aria-labelledby="profile-tab-classic-orange">
                         <div class="table-responsive">
                             <form id="formChungToi">
                                 <!-- Table -->
@@ -114,7 +106,8 @@
                         </div>
 
                     </div>
-                    <div class="tab-pane fade" id="follow-classic-orange" role="tabpanel" aria-labelledby="follow-tab-classic-orange">
+                    <div class="tab-pane fade" id="follow-classic-orange" role="tabpanel"
+                         aria-labelledby="follow-tab-classic-orange">
 
                         <div class="table-responsive">
                             <form id="formHoatDong">
@@ -162,7 +155,6 @@
             </div>
             <!-- Classic tabs -->
         </section>
-
 
 
         <section>
@@ -214,8 +206,10 @@
                                 </div>
                                 <div class="file-field">
                                     <div class="z-depth-1-half mb-4">
-                                        <img id="blah" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid"
-                                             alt="example placeholder"  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">
+                                        <img id="blah" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                                             class="img-fluid"
+                                             alt="example placeholder"
+                                             style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <div class="btn btn-mdb-color btn-rounded float-left">
@@ -231,13 +225,15 @@
                                     <label data-error="wrong" data-success="right" for="caDetail">Detail</label>
                                 </div>
                                 <div class="form-check">
-                                    <input name="isShowIndex" type="checkbox" class="form-check-input" id="materialUncheckedzz">
+                                    <input name="isShowIndex" type="checkbox" class="form-check-input"
+                                           id="materialUncheckedzz">
                                     <label class="form-check-label" for="materialUncheckedzz">Show index</label>
                                 </div>
 
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
-                                <button type="button" id="confirmEdit" class="btn btn-unique" data-dismiss="modal">Confirm <i
+                                <button type="button" id="confirmEdit" class="btn btn-unique" data-dismiss="modal">
+                                    Confirm <i
                                         class="fas fa-paper-plane-o ml-1"></i></button>
                             </div>
                         </div>
@@ -256,437 +252,433 @@
 
 </body>
 
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/addons/datatables.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/addons/datatables-select.min.js}"></script>
-<!-- Custom scripts -->
-<script>
-    $(document).ready(function () {
 
-        $(document).on('change','.custom-file-input',function () {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        })
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgInp").change(function(){
-            readURL(this);
-        });
-
-        $(".button-collapse").sideNav();
-        new WOW().init();
-        // Material Design example
-        $('#tblUser').DataTable({
-            "pagingType": "full_numbers"
-        });
-        $('body').ready(fillCategoryChungToi(), fillCategoryHoatDong());
-        var oldIDChungToi = 'chungtoi';
-        var newIDChungToi = 'chungtoi';
-        $(document).on('click', 'option.enterChungToi', function () {
-
-            var id = $(this).val();
-            oldIDChungToi = newIDChungToi;
-            newIDChungToi = id;
-            fillByParentChungToi(id);
-        });
-
-        function fillByParentChungToi(id) {
-            $.ajax({
-                url: '/api/getlistCategory/' + id,
-                type: 'POST',
-                dataType: 'JSON',
-                processData: false,
-                beforeSend: function () {
-                    $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-                },
-                success: function (value) {
-                    listCategoryChungToi = value;
-                },
-                complete: function () {
-                    fillToTableChungToi();
-                }
-            });
-        }
+<th:block layout:fragment="script">
 
 
-        var oldIDHoatDong = 'hoatdong';
-        var newIDHoatDong = 'hoatdong';
-        $(document).on('click', 'option.enterHoatDong', function () {
-            console.log("run - enterHoatDong");
-            var id = $(this).val();
-            oldIDHoatDong = newIDHoatDong;
-            newIDHoatDong = id;
-            fillByParentHoatDong(id);
-        });
+    <!-- Custom scripts -->
+    <script>
+        $(document).ready(function () {
 
-        function fillByParentHoatDong(id) {
-            $.ajax({
-                url: '/api/getlistCategory/' + id,
-                type: 'POST',
-                dataType: 'JSON',
-                processData: false,
-                beforeSend: function () {
-                    $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
-                },
-                success: function (value) {
-                    listCategoryHoatDong = value;
-
-                },
-                complete: function () {
-                    fillToTableHoatDong();
-                }
-            });
-        }
-
-        var listCategoryChungToi = [];
-        var listCategoryHoatDong = [];
-
-        function fillCategoryChungToi() {
-            $.ajax({
-                url: '/api/getlistCategory/chungtoi',
-                type: 'POST',
-                dataType: 'JSON',
-                processData: false,
-                success: function (data) {
-                    listCategoryChungToi = data;
-                },
-                complete: function () {
-                    fillToTableChungToi();
-                }
+            $(document).on('change', '.custom-file-input', function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             })
-        }
 
-        function fillCategoryHoatDong() {
-            $.ajax({
-                url: '/api/getlistCategory/hoatdong',
-                type: 'POST',
-                dataType: 'JSON',
-                processData: false,
-                success: function (data) {
-                    listCategoryHoatDong = data;
-                },
-                complete: function () {
-                    fillToTableHoatDong();
-                }
-            })
-        };
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-        function fillToTableHoatDong() {
-            var htmlContent = '';
-            for (var i = 0; i < listCategoryHoatDong.length; i++) {
-                htmlContent +=
-                    '<tr class="wow fadeIn"  data-wow-delay="0.6s">' +
-                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].id + '</td>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].title + '</td>' +
-                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryHoatDong[i].image+'" alt=""></td>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
-                    '<td class="p-4">' + listCategoryHoatDong[i].isShowIndex + '</td>' +
-                    '<td>' + '<option value="' + listCategoryHoatDong[i].id + '" class="btn btn-default btn-sm btnEditCategory" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
-                    '</tr>'
-            }
-            htmlContent += ' <tr>' +
-                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
-                '<td class="p-4"><div class="custom-file">\n' +
-                '    <input name="image" type="file" class="custom-file-input" id="customFile">\n' +
-                '    <label class="custom-file-label" for="customFile">Choose file</label>\n' +
-                '  </div></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
-                '<td class="p-4"></td>' +
-                '<td class="p-4"><div class="form-check">\n' +
-                '    <input type="checkbox" name="isShowIndex" class="form-check-input" id="materialUnchecked">\n' +
-                '    <label class="form-check-label" for="materialUnchecked">Index</label>\n' +
-                '</div></td>' +
-                '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
-                '</tr>';
-            $('#dataCategory2').html(htmlContent);
-
-        };
-
-        function fillToTableChungToi() {
-            var htmlContent = '';
-
-            for (var i = 0; i < listCategoryChungToi.length; i++) {
-                htmlContent +=
-                    '<tr>' +
-                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].id + '</td>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].title + '</td>' +
-                    '<td class="p-4"><img style="max-height: 100px;" src="/get/'+listCategoryChungToi[i].image+'" alt=""></td>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
-                    '<td class="p-4">' + listCategoryChungToi[i].isShowIndex + '</td>' +
-                    '<td>' + '<option value="' + listCategoryChungToi[i].id + '" class="btn btn-default btn-sm btnEditCategory"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
-                    addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
-
-                    addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
-                    '</td>' +
-                    '</tr>';
-            }
-            htmlContent += '<tr>' +
-                '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
-                '<td class="p-4"><div class="custom-file">\n' +
-                '<input  name="image" type="file" class="custom-file-input" id="customFile2">\n' +
-                '<label class="custom-file-label" for="customFile2">Choose file</label>\n' +
-                '</div></td>' +
-                '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
-                '<td class="p-4"></td>' +
-                '<td class="p-4"><div class="form-check">\n' +
-                '    <input name="isShowIndex" type="checkbox" class="form-check-input" id="materialUnchecked2">\n' +
-                '    <label class="form-check-label" for="materialUnchecked2">Index</label>\n' +
-                '</div></td>' +
-                '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
-                '</tr>';
-            $('#dataCategory').html(htmlContent);
-        };
-
-
-
-        function addOptionNext(isMax, value, enter) {
-            if (!isMax) {
-                return '<option value="' + value + '" class="btn-next btn btn-default btn-sm enter' + enter + '"> >> </option>';
-            } else {
-                return '';
-            }
-        };
-
-        function addOptionBack(hasparent, value, enter) {
-            if (hasparent) {
-                return '<option value="' + value + '" class="btn-back btn btn-default btn-sm enter' + enter + '"> << </option>';
-            } else {
-                return '';
-            }
-        };
-
-        // them
-        $.fn.serializeObject = function () {
-            var o = {};
-            var a = this.serializeArray();
-            $.each(a, function () {
-                if (o[this.name] !== undefined) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
+                    reader.onload = function (e) {
+                        $('#blah').attr('src', e.target.result);
                     }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
+
+                    reader.readAsDataURL(input.files[0]);
                 }
-            });
-            return o;
-        };
-        var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-        $(document).on('click', '#addChungtoi', function () {
-
-
-
-            var formData = $('#formChungToi').serializeObject();
-
-            if(format.test(formData.id)){
-                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
-                return;
             }
 
-            if($('#customFile2')[0].files[0]!=null){
-                var formUpload = new FormData();
-                formUpload.append('file',$('#customFile2')[0].files[0]);
-                $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
-
-
-
-
-
-
-                formData.image = $('#customFile2')[0].files[0].name;
-            }
-
-
-
-            $.ajax({
-                contentType: 'application/json',
-                data: JSON.stringify(formData),
-                dataType: 'json',
-                success: function () {
-                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
-                    fillByParentChungToi(newIDChungToi)
-                },
-                error: function () {
-                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
-                },
-                processData: false,
-                type: 'POST',
-                url: '/api/addtopic/' + $(this).val()
-            });
-        });
-        $(document).on('click', '#addHoatDong', function () {
-            var formData = $('#formHoatDong').serializeObject();
-
-            if(format.test(formData.id)){
-                toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
-                return;
-            }
-
-            if(formData.image =$('#customFile')[0].files[0]!=null){
-                var formUpload = new FormData();
-                formUpload.append('file',$('#customFile')[0].files[0]);
-                $.ajax({ url: '/api/upload-file', method: 'post', data: formUpload, contentType: false, processData: false })
-
-
-
-                formData.image =$('#customFile')[0].files[0].name;
-                console.log(formData);
-            }
-
-
-            $.ajax({
-                contentType: 'application/json',
-                data: JSON.stringify(formData),
-                dataType: 'json',
-                success: function (data) {
-                    toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
-                    fillByParentHoatDong(newIDHoatDong);
-                },
-                error: function (e) {
-                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
-                },
-                processData: false,
-                type: 'POST',
-                url: '/api/addtopic/' + $(this).val()
+            $("#imgInp").change(function () {
+                readURL(this);
             });
 
-        });
+            $(".button-collapse").sideNav();
+            new WOW().init();
+            // Material Design example
+            $('#tblUser').DataTable({
+                "pagingType": "full_numbers"
+            });
+            $('body').ready(fillCategoryChungToi(), fillCategoryHoatDong());
+            var oldIDChungToi = 'chungtoi';
+            var newIDChungToi = 'chungtoi';
+            $(document).on('click', 'option.enterChungToi', function () {
 
-        // them
+                var id = $(this).val();
+                oldIDChungToi = newIDChungToi;
+                newIDChungToi = id;
+                fillByParentChungToi(id);
+            });
+
+            function fillByParentChungToi(id) {
+                $.ajax({
+                    url: '/api/getlistCategory/' + id,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    beforeSend: function () {
+                        $('#dataCategory').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+                    },
+                    success: function (value) {
+                        listCategoryChungToi = value;
+                    },
+                    complete: function () {
+                        fillToTableChungToi();
+                    }
+                });
+            }
 
 
-        // xoa
-        var idDelete = '';
+            var oldIDHoatDong = 'hoatdong';
+            var newIDHoatDong = 'hoatdong';
+            $(document).on('click', 'option.enterHoatDong', function () {
+                console.log("run - enterHoatDong");
+                var id = $(this).val();
+                oldIDHoatDong = newIDHoatDong;
+                newIDHoatDong = id;
+                fillByParentHoatDong(id);
+            });
 
-        $(document).on('click', '.deleteChungToi', function () {
-            idDelete = $(this).val();
-        });
-        $(document).on('click', '.deleteHoatDong', function () {
-            idDelete = $(this).val();
-        });
+            function fillByParentHoatDong(id) {
+                $.ajax({
+                    url: '/api/getlistCategory/' + id,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    beforeSend: function () {
+                        $('#dataCategory2').html('<span class="spinner-border spinner-border-sm mr-2 text-center" role="status" aria-hidden="true"></span>Loading...');
+                    },
+                    success: function (value) {
+                        listCategoryHoatDong = value;
 
-        $(document).on('click', '#actionDelete', function () {
-            $.ajax({
-                url: '/api/deletetopic-' + idDelete,
-                type: 'POST',
-                success: function (result) {
-                    var bo = result;
-                    if(bo){
-                        toastr.success('Deleted successfully', '', {positionClass: 'md-toast-top-right'});
-                    }else{
+                    },
+                    complete: function () {
+                        fillToTableHoatDong();
+                    }
+                });
+            }
+
+            var listCategoryChungToi = [];
+            var listCategoryHoatDong = [];
+
+            function fillCategoryChungToi() {
+                $.ajax({
+                    url: '/api/getlistCategory/chungtoi',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    success: function (data) {
+                        listCategoryChungToi = data;
+                    },
+                    complete: function () {
+                        fillToTableChungToi();
+                    }
+                })
+            }
+
+            function fillCategoryHoatDong() {
+                $.ajax({
+                    url: '/api/getlistCategory/hoatdong',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    success: function (data) {
+                        listCategoryHoatDong = data;
+                    },
+                    complete: function () {
+                        fillToTableHoatDong();
+                    }
+                })
+            };
+
+            function fillToTableHoatDong() {
+                var htmlContent = '';
+                for (var i = 0; i < listCategoryHoatDong.length; i++) {
+                    htmlContent +=
+                        '<tr class="wow fadeIn"  data-wow-delay="0.6s">' +
+                        '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                        '<td class="p-4">' + listCategoryHoatDong[i].id + '</td>' +
+                        '<td class="p-4">' + listCategoryHoatDong[i].title + '</td>' +
+                        '<td class="p-4"><img style="max-height: 100px;" src="/get/' + listCategoryHoatDong[i].image + '" alt=""></td>' +
+                        '<td class="p-4">' + listCategoryHoatDong[i].detail + '</td>' +
+                        '<td class="p-4">' + listCategoryHoatDong[i].parentTitle + '</td>' +
+                        '<td class="p-4">' + listCategoryHoatDong[i].isShowIndex + '</td>' +
+                        '<td>' + '<option value="' + listCategoryHoatDong[i].id + '" class="btn btn-default btn-sm btnEditCategory" data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryHoatDong[i].id + '" class="deleteHoatDong btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' + addOptionBack(listCategoryHoatDong[i].hasParent, listCategoryHoatDong[i].idParent, 'HoatDong') + addOptionNext(listCategoryHoatDong[i].isMax, listCategoryHoatDong[i].id, 'HoatDong') + '</td>' +
+                        '</tr>'
+                }
+                htmlContent += ' <tr>' +
+                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                    '<td class="p-4"><div class="custom-file">\n' +
+                    '    <input name="image" type="file" class="custom-file-input" id="customFile">\n' +
+                    '    <label class="custom-file-label" for="customFile">Choose file</label>\n' +
+                    '  </div></td>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                    '<td class="p-4"></td>' +
+                    '<td class="p-4"><div class="form-check">\n' +
+                    '    <input type="checkbox" name="isShowIndex" class="form-check-input" id="materialUnchecked">\n' +
+                    '    <label class="form-check-label" for="materialUnchecked">Index</label>\n' +
+                    '</div></td>' +
+                    '<td><option value="' + newIDHoatDong + '" id="addHoatDong" class="btn btn-default btn-sm">Add</option>' + ((listCategoryHoatDong.length == 0) ? addOptionBack(true, oldIDHoatDong, 'HoatDong') : '') + '</td>' +
+                    '</tr>';
+                $('#dataCategory2').html(htmlContent);
+
+            };
+
+            function fillToTableChungToi() {
+                var htmlContent = '';
+
+                for (var i = 0; i < listCategoryChungToi.length; i++) {
+                    htmlContent +=
+                        '<tr>' +
+                        '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                        '<td class="p-4">' + listCategoryChungToi[i].id + '</td>' +
+                        '<td class="p-4">' + listCategoryChungToi[i].title + '</td>' +
+                        '<td class="p-4"><img style="max-height: 100px;" src="/get/' + listCategoryChungToi[i].image + '" alt=""></td>' +
+                        '<td class="p-4">' + listCategoryChungToi[i].detail + '</td>' +
+                        '<td class="p-4">' + listCategoryChungToi[i].parentTitle + '</td>' +
+                        '<td class="p-4">' + listCategoryChungToi[i].isShowIndex + '</td>' +
+                        '<td>' + '<option value="' + listCategoryChungToi[i].id + '" class="btn btn-default btn-sm btnEditCategory"  data-toggle="modal" data-target="#modalEdit">Edit</option><option value="' + listCategoryChungToi[i].id + '" class="deleteChungToi btn btn-default btn-sm" data-toggle="modal" data-target="#modalDelete">Delete</option>' +
+                        addOptionBack(listCategoryChungToi[i].hasParent, listCategoryChungToi[i].idParent, 'ChungToi') +
+
+                        addOptionNext(listCategoryChungToi[i].isMax, listCategoryChungToi[i].id, 'ChungToi') +
+                        '</td>' +
+                        '</tr>';
+                }
+                htmlContent += '<tr>' +
+                    '<th class="p-4" scope="row">' + (i + 1) + '</th>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="ID" name="id"></td>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="Title" name="title"></td>' +
+                    '<td class="p-4"><div class="custom-file">\n' +
+                    '<input  name="image" type="file" class="custom-file-input" id="customFile2">\n' +
+                    '<label class="custom-file-label" for="customFile2">Choose file</label>\n' +
+                    '</div></td>' +
+                    '<td class="p-4"><input class="form-control" type="text" placeholder="Detail" name="detail"></td>' +
+                    '<td class="p-4"></td>' +
+                    '<td class="p-4"><div class="form-check">\n' +
+                    '    <input name="isShowIndex" type="checkbox" class="form-check-input" id="materialUnchecked2">\n' +
+                    '    <label class="form-check-label" for="materialUnchecked2">Index</label>\n' +
+                    '</div></td>' +
+                    '<td><option value="' + newIDChungToi + '" id="addChungtoi" class="btn btn-default btn-sm">Add</option>' + ((listCategoryChungToi.length == 0) ? addOptionBack(true, oldIDChungToi, 'ChungToi') : '') + '</td>' +
+                    '</tr>';
+                $('#dataCategory').html(htmlContent);
+            };
+
+
+            function addOptionNext(isMax, value, enter) {
+                if (!isMax) {
+                    return '<option value="' + value + '" class="btn-next btn btn-default btn-sm enter' + enter + '"> >> </option>';
+                } else {
+                    return '';
+                }
+            };
+
+            function addOptionBack(hasparent, value, enter) {
+                if (hasparent) {
+                    return '<option value="' + value + '" class="btn-back btn btn-default btn-sm enter' + enter + '"> << </option>';
+                } else {
+                    return '';
+                }
+            };
+
+            // them
+            $.fn.serializeObject = function () {
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function () {
+                    if (o[this.name] !== undefined) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
+            };
+            var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            $(document).on('click', '#addChungtoi', function () {
+
+
+                var formData = $('#formChungToi').serializeObject();
+
+                if (format.test(formData.id)) {
+                    toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                    return;
+                }
+
+                if ($('#customFile2')[0].files[0] != null) {
+                    var formUpload = new FormData();
+                    formUpload.append('file', $('#customFile2')[0].files[0]);
+                    $.ajax({
+                        url: '/api/upload-file',
+                        method: 'post',
+                        data: formUpload,
+                        contentType: false,
+                        processData: false
+                    })
+
+
+                    formData.image = $('#customFile2')[0].files[0].name;
+                }
+
+
+                $.ajax({
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    dataType: 'json',
+                    success: function () {
+                        toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                        fillByParentChungToi(newIDChungToi)
+                    },
+                    error: function () {
+                        toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                    },
+                    processData: false,
+                    type: 'POST',
+                    url: '/api/addtopic/' + $(this).val()
+                });
+            });
+            $(document).on('click', '#addHoatDong', function () {
+                var formData = $('#formHoatDong').serializeObject();
+
+                if (format.test(formData.id)) {
+                    toastr.error('id chứ kí tự đặt biệt', '', {positionClass: 'md-toast-top-right'});
+                    return;
+                }
+
+                if (formData.image = $('#customFile')[0].files[0] != null) {
+                    var formUpload = new FormData();
+                    formUpload.append('file', $('#customFile')[0].files[0]);
+                    $.ajax({
+                        url: '/api/upload-file',
+                        method: 'post',
+                        data: formUpload,
+                        contentType: false,
+                        processData: false
+                    })
+
+
+                    formData.image = $('#customFile')[0].files[0].name;
+                    console.log(formData);
+                }
+
+
+                $.ajax({
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    dataType: 'json',
+                    success: function (data) {
+                        toastr.success('successfully', '', {positionClass: 'md-toast-top-right'});
+                        fillByParentHoatDong(newIDHoatDong);
+                    },
+                    error: function (e) {
+                        toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                    },
+                    processData: false,
+                    type: 'POST',
+                    url: '/api/addtopic/' + $(this).val()
+                });
+
+            });
+
+            // them
+
+
+            // xoa
+            var idDelete = '';
+
+            $(document).on('click', '.deleteChungToi', function () {
+                idDelete = $(this).val();
+            });
+            $(document).on('click', '.deleteHoatDong', function () {
+                idDelete = $(this).val();
+            });
+
+            $(document).on('click', '#actionDelete', function () {
+                $.ajax({
+                    url: '/api/deletetopic-' + idDelete,
+                    type: 'POST',
+                    success: function (result) {
+                        var bo = result;
+                        if (bo) {
+                            toastr.success('Deleted successfully', '', {positionClass: 'md-toast-top-right'});
+                        } else {
+                            toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
+                        }
+
+                    }, error: function () {
                         toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
                     }
+                });
+                setTimeout(function () {
+                    fillByParentChungToi(newIDChungToi);
+                    fillByParentHoatDong(newIDHoatDong);
+                }, 200);
 
-                }, error: function () {
-                    toastr.error('Deletion failed', '', {positionClass: 'md-toast-top-right'});
-                }
-            });
-            setTimeout(function () {
-                fillByParentChungToi(newIDChungToi);
-                fillByParentHoatDong(newIDHoatDong);
-            }, 200);
-
-        })
-        // xoa
+            })
+            // xoa
 
 
-        // sua
-        var category = {};
-        $(document).on('click', 'option.btnEditCategory', function () {
-            var idCa = $(this).val();
-            $.ajax({
-                url: '/api/gettopic-' + idCa,
-                type: 'POST',
-                dataType: 'JSON',
-                success: function (data) {
-                    category = data;
-                    $('#caTitle').val(data.title);
-                    $('#blah').attr('src', '/get/'+data.image);
-                    $('#imgInpa').attr('value', '/get/'+data.image);
-                    $('#caDetail').val(data.detail);
-                    $('#caId').val(data.id);
-                    $('#materialUncheckedzz').prop('checked', (data.isShowIndex == 'on'));
-                    $('#caId2').text('Edit topic - ' + data.id);
-                },
-                error: function (e) {
-                    toastr.error('Can not find topic - ' + e, '', {positionClass: 'md-toast-top-right'});
-                }
-            });
-
-        });
-
-        $(document).on('click', '#confirmEdit', function () {
-
-            var editData = $('#editData').serializeObject();
-            editData.image = category.image;
-            if($('#blah').attr('src') != '/get/'+category.image){
-                var formUpload = new FormData();
-                formUpload.append('file', $('#imgInp')[0].files[0]);
+            // sua
+            var category = {};
+            $(document).on('click', 'option.btnEditCategory', function () {
+                var idCa = $(this).val();
                 $.ajax({
-                    url: '/api/upload-file',
-                    method: 'post',
-                    data: formUpload,
-                    contentType: false,
-                    processData: false
-                })
-                editData.image = $('#imgInp')[0].files[0].name;
-            }
+                    url: '/api/gettopic-' + idCa,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        category = data;
+                        $('#caTitle').val(data.title);
+                        $('#blah').attr('src', '/get/' + data.image);
+                        $('#imgInpa').attr('value', '/get/' + data.image);
+                        $('#caDetail').val(data.detail);
+                        $('#caId').val(data.id);
+                        $('#materialUncheckedzz').prop('checked', (data.isShowIndex == 'on'));
+                        $('#caId2').text('Edit topic - ' + data.id);
+                    },
+                    error: function (e) {
+                        toastr.error('Can not find topic - ' + e, '', {positionClass: 'md-toast-top-right'});
+                    }
+                });
 
-
-
-            console.log(editData)
-            $.ajax({
-                url: '/api/edittopic',
-                type: 'POST',
-                dataType: 'JSON',
-                contentType: 'application/json',
-                processData: false,
-                data: JSON.stringify(editData),
-                success: function () {
-                    toastr.success('update success', '', {positionClass: 'md-toast-top-right'});
-                },
-                error: function (e) {
-                    toastr.error('update false', '', {positionClass: 'md-toast-top-right'});
-                }
             });
-            setTimeout(function () {
-                fillByParentChungToi(newIDChungToi);
-                fillByParentHoatDong(newIDHoatDong);
-            }, 200);
+
+            $(document).on('click', '#confirmEdit', function () {
+
+                var editData = $('#editData').serializeObject();
+                editData.image = category.image;
+                if ($('#blah').attr('src') != '/get/' + category.image) {
+                    var formUpload = new FormData();
+                    formUpload.append('file', $('#imgInp')[0].files[0]);
+                    $.ajax({
+                        url: '/api/upload-file',
+                        method: 'post',
+                        data: formUpload,
+                        contentType: false,
+                        processData: false
+                    })
+                    editData.image = $('#imgInp')[0].files[0].name;
+                }
+
+
+                console.log(editData)
+                $.ajax({
+                    url: '/api/edittopic',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    contentType: 'application/json',
+                    processData: false,
+                    data: JSON.stringify(editData),
+                    success: function () {
+                        toastr.success('update success', '', {positionClass: 'md-toast-top-right'});
+                    },
+                    error: function (e) {
+                        toastr.error('update false', '', {positionClass: 'md-toast-top-right'});
+                    }
+                });
+                setTimeout(function () {
+                    fillByParentChungToi(newIDChungToi);
+                    fillByParentHoatDong(newIDHoatDong);
+                }, 200);
+            });
+
+
+            // sua
+
         });
 
-
-        // sua
-
-    });
-
-</script>
-
+    </script>
+</th:block>
 </html>

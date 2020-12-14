@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">SUNME</title>
+    <link rel="icon" th:href="@{/img/logo100x100.png}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{/css/mdb.min.css}" rel="stylesheet">
+
+    <link th:href="@{/css/w3.css}" rel="stylesheet">
+
+    <style>
+        .double-nav .breadcrumb-dn {
+            color: #fff;
+        }
+
+
+        .full-screen {
+            z-index: 999;
+            margin-left: 100px;
+            position: fixed;
+            display: none;
+            bottom: 0;
+            left: 0;
+            width: -webkit-calc(100% - 100px);
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .main-title {
+            background-color: #4285F4;
+            overflow: auto;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+            position: fixed;
+            border: none;
+            background: rgba(63, 63, 63, 0);
+        }
+
+        .dropdown:hover{
+            color: #ff3138;
+            transform: translateX(15px);
+            transition: 0.2s ease-in-out;
+        }
+        .dropdown:hover>.dropdown-toggle>span{
+            color: #ff3138;
+
+            transition: 0.2s ease-in-out;
+        }
+        .dropdown>.dropdown-toggle>span{
+            color: #0d0d0d;
+
+            transition: 0.2s ease-in-out;
+        }
+        .dropdown {
+            transition: 0.2s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .dropdown > .dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff !important;
+            background: #ff3138 !important;
+        }
+
+
+    </style>
+</head>
+
+<body class="post-page">
+
+<header>
+    <div class="w3-sidebar w3-bar-block d-none d-xl-block" style="width: 100px!important;">
+        <ul class="p-0">
+            <li class="w3-bar-item p-0" >
+                <div class="logo-wrapper waves-light">
+                    <a style="width: 100%;" class="d-flex align-items-center" href="/"><img src="/img/logo100x100.png"
+                                                                                            class="flex-center mt-5"
+                                                                                            style="padding: 0; margin:auto;  width: 60px; height: 60px;"></a>
+                </div>
+            </li>
+            <li class="w3-bar-item">
+                <div style="height: 75vh !important;">
+                    <div class="flex-center text-dark">
+                        <button type="button" class="btn btn-white z-depth-0 text-danger waves-effect open-full-screen text-center p-0"><i id="changIcon"
+                                                                                                                           class="fas fa-bars fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+    <!--/. Sidebar navigation -->
+    <!-- Navbar -->
+    <div class="d-xl-none">
+        <nav class="navbar fixed-top navbar-toggleable-md double-nav white">
+
+            <!-- SideNav slide-out button -->
+
+            <a class="nav-link" data-wow-delay="0.4s" data-toggle="modal"
+               data-target="#fluidModalChungToi">CHÚNG TÔI</a>
+            <div class="navbar-brand">
+                <a href="/"><img src="/img/logo100x100.png"
+                                 class="flex-center"
+                                 style="padding: 0; margin:auto;  width: 60px; height: 60px;"></a>
+            </div>
+            <a class="nav-link" data-wow-delay="0.4s" data-toggle="modal"
+               data-target="#fluidModalHoatDong">HOẠT ĐỘNG</a>
+
+
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+
+            </div>
+
+        </nav>
+    </div>
+
+
+    <!-- /.Navbar -->
+
+    <!--    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar stylish-color">-->
+    <!--        <div class="container">-->
+    <!--            <a class="navbar-brand" href="#">-->
+    <!--                <img th:src="@{/img/logo251x92.png}" style="height: 40px;" alt="">-->
+    <!--            </a>-->
+    <!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"-->
+    <!--                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--                <span class="navbar-toggler-icon"></span>-->
+    <!--            </button>-->
+    <!--            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">-->
+    <!--                <ul class="navbar-nav mr-auto">-->
+    <!--                    <li class="nav-item active">-->
+    <!--                        <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>-->
+    <!--                    </li>-->
+    <!--                    <li class="nav-item">-->
+    <!--                        <a type="button" class="nav-link" data-toggle="modal" data-target="#fluidModalChungToi">Chúng-->
+    <!--                            tôi</a>-->
+    <!--                    </li>-->
+    <!--                    <li class="nav-item">-->
+    <!--                        <a class="nav-link" data-toggle="modal" data-target="#fluidModalHoatDong">Hoạt động</a>-->
+    <!--                    </li>-->
+    <!--                </ul>-->
+    <!--                <form class="form-inline">-->
+    <!--                    <div class="md-form my-0">-->
+    <!--                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+    <!--                    </div>-->
+    <!--                </form>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </nav>-->
+
+    <!-- Intro Section -->
+    <div th:if="${#httpServletRequest.requestURI=='/'}" style="height: 100vh;" data-jarallax='{"speed": 0.2}'
+         th:style="'background-image: url(/img/poster2040x1192.png); background-repeat: no-repeat; background-size: cover; background-position: center center;height: 100vh;'">
+        <div class="mask rgba-black-light" style="height: 100vh;">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-3 wow fadeInDown"
+                                data-wow-delay="0.3s"><strong>Công ty TNHH tự động hóa Mặt Trời</strong></h1>
+                            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <div class="wow fadeInDown"><img th:src="@{/img/logo251x92.png}" class="img-fluid mx-auto"
+                                                             alt=""></div>
+                            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <h5 class="text-uppercase mb-5 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Lắp
+                                đặt - bảo trì hệ thống M&E</strong></h5>
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-toggle="modal"
+                               data-target="#fluidModalChungToi">CHÚNG TÔI</a>
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-toggle="modal"
+                               data-target="#fluidModalHoatDong">HOẠT ĐỘNG</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Subscription From -->
+    <div class="d-none d-xl-block">
+        <div class="full-screen">
+            <div class="z-depth-1 h-50 pl-5">
+
+                <div class="card my-2 z-depth-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Chúng tôi</h4>
+                        <div class="row" th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
+                            <div th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}" >Title LV1</span>
+                                </a>
+                                <div class="dropdown-menu pl-4">
+                                    <div class="row" th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                        <div th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </a>
+                                            <div class="dropdown-menu pl-4">
+                                                <div class="row" th:each="ct2 : ${ct1.categories}">
+                                                    <a th:href="@{${'/view-wherecategory='+ct2.getId()}}" th:if="${@categoryService.findByIdparent(ct2.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                                        <div class="dropdown-toggle"
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="h4" th:text="${ct2.title}" >Title LV1</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <div class="dropdown-toggle"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a th:href="@{${'/view-wherecategory='+ct.getId()}}" th:if="${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <div class="dropdown-toggle"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}"></span>
+                                </div>
+                            </a>
+
+                        </div>
+
+                        <div class="my-2"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="z-depth-1 h-50 pl-5">
+
+                <div class="card my-2 z-depth-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Hoạt động</h4>
+                        <div class="row" th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
+                            <div th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}" >Title LV1</span>
+                                </a>
+                                <div class="dropdown-menu pl-4">
+                                    <div class="row" th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                        <div th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <a class="dropdown-toggle"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </a>
+                                            <div class="dropdown-menu pl-4">
+                                                <div class="row" th:each="ct2 : ${ct1.categories}">
+                                                    <a th:href="@{${'/view-wherecategory='+ct2.getId()}}" th:if="${@categoryService.findByIdparent(ct2.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                                        <div class="dropdown-toggle"
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="h4" th:text="${ct2.title}" >Title LV1</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a th:href="@{${'/view-wherecategory='+ct1.getId()}}" th:if="${@categoryService.findByIdparent(ct1.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                            <div class="dropdown-toggle"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="h4" th:text="${ct1.title}" >Title LV1</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a th:href="@{${'/view-wherecategory='+ct.getId()}}" th:if="${@categoryService.findByIdparent(ct.getId()).isEmpty()}" class="dropdown dropright float-left">
+                                <div class="dropdown-toggle"
+                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="h4" th:text="${ct.title}"></span>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade left" id="fluidModalChungToi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-full-height modal-left" role="document">
+            <!-- Content -->
+            <div class="modal-content rgba-black-strong">
+
+                <!-- Header -->
+                <div class="modal-header unique-color-dark white-text font-weight-bold">
+                    <h4 class=""><i class="fas fa-user-tie"></i> Về chúng tôi</h4>
+                    <button type="button" class="close waves-effect white-text" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body mb-0">
+                    <div class="navbar navbar-light grey lighten-4  m-1"
+                         th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("chungtoi").get(),false)}'>
+
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand black-text" th:text="*{ct.getTitle()}"
+                           th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
+
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler toggler-example" type="button"
+                                data-toggle="collapse"
+                                th:attr="data-target='#menuChungtoi'+*{ct.getId()},aria-controls='menuChungtoi'+*{ct.getId()}"
+                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="dark-blue-text"
+                                th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}">
+                        <i class="far fa-caret-square-down"></i></span></button>
+
+                        <!-- Collapsible content -->
+                        <div class="collapse navbar-collapse" th:id="menuChungtoi+*{ct.getId()}">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                    th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                    <a class="navbar-brand black-text" th:text="*{ct1.getTitle()}"
+                                       th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()?'/view-wherecategory='+ct1.getId():'#'}}"></a>
+                                    <button class="navbar-toggler toggler-example" type="button"
+                                            data-toggle="collapse"
+                                            th:attr="data-target='#menuChungtoi'+*{ct1.getId()},aria-controls='menuChungtoi'+*{ct1.getId()}"
+                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="dark-blue-text"
+                                            th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse"
+                                         th:id="menuChungtoi+*{ct1.getId()}">
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                th:each='ct2 : ${ct1.categories}' th:if="${ct2.isdeleted==false}">
+                                                <a class="navbar-brand black-text"
+                                                   th:href="@{${'/view-wherecategory='+ct2.getId()}}"
+                                                   th:text="*{ct2.getTitle()}"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Links -->
+
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+    <!-- Modal: Subscription From -->
+    <div class="modal fade right" id="fluidModalHoatDong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-full-height modal-right" role="document">
+            <!-- Content -->
+            <div class="modal-content rgba-black-strong">
+
+                <!-- Header -->
+                <div class="modal-header unique-color-dark white-text font-weight-bold">
+                    <h4 class=""><i class="fas fa-cogs"></i> Về hoạt động</h4>
+                    <button type="button" class="close waves-effect white-text" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body mb-0">
+                    <div class="navbar navbar-light grey lighten-4  m-1"
+                         th:each='ct : ${@categoryRepository.findByCategoryAndIsdeleted(@categoryRepository.findById("hoatdong").get(),false)}'>
+
+                        <!-- Navbar brand -->
+                        <a style="cursor: pointer;" class="navbar-brand black-text" th:text="*{ct.getTitle()}"
+                           th:href="@{${@categoryService.findByIdparent(ct.getId()).isEmpty()?'/view-wherecategory='+ct.getId():'#'}}"></a>
+
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler toggler-example" type="button"
+                                data-toggle="collapse"
+                                th:attr="data-target='#menuHoatDong'+*{ct.getId()},ria-controls='menuHoatDong'+*{ct.getId()}"
+                                aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="dark-blue-text"
+                                th:if="!${@categoryService.findByIdparent(ct.getId()).isEmpty()}">
+                                                <i class="far fa-caret-square-down"></i></span>
+                        </button>
+
+                        <!-- Collapsible content -->
+                        <div class="collapse navbar-collapse" th:id="menuHoatDong+*{ct.getId()}">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                    th:each='ct1 : ${ct.categories}' th:if="${ct1.isdeleted==false}">
+                                    <a style="cursor: pointer;" class="navbar-brand black-text"
+                                       th:text="*{ct1.getTitle()}"
+                                       th:href="@{${@categoryService.findByIdparent(ct1.getId()).isEmpty()? '/view-wherecategory='+ct1.getId():'#'}}"></a>
+
+                                    <button class="navbar-toggler toggler-example" type="button"
+                                            data-toggle="collapse"
+                                            th:attr="data-target='#menuHoatDong'+*{ct1.getId()},ria-controls='menuHoatDong'+*{ct1.getId()}"
+                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="dark-blue-text"
+                                            th:if="!${@categoryService.findByIdparent(ct1.getId()).isEmpty()}">
+                                            <i class="far fa-caret-square-down"></i></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse"
+                                         th:id="menuHoatDong+*{ct1.getId()}">
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item navbar navbar-light grey lighten-4 m-1"
+                                                th:each='ct2 : ${ct1.categories}' th:if="${ct2.isdeleted==false}">
+                                                <a style="cursor: pointer;" class="navbar-brand black-text"
+                                                   th:text="*{ct2.getTitle()}"
+                                                   th:href="@{${'/view-wherecategory='+ct2.getId()}}"></a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Links -->
+
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+    <!-- Full Height Modal Right Success Demo -->
+    <!-- JQuery -->
+
+
+</header>
+
+
+<!-- Navigation -->
+<div layout:fragment="content">
+    <p>This is filled by the content template.</p>
+</div>
+
+<!-- Main Container -->
+
+
+<!-- Main Container -->
+
+<footer class="page-footer pt-4 mt-0 text-center text-md-left">
+    <div class="container">
+        <div class="row mt-3">
+
+            <!-- First column -->
+            <div class="col-md-4 col-lg-4 col-12">
+                <h6 class="text-uppercase font-weight-bold mb-4">Công ty</h6>
+                <p>
+                    CÔNG TY TNHH TỰ ĐỘNG HÓA MẶT TRỜI xin chân thành cảm ơn sự quan tâm của quý khách hàng đối với
+                    sản
+                    phẩm và dịch vụ của công ty chúng tôi.</p>
+            </div>
+            <!-- /.First column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Second column -->
+            <div class="col-md-4 col-lg-4 col-12">
+                <h6 class="text-uppercase font-weight-bold mb-4">Thi công</h6>
+                <p><a href="#!">Tủ Điện Hạ Thế</a></p>
+                <p><a href="#!">Tủ Tụ Bù</a></p>
+                <p><a href="#!">Tủ Trung Thế</a></p>
+                <p><a href="#!">Tủ Điện Điều Khiển</a></p>
+            </div>
+            <!-- /.Second column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Fourth column -->
+            <div class="col-md-4 col-lg-4 col-12">
+                <h6 class="text-uppercase font-weight-bold mb-4">Liên hệ</h6>
+                <p><i class="fas fa-home mr-3"></i> 63/1 Tân Thới Nhất 05,Khu phố 7, Phường Tân Thới Nhất, Quận 12,
+                    TP
+                    HCM</p>
+                <p><i class="fas fa-envelope mr-3"></i> Sun.79automation@gmail.com</p>
+                <p><i class="fas fa-phone mr-3"></i> MR .Nhật : 098 121 88 53</p>
+                <p><i class="fas fa-phone mr-3"></i> Mrs .Thư : 090 382 9397</p>
+                <p><i class="fas fa-phone mr-3"></i> Mr.Nam : 093 200 0198</p>
+            </div>
+            <!-- /.Fourth column -->
+
+        </div>
+
+        <!-- /.Footer Links -->
+
+        <hr>
+
+        <!-- Footer Links -->
+        <div class="row mt-3 d-flex align-items-center">
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-12">
+
+                <!-- Copyright -->
+                <p class="text-left grey-text">© 2020 Copyright: <a
+                        href="https://mdbootstrap.com/education/bootstrap/"><strong>
+                    Sun M&E</strong></a></p>
+                <!-- Copyright -->
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-12">
+                <!-- Social buttons -->
+                <div class="social-section">
+                    <ul class="list-unstyled list-inline d-flex justify-content-end">
+                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
+                                class="fab fa-facebook-f">
+                        </i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
+                                class="fab fa-twitter">
+                        </i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
+                                class="fab fa-google-plus-g">
+                        </i></a></li>
+                        <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight"><i
+                                class="fab fa-linkedin-in">
+                        </i></a></li>
+                    </ul>
+                </div>
+                <!-- /.Social buttons -->
+            </div>
+            <!-- Grid column -->
+
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
+
+<script type="text/javascript">
+
+
+    // Material Select Initialization
+    $(document).ready(function () {
+        /* WOW.js init */
+        new WOW().init();
+
+        // Tooltips Initialization
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('.mdb-select').materialSelect();
+        // SideNav Initialization
+
+
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        // SideNav Button Initialization
+        $(".button-collapse").sideNav({breakpoint: 940});
+        // SideNav Scrollbar Initialization
+        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+        var ps = new PerfectScrollbar(sideNavScrollbar);
+    })
+    $(function () {
+        $openFullScreen = $(".open-full-screen");
+        $fullScreen = $(".full-screen");
+
+        $openFullScreen.on("click", function () {
+            $fullScreen.animate({width: 'toggle'}, 350);
+            $("i", this).toggleClass("fa-bars fa-angle-double-right");
+        });
+
+        $(".close").on("click", function () {
+            $fullScreen.animate({width: 'toggle'}, 350);
+        });
+
+        $(".save").on("click", function () {
+            $fullScreen.animate({width: 'toggle'}, 350);
+        });
+    });
+</script>
+<th:block layout:fragment="script"></th:block>
+</body>
+
+</html>

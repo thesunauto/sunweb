@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Sun M&E</title>
-    <link rel="icon" th:href="@{/img/logo100x100.png}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
-    <!-- Custom styles -->
-    <link rel="stylesheet" th:href="@{/css/custom/hover-tab-view.css}">
+
+</head>
+
+<body class="post-page">
+
+
+<!-- Main layout -->
+<main layout:fragment="content">
     <style>
-
-
         .font-up-bold .breadcrumb-item + .breadcrumb-item::before {
             content: none;
         }
@@ -27,20 +25,10 @@
             margin-left: 1rem;
             color: #868e96;
         }
-
     </style>
-</head>
-
-<body class="post-page">
-
-<!-- Main Navigation -->
-<th:block th:include="/client/_menu"></th:block>
-<!-- Main Navigation -->
-<!-- Main layout -->
-<main>
-    <div class="d-block d-xl-none p-5"></div>
+    <div class="d-block d-xl-none p-5"></div><div class="p-3"></div>
     <div class="container" id="tenloai">
-        <section class="my-5 text-center text-lg-left">
+        <section class="text-center text-lg-left">
             <div class="font-up-bold text-uppercase">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb" id="dataBC">
@@ -106,157 +94,144 @@
 </main>
 <!-- Main layout -->
 
-<!-- Footer -->
-<th:block th:include="/client/_footer"></th:block>
-<!-- Footer Links -->
 
+<th:block layout:fragment="script">
+    <script>
 
-<!-- Footer -->
-
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
-
-<!-- Custom scripts -->
-<script>
-
-    new WOW().init();
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-
-        for (var i = 0; i < 3; i++) {
-            next = next.next();
+        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+            var next = $(this).next();
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
             next.children(':first-child').clone().appendTo($(this));
-        }
-    });
 
-    $(document).ready(function () {
-        $('body').ready(loadPost(0),loadBC());
-        var listPost = [];
-        var pageNumSize = -1;
-        var pageNum = 0;
-        var listBC =[];
-
-        function loadBC() {
-            $.ajax({
-               url:'/api/getTreeCategory?idcategory='+$('#idCategory').val(),
-                type: 'POST',
-                dataType: 'JSON',
-                success: function (data) {
-                    listBC = data;
-                },complete:function () {
-                    fillBC();
+            for (var i = 0; i < 3; i++) {
+                next = next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
                 }
-            });
-        }
-
-        function fillBC() {
-            var content = '';
-            for(var i =0;i<listBC.length;i++){
-                content+='<li class="breadcrumb-item"><a class="" href="#">\n' +
-                    '<h5 class="mr-3 mb-0"><strong>'+listBC[i]+'</strong></h5>\n' +
-                    '</a></li>';
+                next.children(':first-child').clone().appendTo($(this));
             }
-            $('#dataBC').html(content);
-        }
+        });
 
-        function loadPost(page) {
-            $.ajax({
-                url: '/api/getlistpostbycategory-' + page + '-10?idcategory=' + $('#idCategory').val(),
-                type: 'POST',
-                dataType: 'JSON',
-                success: function (result) {
-                    listPost = result;
-                    fillPost();
-                },
-                error: function () {
-                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
-                }
-            });
-            $.ajax({
-                url: '/api/getpagenumbycategory?idcategory=' + $('#idCategory').val(),
-                type: 'POST',
-                dataType: 'JSON',
-                success: function (data) {
-                    pageNumSize = data;
-                    fillPage()
-                },
-                error: function () {
-                    toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
-                }
-            });
-        };
+        $(document).ready(function () {
+            $('body').ready(loadPost(0),loadBC());
+            var listPost = [];
+            var pageNumSize = -1;
+            var pageNum = 0;
+            var listBC =[];
 
-        function fillPost() {
-            var content = '';
-            for (var i = 0; i < listPost.length; i++) {
-                content += '<div class="row">\n' +
-                    '                    <!-- Grid column -->\n' +
-                    '                    <div class="col-lg-4 mb-4">\n' +
-                    '                        <!-- Featured image -->\n' +
-                    '                        <div class="view overlay z-depth-1">\n' +
-                    '                            <img src="/get/' + listPost[i].image + '" class="img-fluid"\n' +
-                    '                                 alt=""  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">\n' +
-                    '                            <a>\n' +
-                    '                                <div class="mask rgba-white-slight"></div>\n' +
-                    '                            </a>\n' +
-                    '                        </div>\n' +
-                    '                    </div>\n' +
-                    '                    <!-- Grid column -->\n' +
-                    '\n' +
-                    '                    <!-- Grid column -->\n' +
-                    '                    <div class="col-lg-7 mb-4">\n' +
-                    '                        <!-- Excerpt -->\n' +
-                    '                        <h4 class="mb-4"><strong>' + listPost[i].title + '</strong></h4>\n' +
-                    '                        <p>' + listPost[i].metatitle + '</p>\n' +
-                    '                        <p>by <a><strong>' + listPost[i].user + '</strong></a>, ' + listPost[i].dateCreated + '</p>\n' +
-                    '                        <a class="btn btn-primary" href="/singlePost?id=' + listPost[i].id + '">Xem thêm</a>\n' +
-                    '                    </div>\n' +
-                    '                    <!-- Grid column -->\n' +
-                    '                </div>\n' +
-                    '                <hr class="mb-5">';
+            function loadBC() {
+                $.ajax({
+                    url:'/api/getTreeCategory?idcategory='+$('#idCategory').val(),
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        listBC = data;
+                    },complete:function () {
+                        fillBC();
+                    }
+                });
             }
 
-            $('#dataPost').html(content);
-        }
-
-        function fillPage() {
-            var content = '';
-            for (var ii = 0; ii < pageNumSize; ii++) {
-                content += '<li class="page-item ' + (ii == pageNum ? 'active' : '') + '"><option style="cursor: pointer" value="' + ii + '" class="page-link waves-effect waves-effect pagePost">' + (ii + 1) + '</option></li>';
+            function fillBC() {
+                var content = '';
+                for(var i =0;i<listBC.length;i++){
+                    content+='<li class="breadcrumb-item"><a class="" href="#">\n' +
+                        '<h5 class="mr-3 mb-0"><strong>'+listBC[i]+'</strong></h5>\n' +
+                        '</a></li>';
+                }
+                $('#dataBC').html(content);
             }
-            $('#dataPage').html(content);
-        }
 
-        $(document).on('click', 'option.pagePost', function () {
-            $([document.documentElement, document.body]).animate({
-                scrollTop: $("#tenloai").offset().top
-            }, 200);
+            function loadPost(page) {
+                $.ajax({
+                    url: '/api/getlistpostbycategory-' + page + '-10?idcategory=' + $('#idCategory').val(),
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function (result) {
+                        listPost = result;
+                        fillPost();
+                    },
+                    error: function () {
+                        toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                    }
+                });
+                $.ajax({
+                    url: '/api/getpagenumbycategory?idcategory=' + $('#idCategory').val(),
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        pageNumSize = data;
+                        fillPage()
+                    },
+                    error: function () {
+                        toastr.error('unsuccessfully', '', {positionClass: 'md-toast-top-right'});
+                    }
+                });
+            };
+
+            function fillPost() {
+                var content = '';
+                for (var i = 0; i < listPost.length; i++) {
+                    content += '<div class="row">\n' +
+                        '                    <!-- Grid column -->\n' +
+                        '                    <div class="col-lg-4 mb-4">\n' +
+                        '                        <!-- Featured image -->\n' +
+                        '                        <div class="view overlay z-depth-1">\n' +
+                        '                            <img src="/get/' + listPost[i].image + '" class="img-fluid"\n' +
+                        '                                 alt=""  style="object-fit: cover;  object-position: center;  width: 100%;  max-height: 250px;">\n' +
+                        '                            <a>\n' +
+                        '                                <div class="mask rgba-white-slight"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                    <!-- Grid column -->\n' +
+                        '\n' +
+                        '                    <!-- Grid column -->\n' +
+                        '                    <div class="col-lg-7 mb-4">\n' +
+                        '                        <!-- Excerpt -->\n' +
+                        '                        <h4 class="mb-4"><strong>' + listPost[i].title + '</strong></h4>\n' +
+                        '                        <p>' + listPost[i].metatitle + '</p>\n' +
+                        '                        <p>by <a><strong>' + listPost[i].user + '</strong></a>, ' + listPost[i].dateCreated + '</p>\n' +
+                        '                        <a class="btn btn-primary" href="/singlePost?id=' + listPost[i].id + '">Xem thêm</a>\n' +
+                        '                    </div>\n' +
+                        '                    <!-- Grid column -->\n' +
+                        '                </div>\n' +
+                        '                <hr class="mb-5">';
+                }
+
+                $('#dataPost').html(content);
+            }
+
+            function fillPage() {
+                var content = '';
+                for (var ii = 0; ii < pageNumSize; ii++) {
+                    content += '<li class="page-item ' + (ii == pageNum ? 'active' : '') + '"><option style="cursor: pointer" value="' + ii + '" class="page-link waves-effect waves-effect pagePost">' + (ii + 1) + '</option></li>';
+                }
+                $('#dataPage').html(content);
+            }
+
+            $(document).on('click', 'option.pagePost', function () {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#tenloai").offset().top
+                }, 200);
 
 
                 pageNum = $(this).val();
                 loadPost(pageNum);
 
 
-        })
+            })
 
 
 
-    });
-</script>
+        });
+    </script>
+
+</th:block>
+<!-- Custom scripts -->
+
 </body>
 
 </html>

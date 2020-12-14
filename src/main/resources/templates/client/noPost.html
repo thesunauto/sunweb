@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Sun M&E</title>
-    <link rel="icon" th:href="@{/img/logo100x100.png}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" th:href="@{/css/mdb.min.css}">
-    <!-- Custom styles -->
+</head>
 
+<body >
+
+
+<!-- Main layout -->
+<main class="pt-5" layout:fragment="content">
     <style>
 
 
@@ -29,17 +28,8 @@
         }
 
     </style>
-</head>
-
-<body class="single-page">
-
-<!-- Main Navigation -->
-<th:block th:include="/client/_menu"></th:block>
-<!-- Main Navigation -->
-<!-- Main layout -->
-<main class="pt-5">
-
-    <div class="container-fluid my-5 py-5 z-depth-1" style="min-height: 50vh">
+    <div class="p-3"></div>
+    <div class="container-fluid py-5 z-depth-1" style="min-height: 50vh">
 
 
         <!--Section: Content-->
@@ -71,22 +61,8 @@
 <!-- Main layout -->
 
 <!-- Footer -->
-<th:block th:include="/client/_footer"></th:block>
-<!-- Footer Links -->
 
-
-<!-- Footer -->
-
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
-
+<th:block layout:fragment="script">
 <!-- Custom scripts -->
 <script>
 
@@ -168,6 +144,7 @@
 
     });
 </script>
+</th:block>
 </body>
 
 </html>

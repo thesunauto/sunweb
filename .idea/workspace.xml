@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="sunweb:jar" />
       <artifact name="sunweb:war" />
       <artifact name="sunweb:war exploded" />
     </artifacts-to-build>
@@ -34,8 +33,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a417ccd7-5fce-46cd-ab9c-9562e5f2ae28" name="Default Changelist" comment="done fix index 2">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/w3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/client/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/sunweb_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/sunweb_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/_menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/postManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/postManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/topicManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/_footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/_menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/listPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/listPost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/noPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/noPost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/singlePost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sunweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sunweb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/_menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/topicManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/topicManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/sunweb-0.0.1/WEB-INF/classes/application.properties" afterDir="false" />
     </list>
@@ -105,20 +127,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\font\roboto" />
-      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\js" />
-      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\css" />
-      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\img" />
-      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\templates\client" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Spring-Boot\sunweb\src\main\resources\templates\client" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="vn.automation.sunweb.config" />
       <recent name="vn.automation.sunweb.commons" />
       <recent name="vn.automation.sunweb.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Spring-Boot\sunweb\src\main\resources\templates\client" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\font\roboto" />
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\js" />
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\css" />
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\static\img" />
+      <recent name="C:\Users\thesu\IdeaProjects\sunweb\src\main\resources\templates\client" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SunwebApplication">
@@ -261,6 +283,7 @@
       <workItem from="1607326873247" duration="5908000" />
       <workItem from="1607743054903" duration="4213000" />
       <workItem from="1607908360681" duration="5624000" />
+      <workItem from="1607929319282" duration="8188000" />
     </task>
     <task id="LOCAL-00004" summary="15.10">
       <created>1602753640929</created>
@@ -675,11 +698,11 @@
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1602907228727" />
     <state x="229" y="0" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1607915475654" />
-    <state x="387" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603763211321">
+    <state x="387" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607928988813">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="275" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1602840394583" />
-    <state x="387" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603763211321" />
+    <state x="387" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607928988813" />
     <state x="729" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603255917906">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -702,11 +725,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="548" y="336" key="#com.intellij.javaee.module.view.web.EditWebRootDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607912620248" />
-    <state x="580" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603763782496">
+    <state x="580" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607936930224">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1602841679858" />
-    <state x="580" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603763782496" />
+    <state x="580" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607936930224" />
     <state x="357" y="0" key="CommitChangelistDialog2" timestamp="1603100135458">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -716,51 +739,55 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="636" y="295" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1920.1080@0.0.1920.1080" timestamp="1603268437666" />
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1607924980297">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607924980297" />
     <state x="651" y="169" key="FileChooserDialogImpl" timestamp="1607911103766">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602907177542" />
     <state x="651" y="169" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1607911103766" />
-    <state width="1875" height="227" key="GridCell.Tab.0.bottom" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.0.bottom" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.0.center" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.0.center" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="227" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.0.left" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.0.left" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="227" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.0.right" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.0.right" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857429" />
-    <state width="1875" height="227" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.1.bottom" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.1.bottom" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="227" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.1.center" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.1.center" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="227" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.1.left" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.1.left" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="227" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
-    <state width="1875" height="227" key="GridCell.Tab.1.right" timestamp="1607915740868">
+    <state width="1875" height="227" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
+    <state width="1875" height="227" key="GridCell.Tab.1.right" timestamp="1607936943486">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="660" height="202" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602907857430" />
-    <state width="1875" height="227" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607915740868" />
+    <state width="1875" height="227" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607936943486" />
     <state width="1875" height="356" key="GridCell.Tab.2.bottom" timestamp="1607336104442">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -823,10 +850,10 @@
     </state>
     <state x="275" y="113" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602843651085" />
     <state x="387" y="159" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607745096793" />
-    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog" timestamp="1607744943244">
+    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog" timestamp="1607924700727">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607744943244" />
+    <state x="689" y="192" key="VcsDiffUtil.ChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607924700727" />
     <state x="499" y="162" key="chooseDestDirectoryDialog" timestamp="1602822186373">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
